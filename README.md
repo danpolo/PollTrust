@@ -4,19 +4,41 @@ PollTrust is a static Hebrew/RTL web application for comparing the historical ac
 
 ## v1 status
 
-The application, calculation pipeline, tests, ingestion framework, daily update workflow, and GitHub Pages deployment are implemented. The historical calibration dataset is intentionally synthetic/demo data so the statistical pipeline and UI can be exercised without presenting unresearched historical conclusions as fact. Replace the demo generator with sourced historical polls before treating reliability values as production results.
+The historical calibration is now sourced production data rather than demo data. The repository contains:
 
-Current network sources are disabled by default until each deterministic source parser has been validated. This is deliberate fail-safe behavior: unavailable or broken sources must never erase the last valid dataset.
+- `data/historical-polls.json`: 187 validated historical polls from the 2009–2022 election cycles.
+- `data/historical-model.json`: the deterministic precomputed reliability model consumed by the frontend.
+- `data/historical-validation.json`: the audit report from the production historical build.
+
+The collector uses immutable Wikipedia revision URLs for reproducible bulk election tables, records the SHA-256 of each fetched source snapshot, and keeps source provenance on every poll. TheMadad remains a useful cross-check, but it is not a required automated dependency because it returns HTTP 403 to GitHub Actions.
+
+Current-poll network sources remain disabled by default until each deterministic source adapter is validated. This is deliberate fail-safe behavior: an unavailable or broken current source must never erase the last valid dataset.
+
+## Historical coverage
+
+Coverage is intentionally asymmetric: each current pollster lineage goes back only as far as both the source data and the continuity evidence support.
+
+| Historical lineage | Imported election history | Notes |
+| --- | --- | --- |
+| Midgam / Mano Geva | 2009–2022 | Direct Midgam/Mano Geva continuity is documented by 2009. |
+| Maagar Mohot / Yitzhak Katz | 2009–2022 | Continuity predates 2009. A reviewed 2006 archive row totals 119 seats and is reported but not repaired or imported. |
+| Panels Politics → Lazar Research / Menachem Lazar | 2013–2022 where present | Generic 2009 `Panels` rows are excluded because personal continuity to Lazar was not sufficiently established. |
+| Kantar / Dudi Hasid | 2019–2022 | Only explicitly Kantar-branded rows are inherited. Historical TNS/Teleseker rows are not automatically merged. |
+| Direct Polls shared Filber/Sharon history | 2019–2022 | Stored as a shared historical lineage, not attributed to either current entity alone. |
+| HaMadad | none yet | Treated as a new current entity. |
+| Tatika | none yet | Treated as a new current entity. |
+
+The committed dataset currently contains 187 polls: 8 (2009), 7 (2013), 23 (2015), 32 (April 2019), 12 (September 2019), 31 (2020), 35 (2021), and 39 (2022).
 
 ## Architecture
 
 ```text
 index.html + assets/        static Hebrew/RTL frontend
-data/                       current election/poll/source configuration
+data/                       production historical/current JSON
 polltrust/                  metrics, model, validation and ingestion package
-polltrust/adapters/         deterministic source adapter interface
-scripts/                    historical build and daily update entry points
-tests/                      metric, leakage, prior and fail-safe tests
+polltrust/adapters/         deterministic current-source adapter interface
+scripts/                    collection, validation, modeling and update entry points
+tests/                      metric, leakage, lineage, prior and fail-safe tests
 .github/workflows/          CI, daily update, historical rebuild, Pages deploy
 ```
 
@@ -24,11 +46,30 @@ tests/                      metric, leakage, prior and fail-safe tests
 
 `SeatTransferDistance = 0.5 * Σ | predicted_i - actual_i |`
 
-The historical weighting unit is an election, not a poll. At X days before an election, the model chooses the latest poll available on or before `election_date - X` and never uses future information. A maximum staleness window prevents very old polls from standing in for a pollster at a later horizon.
+The historical weighting unit is an election, not a poll. At X days before an election, the model selects the latest poll date available on or before `election_date - X` and never uses election-day/future information. If the same pollster has multiple distinct polls on the same latest date, they are averaged rather than selected arbitrarily. A maximum staleness window prevents very old polls from representing a pollster at a later horizon.
 
-The model separately calculates raw error, consistency, truth bias for a configured bloc, leave-one-election-out debiased precision, cluster-balanced relative lean, lean value added, alignment, uncertainty, and support.
+The model separately calculates raw error, consistency, election-list-aware truth bias, leave-one-election-out debiased precision, cluster-balanced relative lean, lean value added, alignment, uncertainty, and support. Cross-election debiasing only corrects party identifiers that are actually comparable across the relevant elections; changing Israeli party alliances are not silently treated as the same list.
 
-Direct Polls / Zuriel Sharon and NEXT DATA / Shlomo Filber are separate current entities. Both inherit a discounted shared prior from their joint historical Direct Polls record; independent completed-election history receives full weight and therefore progressively dominates the prior.
+Direct Polls / Zuriel Sharon and NEXT DATA / Shlomo Filber are separate current entities. Their five completed shared Direct Polls election cycles contribute a 0.5-discounted prior, i.e. 2.5 effective historical elections to each current entity. Independent completed-election history receives full weight and therefore progressively dominates the shared prior.
+
+## Historical validation
+
+The production audit is deterministic and checks:
+
+- counts per election and pollster;
+- valid dates and strict pre-election cutoffs;
+- exactly 120 mandates in every imported poll;
+- exact duplicates;
+- competing same-pollster/same-day projections;
+- unmatched pollster aliases;
+- malformed rows and all skipped target-lineage rows;
+- lineage coverage and source aliases;
+- source-snapshot reparse equivalence;
+- production model active-pollster coverage and shared-prior support.
+
+Rows are never silently repaired to reach 120 seats. Known source anomalies remain in the validation diagnostics and are excluded.
+
+Two legitimate same-day competing projections currently exist: Midgam on 2019-04-04 and Panels/Lazar on 2022-09-29. Both are retained, disclosed by the audit, and averaged deterministically when that date is selected by the model.
 
 ## Local development
 
@@ -37,51 +78,48 @@ Requires Python 3.11+.
 ```bash
 python -m pip install -r requirements-dev.txt
 python scripts/build_historical_model.py
+python scripts/validate_historical_dataset.py --model data/historical-model.json
 python -m pytest
 python -m http.server 8000
 ```
 
 Open `http://localhost:8000`. The frontend fetches JSON files, so do not open `index.html` directly with `file://`.
 
-## Historical data workflow
-
-The default build uses `polltrust/demo_data.py`, which contains clearly synthetic party identifiers and observations. For production, normalize sourced historical polls into the same raw structure and run:
+Synthetic data remains available only as an explicit test/development fixture:
 
 ```bash
-python scripts/build_historical_model.py --input path/to/historical.json --output data/historical-model.json
+python scripts/build_historical_model.py --demo --output /tmp/demo-model.json
 ```
 
-The frontend consumes only the generated static model; it does not recompute the statistical model in the browser.
+Production builds never fall back to it implicitly.
 
-## Current-poll ingestion
+## Rebuilding the historical calibration
 
-`data/sources.json` configures adapters. v1 includes a normalized repository fixture adapter and a normalized remote JSON adapter. Publisher-specific adapters can implement `PollSourceAdapter.fetch()`, normalize party identifiers, validate against fixtures, and then be enabled. Incoming rows are validated before mutation, must total exactly 120 seats, and are deduplicated.
-
-## GitHub Actions
-
-- `ci.yml`: builds the model and runs tests on pushes/PRs.
-- `update-polls.yml`: runs daily and on manual dispatch; commits only validated changes.
-- `rebuild-historical.yml`: manually produces a reproducible historical-model artifact.
-- `deploy-pages.yml`: builds, tests, stages, and deploys GitHub Pages from `main`.
-
-The Pages workflow uses GitHub's Actions deployment source and generates the static historical model during the build.
-
-## UI
-
-All user-facing application copy is Hebrew and the document is `dir="rtl"`. Code, filenames, documentation, and identifiers are English.
-
-PollTrust reports descriptive statistical performance. It is not voting advice and does not predict who should win an election.
-
-### One-time historical collection
-
-The production historical input can be collected reproducibly with:
+The configured archives are pinned to immutable Wikipedia revision IDs, so a rebuild uses the same source revisions:
 
 ```bash
-python scripts/build_historical_dataset.py
-python scripts/build_historical_model.py --input data/historical-polls.json --output data/historical-model.json
+python scripts/build_historical_dataset.py --refresh
+python scripts/build_historical_model.py
+python scripts/validate_historical_dataset.py --model data/historical-model.json
 python -m pytest
 ```
 
-The collector caches source HTML under `.cache/historical/`, so an interrupted or repeated run does not redownload successful sources. Use `--refresh` to deliberately refetch. By default the build fails closed if any configured archive cannot be parsed; `--allow-partial` is available only for inspection/debugging. The generated JSON records source provenance and per-source poll counts. Commit `data/historical-polls.json` only after reviewing the provenance/counts and tests.
+The collector caches source HTML under `.cache/historical/`. The generated dataset records each source URL and source SHA-256. By default collection fails closed on a configured-source failure; `--allow-partial` is only for debugging and must not be used to produce committed production data.
 
-The historical collector follows a **maximum defensible history** rule: each current pollster lineage is taken as far back as a reconstructable seat-level archive and defensible continuity allow. Coverage is therefore intentionally asymmetric. The configured fallback archive now reaches the 2015 election for long-running lineages, plus April 2019, September 2019, 2020, 2021 and 2022. It does not fabricate older continuity for newer entities such as HaMadad or Tatika.
+## Current-poll ingestion
+
+`data/sources.json` configures adapters. v1 includes normalized repository-fixture and remote-JSON adapters. Publisher-specific adapters can implement `PollSourceAdapter.fetch()`, normalize party identifiers, validate expected shape and 120-seat totals, and then be enabled. Incoming rows are validated before mutation and deduplicated.
+
+## GitHub Actions
+
+- `ci.yml`: rebuilds the model from the committed production dataset, byte-compares it with the committed model, validates the data/model, and runs the full test suite.
+- `update-polls.yml`: runs daily and on manual dispatch; commits only validated current-poll changes.
+- `rebuild-historical.yml`: manually recollects the pinned historical sources, rebuilds, validates, tests, and uploads the calibration artifact.
+- `build-historical-dataset.yml`: manual historical collection/audit workflow.
+- `deploy-pages.yml`: validates the production historical files and tests before staging and deploying GitHub Pages from `main`.
+
+## UI
+
+All user-facing application copy is Hebrew and the document is `dir="rtl"`. Code, filenames, documentation, and internal identifiers remain English.
+
+PollTrust reports descriptive historical polling performance. It is not voting advice and does not predict an election outcome.
