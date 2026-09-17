@@ -1,0 +1,7181 @@
+{
+  "schema_version": 1,
+  "valid": true,
+  "poll_count": 187,
+  "election_count": 8,
+  "poll_counts_by_election": {
+    "knesset-18": 8,
+    "knesset-19": 7,
+    "knesset-20": 23,
+    "knesset-21": 32,
+    "knesset-22": 12,
+    "knesset-23": 31,
+    "knesset-24": 35,
+    "knesset-25": 39
+  },
+  "poll_counts_by_pollster": {
+    "direct_polls_shared": 21,
+    "kantar_hasid": 17,
+    "lazar_research": 57,
+    "maagar_mohot": 36,
+    "midgam_geva": 56
+  },
+  "poll_counts_matrix": {
+    "knesset-18": {
+      "maagar_mohot": 6,
+      "midgam_geva": 2
+    },
+    "knesset-19": {
+      "lazar_research": 3,
+      "maagar_mohot": 2,
+      "midgam_geva": 2
+    },
+    "knesset-20": {
+      "lazar_research": 13,
+      "maagar_mohot": 3,
+      "midgam_geva": 7
+    },
+    "knesset-21": {
+      "direct_polls_shared": 3,
+      "lazar_research": 8,
+      "maagar_mohot": 10,
+      "midgam_geva": 11
+    },
+    "knesset-22": {
+      "direct_polls_shared": 2,
+      "kantar_hasid": 2,
+      "maagar_mohot": 2,
+      "midgam_geva": 6
+    },
+    "knesset-23": {
+      "direct_polls_shared": 5,
+      "kantar_hasid": 5,
+      "lazar_research": 7,
+      "maagar_mohot": 5,
+      "midgam_geva": 9
+    },
+    "knesset-24": {
+      "direct_polls_shared": 3,
+      "kantar_hasid": 5,
+      "lazar_research": 12,
+      "maagar_mohot": 6,
+      "midgam_geva": 9
+    },
+    "knesset-25": {
+      "direct_polls_shared": 8,
+      "kantar_hasid": 5,
+      "lazar_research": 14,
+      "maagar_mohot": 2,
+      "midgam_geva": 10
+    }
+  },
+  "lineage_coverage": {
+    "direct_polls_shared": {
+      "earliest": "2019-03-13",
+      "latest": "2022-10-27",
+      "elections": [
+        "knesset-21",
+        "knesset-22",
+        "knesset-23",
+        "knesset-24",
+        "knesset-25"
+      ],
+      "source_aliases": {
+        "Direct Polls": 18,
+        "Direct Polls/Makor Rishon": 2,
+        "Direct Polls/Kan": 1
+      }
+    },
+    "kantar_hasid": {
+      "earliest": "2019-08-04",
+      "latest": "2022-10-27",
+      "elections": [
+        "knesset-22",
+        "knesset-23",
+        "knesset-24",
+        "knesset-25"
+      ],
+      "source_aliases": {
+        "Kantar": 15,
+        "KANTAR": 2
+      }
+    },
+    "lazar_research": {
+      "earliest": "2013-01-10",
+      "latest": "2022-10-27",
+      "elections": [
+        "knesset-19",
+        "knesset-20",
+        "knesset-21",
+        "knesset-23",
+        "knesset-24",
+        "knesset-25"
+      ],
+      "source_aliases": {
+        "Panels Politics": 33,
+        "Panels/Knesset Channel": 6,
+        "Panels/Maariv": 5,
+        "Panels Politics/Walla!": 3,
+        "Knesset Channel/Panels Politics": 2,
+        "Panels Politics/Maariv": 2,
+        "Panels Politics/Channel 12": 2,
+        "Mako & Channel2/Panels": 1,
+        "Panels/Maariv-Jerusalem Post": 1,
+        "Panels/Jerusalem Post": 1,
+        "Panels Politics/Walla! News": 1
+      }
+    },
+    "maagar_mohot": {
+      "earliest": "2008-12-24",
+      "latest": "2022-10-26",
+      "elections": [
+        "knesset-18",
+        "knesset-19",
+        "knesset-20",
+        "knesset-21",
+        "knesset-22",
+        "knesset-23",
+        "knesset-24",
+        "knesset-25"
+      ],
+      "source_aliases": {
+        "Maagar Mohot": 12,
+        "Maagar Mochot": 9,
+        "Maagar Mochot/Israel Hayom & i24 News": 5,
+        "Maagar Mochot/Kol Bramah Radio": 2,
+        "Maagar Mohot/Radio 103FM": 2,
+        "Maagar Mohot/Israel Hayom & i24 News": 2,
+        "Maariv/Maagar": 1,
+        "Maariv/Ma'agar Mochot": 1,
+        "Maagar Mochot/NRG": 1,
+        "Maagar Mohot/Radio 103 FM": 1
+      }
+    },
+    "midgam_geva": {
+      "earliest": "2009-01-25",
+      "latest": "2022-10-28",
+      "elections": [
+        "knesset-18",
+        "knesset-19",
+        "knesset-20",
+        "knesset-21",
+        "knesset-22",
+        "knesset-23",
+        "knesset-24",
+        "knesset-25"
+      ],
+      "source_aliases": {
+        "Midgam": 25,
+        "Midgam/iPanel": 9,
+        "Midgam/Yedioth Ahronoth": 4,
+        "Midgam/iPanel/Channel 12": 4,
+        "Midgam Research": 2,
+        "Midgam/Channel 2": 2,
+        "Midgam/iPanel/Yediot Ahronot": 2,
+        "Midgam/Channel 12": 2,
+        "Reshet Bet/Meno Geva": 1,
+        "Channel1/Midgam": 1,
+        "Midgam/Channel 10": 1,
+        "Midgam /Channel 2": 1,
+        "Midgam/Israel Army Radio (Galatz)": 1,
+        "Midgam/Army Radio": 1
+      }
+    }
+  },
+  "exact_duplicates_in_persisted_dataset": [],
+  "same_day_competing_projections": [
+    {
+      "pollster": "midgam_geva",
+      "election": "knesset-21",
+      "date": "2019-04-04",
+      "count": 2,
+      "outlets": [
+        "Midgam/Yedioth Ahronoth",
+        "Midgam/iPanel/Channel 12"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_April_2019_Israeli_legislative_election&oldid=1368358661"
+      ]
+    },
+    {
+      "pollster": "lazar_research",
+      "election": "knesset-25",
+      "date": "2022-09-29",
+      "count": 2,
+      "outlets": [
+        "Maariv",
+        "Mako/Knesset Channel"
+      ],
+      "sources": [
+        "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369"
+      ]
+    }
+  ],
+  "suspicious_imported_values": [],
+  "source_reparse_verification": {
+    "performed": true,
+    "missing_from_source_reparse": [],
+    "source_counts": {
+      "knesset-25": 42,
+      "knesset-24": 35,
+      "knesset-23": 31,
+      "knesset-22": 12,
+      "knesset-21": 32,
+      "knesset-20": 23,
+      "knesset-19": 7,
+      "knesset-18": 8
+    }
+  },
+  "parser_diagnostics": {
+    "unmatched_pollster_names": {
+      "Smith": 15,
+      "Geocartography": 15,
+      "Camil Fuchs": 14,
+      "Panel Project HaMidgam": 10,
+      "Dialog": 10,
+      "TNS Teleseker": 8,
+      "Shvakim Panorama": 7,
+      "Dialog/Haaretz": 5,
+      "Teleseker/Walla": 5,
+      "Panel Project HaMidgam/Statnet/Channel 13": 4,
+      "TNS/Kan": 4,
+      "Teleseker/Channel 1": 4,
+      "Smith/Israel Radio": 4,
+      "Channel 2/Dahaf": 4,
+      "Election silence starting end of Friday before election day": 3,
+      "Miskar": 3,
+      "Channel 10": 3,
+      "Dahaf": 3,
+      "Gal Hadash (New Wave)": 3,
+      "Election silence starting end of Friday before election day.": 2,
+      "Smith/Maariv": 2,
+      "Smith/Jerusalem Post": 2,
+      "Panel HaMidgam Project/Statnet/Channel 13": 2,
+      "Channel 2": 2,
+      "Reshet Bet": 2,
+      "Smith/Globes": 2,
+      "Teleseker/Walla!": 2,
+      "Channel 1": 2,
+      "Haaretz/Dialog": 2,
+      "Announcement of Trump's Peace Plan": 1,
+      "Zehut announces withdrawal": 1,
+      "Panel Project HaMidgam/Channel 13": 1,
+      "Smith/Channel 20": 1,
+      "Miskar[fn 5]": 1,
+      "Number 10 Strategies/The Times of Israel": 1,
+      "Deadline for publishing election polls; under Israeli law, publishing election polls in the last five days before an election is prohibited.": 1,
+      "Yisrael Hayom": 1,
+      "Dialog/Channel 10": 1,
+      "PM Netanyahu delivers a speech about Iran to a joint meeting of U.S. Congress": 1,
+      "Israel Army Radio (Galatz)": 1,
+      "Israel Radio": 1,
+      "Maariv": 1,
+      "Television debate of the leaders of all parties except Likud, Zionist Union, and UTJ": 1,
+      "Teleseker/Nana 10": 1,
+      "TRI/Bizportal": 1,
+      "202 Strategies/Times of Israel": 1,
+      "Yedioth Ahronot/Dahaf": 1,
+      "Haaretz/Dialogue": 1,
+      "Israel Hayom/The New Wave": 1,
+      "Channel 10/Dialogue": 1,
+      "Walla!/TNS-Teleseker": 1,
+      "Yisrael Post/Sof Hashavua": 1,
+      "Jerusalem Post/Smith": 1,
+      "Yediot/Dahaf": 1,
+      "Yisrael Hayom/New Wave": 1,
+      "Reshet Bet/Sarid": 1,
+      "News1/Reshet Bet/Machon Sarid": 1,
+      "Walla/TNS-Teleseker": 1,
+      "Channel 10/Dialog": 1,
+      "Times of Israel": 1,
+      "Jerusalem Post, Globes/Smith": 1,
+      "Israel Radio/Geocartography": 1,
+      "Globes/Rafi Smith": 1,
+      "Yedioth Ahronoth/Dahaf": 1,
+      "Jerusalem Post/Geocartography": 1,
+      "Jerusalem Post/Smith Research": 1,
+      "Walla/Tns-Teleseker": 1
+    },
+    "unmatched_party_names": {},
+    "malformed_rows": [
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "Midgam",
+        "date": "2019-09-13",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "12–13 Sep",
+          "Midgam",
+          "Channel 12",
+          "32",
+          "32",
+          "10",
+          "7",
+          "8",
+          "8",
+          "5",
+          "8",
+          "6",
+          "—N/a",
+          "4",
+          "55"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "Panels Politics",
+        "date": "2019-09-12",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "12 Sep",
+          "Panels Politics",
+          "Knesset Channel",
+          "36",
+          "32",
+          "10",
+          "7",
+          "8",
+          "9",
+          "4",
+          "9",
+          "5",
+          "—N/a",
+          "–",
+          "60"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "KANTAR",
+        "date": "2019-09-12",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "11–12 Sep",
+          "KANTAR",
+          "Kan 11",
+          "31",
+          "33",
+          "11",
+          "7",
+          "8",
+          "9",
+          "5",
+          "7",
+          "5",
+          "—N/a",
+          "4",
+          "55"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "Maagar Mohot",
+        "date": "2019-09-11",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "10–11 Sep",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "33",
+          "31",
+          "12",
+          "7",
+          "7",
+          "7",
+          "6",
+          "9",
+          "4",
+          "—N/a",
+          "4",
+          "54"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "Midgam",
+        "date": "2019-09-10",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "9–10 Sep",
+          "Midgam",
+          "Channel 12",
+          "31",
+          "32",
+          "9",
+          "7",
+          "7",
+          "9",
+          "6",
+          "9",
+          "6",
+          "—N/a",
+          "4",
+          "54"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "KANTAR",
+        "date": "2019-09-09",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "9 Sep",
+          "KANTAR",
+          "Kan 11",
+          "31",
+          "32",
+          "10",
+          "7",
+          "7",
+          "9",
+          "5",
+          "9",
+          "6",
+          "—N/a",
+          "4",
+          "54"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "Midgam",
+        "date": "2019-09-09",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "8–9 Sep",
+          "Midgam",
+          "Walla!",
+          "32",
+          "33",
+          "9",
+          "6",
+          "7",
+          "9",
+          "6",
+          "8",
+          "6",
+          "—N/a",
+          "4",
+          "54"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "Maagar Mohot",
+        "date": "2019-09-05",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "4–5 Sep",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "31",
+          "30",
+          "11",
+          "8",
+          "7",
+          "8",
+          "6",
+          "11",
+          "4",
+          "—N/a",
+          "4",
+          "54"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "Midgam",
+        "date": "2019-09-05",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "4–5 Sep",
+          "Midgam",
+          "Channel 12",
+          "32",
+          "32",
+          "10",
+          "7",
+          "8",
+          "9",
+          "6",
+          "9",
+          "7",
+          "—N/a",
+          "(2.5%)",
+          "56"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "Panels Politics",
+        "date": "2019-09-04",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "4 Sep",
+          "Panels Politics",
+          "Knesset Channel",
+          "31",
+          "31",
+          "10",
+          "7",
+          "8",
+          "10",
+          "5",
+          "9",
+          "5",
+          "—N/a",
+          "4",
+          "56"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "Midgam",
+        "date": "2019-09-02",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "1–2 Sep",
+          "Midgam",
+          "Walla!",
+          "32",
+          "31",
+          "10",
+          "7",
+          "8",
+          "9",
+          "7",
+          "9",
+          "7",
+          "—N/a",
+          "(2.7%)",
+          "56"
+        ]
+      },
+      {
+        "election": "knesset-22",
+        "reason": "malformed_seat_cell",
+        "pollster": "KANTAR",
+        "date": "2019-09-01",
+        "party": "zehut",
+        "value": "—N/a",
+        "error": "unparseable seat cell '—N/a'",
+        "row": [
+          "1 Sep",
+          "KANTAR",
+          "Kan 11",
+          "32",
+          "31",
+          "11",
+          "7",
+          "7",
+          "10",
+          "6",
+          "9",
+          "7",
+          "—N/a",
+          "(2.9%)",
+          "56"
+        ]
+      },
+      {
+        "election": "knesset-19",
+        "reason": "too_few_columns",
+        "pollster": "Panels Politics, Mako",
+        "date": "2013-01-07",
+        "expected_min": 16,
+        "actual": 14,
+        "row": [
+          "7 Jan",
+          "Panels Politics, Mako",
+          "",
+          "32",
+          "16",
+          "10",
+          "6",
+          "16",
+          "11",
+          "5",
+          "10",
+          "3",
+          "2",
+          "9"
+        ]
+      },
+      {
+        "election": "knesset-19",
+        "reason": "too_few_columns",
+        "pollster": "Maariv/Maagar",
+        "date": "2012-12-14",
+        "expected_min": 16,
+        "actual": 14,
+        "row": [
+          "14 Dec",
+          "Maariv/Maagar",
+          "1",
+          "38",
+          "20",
+          "12",
+          "6",
+          "11",
+          "10",
+          "3",
+          "8",
+          "1",
+          "1",
+          "9"
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "too_few_columns",
+        "pollster": "Maagar Mochot",
+        "date": "2009-02-05",
+        "expected_min": 18,
+        "actual": 17,
+        "row": [
+          "Feb 5, 2009",
+          "Makor Rishon",
+          "Maagar Mochot",
+          "24",
+          "13",
+          "10",
+          "27",
+          "18",
+          "9",
+          "3",
+          "2",
+          "1",
+          "6",
+          "5",
+          "1",
+          "Meimad 1",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "too_few_columns",
+        "pollster": "Maagar Mochot",
+        "date": "2009-02-03",
+        "expected_min": 18,
+        "actual": 17,
+        "row": [
+          "Feb 3, 2009",
+          "",
+          "Maagar Mochot",
+          "23",
+          "12-13",
+          "10-11",
+          "30-31",
+          "17-18",
+          "10",
+          "3",
+          "2",
+          "0",
+          "6",
+          "4",
+          "1",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "too_few_columns",
+        "pollster": "Maagar Mochot",
+        "date": "2009-01-06",
+        "expected_min": 18,
+        "actual": 17,
+        "row": [
+          "Jan 6, 2009",
+          "Channel 2's \"Mishal Cham\"",
+          "Maagar Mochot",
+          "25",
+          "17",
+          "10",
+          "32",
+          "10",
+          "9",
+          "4",
+          "2",
+          "0",
+          "5",
+          "6",
+          "0",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "too_few_columns",
+        "pollster": "Maagar Mochot",
+        "date": "2008-12-30",
+        "expected_min": 18,
+        "actual": 17,
+        "row": [
+          "Dec 30, 2008",
+          "Channel 2's \"Mishal Cham\"",
+          "Maagar Mochot",
+          "25",
+          "15",
+          "10",
+          "31",
+          "10",
+          "10",
+          "4",
+          "1",
+          "2",
+          "5",
+          "5",
+          "2",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "too_few_columns",
+        "pollster": "Midgam Research",
+        "date": "2008-12-24",
+        "expected_min": 18,
+        "actual": 16,
+        "row": [
+          "Dec 24, 2008",
+          "Channel 1",
+          "Midgam Research",
+          "25",
+          "11",
+          "10",
+          "31",
+          "12",
+          "10",
+          "5",
+          "0",
+          "7",
+          "6",
+          "3",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "too_few_columns",
+        "pollster": "Maagar Mochot",
+        "date": "2008-12-23",
+        "expected_min": 18,
+        "actual": 16,
+        "row": [
+          "Dec 23, 2008",
+          "Channel 2's \"Mishal Cham\"",
+          "Maagar Mochot",
+          "25",
+          "11",
+          "12",
+          "31",
+          "13",
+          "9",
+          "5",
+          "2",
+          "5",
+          "6",
+          "1",
+          "",
+          ""
+        ]
+      }
+    ],
+    "skipped_rows": [
+      {
+        "election": "knesset-25",
+        "reason": "election_day_or_future",
+        "row": [
+          "01 Nov 22",
+          "Election Results",
+          "32",
+          "24",
+          "12",
+          "11"
+        ],
+        "date": "2022-11-01"
+      },
+      {
+        "election": "knesset-25",
+        "reason": "election_day_or_future",
+        "row": [
+          "01 Nov 22",
+          "Kantar",
+          "Kan 11",
+          "30",
+          "22",
+          "13"
+        ],
+        "date": "2022-11-01"
+      },
+      {
+        "election": "knesset-25",
+        "reason": "election_day_or_future",
+        "row": [
+          "01 Nov 22",
+          "Midgam",
+          "Channel 12",
+          "30",
+          "24",
+          "11"
+        ],
+        "date": "2022-11-01"
+      },
+      {
+        "election": "knesset-25",
+        "reason": "election_day_or_future",
+        "row": [
+          "01 Nov 22",
+          "Camil Fuchs",
+          "Channel 13",
+          "31",
+          "24",
+          "12"
+        ],
+        "date": "2022-11-01"
+      },
+      {
+        "election": "knesset-25",
+        "reason": "election_day_or_future",
+        "row": [
+          "01 Nov 22",
+          "Direct Polls",
+          "Channel 14",
+          "31",
+          "23",
+          "11"
+        ],
+        "date": "2022-11-01"
+      },
+      {
+        "election": "knesset-25",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Sep 22",
+          "Deadline for party lists to be submitted"
+        ],
+        "date": "2022-09-15"
+      },
+      {
+        "election": "knesset-25",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Sep 22",
+          "Joint List splits into Hadash–Ta'al and Balad"
+        ],
+        "date": "2022-09-15"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "election_day_or_future",
+        "row": [
+          "23 Mar 21",
+          "Election results",
+          "30",
+          "17",
+          "8",
+          "6"
+        ],
+        "date": "2021-03-23"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "election_day_or_future",
+        "row": [
+          "23 Mar 21",
+          "Camil Fuchs",
+          "Channel 13",
+          "32",
+          "16",
+          "8"
+        ],
+        "date": "2021-03-23"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "election_day_or_future",
+        "row": [
+          "23 Mar 21",
+          "Midgam/iPanel",
+          "Channel 12",
+          "30",
+          "18",
+          "7"
+        ],
+        "date": "2021-03-23"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "election_day_or_future",
+        "row": [
+          "23 Mar 21",
+          "Kantar",
+          "Kan 11",
+          "30",
+          "18",
+          "8"
+        ],
+        "date": "2021-03-23"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4 Feb 21",
+          "Panels Politics",
+          "Maariv",
+          "29",
+          "16",
+          "–"
+        ],
+        "date": "2021-02-04"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4 Feb 21",
+          "Deadline for submitting the lists of candidates"
+        ],
+        "date": "2021-02-04"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4 Feb 21",
+          "Gesher announces a joint run with Likud"
+        ],
+        "date": "2021-02-04"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4 Feb 21",
+          "The Israelis, Tnufa and The Jewish Home drop out of the race"
+        ],
+        "date": "2021-02-04"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Jan 21",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "28",
+          "15",
+          "11"
+        ],
+        "date": "2021-01-28"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Jan 21",
+          "Panels Politics",
+          "Maariv",
+          "30",
+          "18",
+          "10"
+        ],
+        "date": "2021-01-28"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Jan 21",
+          "Midgam/iPanel",
+          "Channel 12",
+          "29",
+          "16",
+          "10"
+        ],
+        "date": "2021-01-26"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "24 Jan 21",
+          "Panels Politics",
+          "103fm",
+          "31",
+          "16",
+          "10"
+        ],
+        "date": "2021-01-24"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "24 Jan 21",
+          "Camil Fuchs",
+          "Channel 13",
+          "32",
+          "18",
+          "10"
+        ],
+        "date": "2021-01-24"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "24 Jan 21",
+          "Merav Michaeli is elected chairwoman of the Israeli Labor Party"
+        ],
+        "date": "2021-01-24"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Jan 21",
+          "Panels Politics",
+          "Maariv",
+          "31",
+          "16",
+          "10"
+        ],
+        "date": "2021-01-21"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "20 Jan 21",
+          "Religious Zionist Party officially splits from Yamina"
+        ],
+        "date": "2021-01-20"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Jan 21",
+          "Hagit Moshe is elected chairwoman of The Jewish Home"
+        ],
+        "date": "2021-01-19"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Jan 21",
+          "Midgam/iPanel",
+          "Channel 12",
+          "30",
+          "14",
+          "10"
+        ],
+        "date": "2021-01-19"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Jan 21",
+          "Panels Politics",
+          "103fm",
+          "30",
+          "14",
+          "10"
+        ],
+        "date": "2021-01-18"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "14 Jan 21",
+          "Panels Politics",
+          "Maariv",
+          "32",
+          "14",
+          "11"
+        ],
+        "date": "2021-01-14"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "14 Jan 21",
+          "Maagar Mohot",
+          "Channel 20",
+          "29",
+          "13",
+          "12"
+        ],
+        "date": "2021-01-14"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Jan 21",
+          "Midgam/iPanel",
+          "Channel 12",
+          "29",
+          "13",
+          "10"
+        ],
+        "date": "2021-01-12"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Jan 21",
+          "Panels Politics",
+          "103fm",
+          "27",
+          "13",
+          "10"
+        ],
+        "date": "2021-01-10"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Jan 21",
+          "Yesh Atid and Telem split"
+        ],
+        "date": "2021-01-10"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Jan 21",
+          "Camil Fuchs",
+          "Channel 13",
+          "31",
+          "16",
+          "10"
+        ],
+        "date": "2021-01-08"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "7 Jan 21",
+          "Smith",
+          "The Jerusalem Post",
+          "30",
+          "19",
+          "11"
+        ],
+        "date": "2021-01-07"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "7 Jan 21",
+          "Panels Politics",
+          "Maariv",
+          "28",
+          "14",
+          "10"
+        ],
+        "date": "2021-01-07"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Jan 21",
+          "Midgam/iPanel",
+          "Channel 12",
+          "27",
+          "13",
+          "10"
+        ],
+        "date": "2021-01-05"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Jan 21",
+          "Jewish Home leader, Rafi Peretz, announces his retirement from politics"
+        ],
+        "date": "2021-01-05"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4 Jan 21",
+          "Former Mossad head Danny Yatom announces his intention to form a new political party for retirees, later named the Israeli Veterans Party"
+        ],
+        "date": "2021-01-04"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Dec 20",
+          "Panels Politics",
+          "Maariv",
+          "29",
+          "14",
+          "11"
+        ],
+        "date": "2020-12-31"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "28",
+          "13",
+          "11"
+        ],
+        "date": "2020-12-30"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Dec 20",
+          "Camil Fuchs",
+          "Channel 13",
+          "29",
+          "11",
+          "10"
+        ],
+        "date": "2020-12-30"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Dec 20",
+          "Kantar",
+          "Kan 11",
+          "28",
+          "13",
+          "11"
+        ],
+        "date": "2020-12-30"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Dec 20",
+          "Former accountant general Yaron Zelekha forms the New Economic Party"
+        ],
+        "date": "2020-12-30"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Dec 20",
+          "Panels Politics",
+          "103fm",
+          "26",
+          "12",
+          "12"
+        ],
+        "date": "2020-12-29"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Dec 20",
+          "Tel Aviv Mayor Ron Huldai forms The Israelis"
+        ],
+        "date": "2020-12-29"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "27 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "28",
+          "16",
+          "11"
+        ],
+        "date": "2020-12-27"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "24 Dec 20",
+          "Panels Politics",
+          "Maariv",
+          "26",
+          "15",
+          "11"
+        ],
+        "date": "2020-12-24"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "24 Dec 20",
+          "MK Ofer Shelah leaves Yesh Atid with plans to start his own political party, later named Tnufa"
+        ],
+        "date": "2020-12-24"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Dec 20",
+          "Panels Politics",
+          "103fm",
+          "25",
+          "15",
+          "11"
+        ],
+        "date": "2020-12-23"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Dec 20",
+          "Likud Minister Ze'ev Elkin and MK Sharren Haskel join New Hope"
+        ],
+        "date": "2020-12-23"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Dec 20",
+          "Minister Amir Peretz announces that he will not run for Labor Party leadership"
+        ],
+        "date": "2020-12-23"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Dec 20",
+          "The 23rd Knesset is dispersed"
+        ],
+        "date": "2020-12-23"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Dec 20",
+          "Panels Politics",
+          "103fm",
+          "28",
+          "15",
+          "11"
+        ],
+        "date": "2020-12-22"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Dec 20",
+          "Kantar",
+          "Kan 11",
+          "28",
+          "13",
+          "11"
+        ],
+        "date": "2020-12-22"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "29",
+          "16",
+          "11"
+        ],
+        "date": "2020-12-22"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Dec 20",
+          "Likud MK Michal Shir joins New Hope"
+        ],
+        "date": "2020-12-22"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Dec 20",
+          "Panels Politics",
+          "Knesset Channel",
+          "29",
+          "13",
+          "11"
+        ],
+        "date": "2020-12-21"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "20 Dec 20",
+          "Camil Fuchs",
+          "Channel 13",
+          "28",
+          "16",
+          "11"
+        ],
+        "date": "2020-12-20"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Dec 20",
+          "Panels Politics",
+          "Maariv",
+          "29",
+          "13",
+          "11"
+        ],
+        "date": "2020-12-17"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15–16 Dec 20",
+          "Maagar Mohot",
+          "103fm",
+          "27",
+          "14",
+          "11"
+        ],
+        "date": "2020-12-16"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Dec 20",
+          "Panels Politics",
+          "103fm",
+          "27",
+          "15",
+          "11"
+        ],
+        "date": "2020-12-15"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "27",
+          "14",
+          "11"
+        ],
+        "date": "2020-12-15"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Dec 20",
+          "Likud MK Yifat Shasha-Biton joins New Hope"
+        ],
+        "date": "2020-12-15"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Dec 20",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "28",
+          "12",
+          "13"
+        ],
+        "date": "2020-12-11"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9–10 Dec 20",
+          "Panels Politics",
+          "Maariv",
+          "27",
+          "13",
+          "12"
+        ],
+        "date": "2020-12-10"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Dec 20",
+          "Kantar",
+          "Kan 11",
+          "25",
+          "15",
+          "11"
+        ],
+        "date": "2020-12-09"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Dec 20",
+          "Camil Fuchs",
+          "Channel 13",
+          "28",
+          "16",
+          "11"
+        ],
+        "date": "2020-12-09"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "26",
+          "15",
+          "11"
+        ],
+        "date": "2020-12-09"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Dec 20",
+          "Derekh Eretz MKs Zvi Hauser and Yoaz Hendel join New Hope"
+        ],
+        "date": "2020-12-09"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8–9 Dec 20",
+          "Direct Polls",
+          "–",
+          "28",
+          "13",
+          "11"
+        ],
+        "date": "2020-12-09"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Dec 20",
+          "Panels Politics",
+          "103fm",
+          "25",
+          "14",
+          "11"
+        ],
+        "date": "2020-12-08"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Dec 20",
+          "Likud MK Gideon Sa'ar forms New Hope"
+        ],
+        "date": "2020-12-08"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "1 Feb 21",
+          "Panels Politics",
+          "103fm",
+          "32",
+          "19",
+          "10[b]"
+        ],
+        "date": "2021-02-01"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Jan 21",
+          "Midgam/iPanel",
+          "Channel 12",
+          "30",
+          "17",
+          "9[c]"
+        ],
+        "date": "2021-01-31"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Jan 21",
+          "Midgam/iPanel",
+          "Channel 12",
+          "30",
+          "17",
+          "9[c]"
+        ],
+        "date": "2021-01-31"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Jan 21",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "28",
+          "15",
+          "11"
+        ],
+        "date": "2021-01-28"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Jan 21",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "28",
+          "15",
+          "11"
+        ],
+        "date": "2021-01-28"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Jan 21",
+          "Midgam/iPanel",
+          "Channel 12",
+          "29",
+          "13",
+          "10"
+        ],
+        "date": "2021-01-12"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "26",
+          "15",
+          "11"
+        ],
+        "date": "2020-12-09"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Jan 21",
+          "Camil Fuchs",
+          "Channel 13",
+          "31",
+          "16",
+          "10"
+        ],
+        "date": "2021-01-08"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "7 Jan 21",
+          "Smith",
+          "The Jerusalem Post",
+          "30",
+          "23",
+          "11"
+        ],
+        "date": "2021-01-07"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Jan 21",
+          "Midgam/iPanel",
+          "Channel 12",
+          "27",
+          "13",
+          "10"
+        ],
+        "date": "2021-01-05"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "28",
+          "21",
+          "11"
+        ],
+        "date": "2020-12-30"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Dec 20",
+          "Panels Politics",
+          "103fm",
+          "26",
+          "25",
+          "12"
+        ],
+        "date": "2020-12-29"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "27 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "28",
+          "16",
+          "11"
+        ],
+        "date": "2020-12-27"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "29",
+          "16",
+          "11"
+        ],
+        "date": "2020-12-22"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "29",
+          "16",
+          "5"
+        ],
+        "date": "2020-12-22"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "27",
+          "14",
+          "11"
+        ],
+        "date": "2020-12-15"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Dec 20",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "28",
+          "12",
+          "13"
+        ],
+        "date": "2020-12-11"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Dec 20",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "28",
+          "13",
+          "12[g]"
+        ],
+        "date": "2020-12-11"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Dec 20",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "28",
+          "12",
+          "7"
+        ],
+        "date": "2020-12-11"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9–10 Dec 20",
+          "Panels Politics",
+          "Maariv",
+          "27",
+          "13",
+          "12"
+        ],
+        "date": "2020-12-10"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Dec 20",
+          "Kantar",
+          "Kan 11",
+          "25",
+          "15",
+          "11"
+        ],
+        "date": "2020-12-09"
+      },
+      {
+        "election": "knesset-24",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Dec 20",
+          "Midgam/iPanel",
+          "Channel 12",
+          "26",
+          "15",
+          "11"
+        ],
+        "date": "2020-12-09"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "election_day_or_future",
+        "row": [
+          "2 Mar 2020",
+          "Election results",
+          "33",
+          "36",
+          "15",
+          "7"
+        ],
+        "date": "2020-03-02"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "election_day_or_future",
+        "row": [
+          "2 Mar 2020",
+          "Kantar",
+          "Kan 11",
+          "33",
+          "36",
+          "15"
+        ],
+        "date": "2020-03-02"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "election_day_or_future",
+        "row": [
+          "2 Mar 2020",
+          "Midgam",
+          "Channel 12",
+          "33",
+          "37",
+          "14"
+        ],
+        "date": "2020-03-02"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "election_day_or_future",
+        "row": [
+          "2 Mar 2020",
+          "Camile Fuchs",
+          "Channel 13",
+          "32",
+          "37",
+          "14"
+        ],
+        "date": "2020-03-02"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "seat_total_not_120",
+        "pollster": "Panels Politics",
+        "pollster_id": "lazar_research",
+        "date": "2020-02-19",
+        "seat_total": 121.0,
+        "row": [
+          "19 Feb 2020",
+          "Panels Politics",
+          "Maariv",
+          "36",
+          "32",
+          "14",
+          "8",
+          "9",
+          "8",
+          "7",
+          "7",
+          "(2.6%)",
+          "54"
+        ]
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jan 2020",
+          "Maagar Mochot",
+          "103fm",
+          "34",
+          "30",
+          "14"
+        ],
+        "date": "2020-01-16"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jan 2020",
+          "Midgam",
+          "Channel 12",
+          "34",
+          "32",
+          "13"
+        ],
+        "date": "2020-01-16"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jan 2020",
+          "Panel Project HaMidgam",
+          "Channel 13",
+          "34",
+          "31",
+          "14"
+        ],
+        "date": "2020-01-16"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jan 2020",
+          "Kantar",
+          "Kan 11",
+          "36",
+          "31",
+          "13"
+        ],
+        "date": "2020-01-16"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jan 2020 (midnight)",
+          "Deadline to submit the candidate lists"
+        ],
+        "date": "2020-01-16"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Jan 2020",
+          "Yamina alliance reestablished, United Jewish Home dissolves"
+        ],
+        "date": "2020-01-15"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Jan 2020",
+          "Green Party withdrawal"
+        ],
+        "date": "2020-01-15"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Jan 2020",
+          "Midgam",
+          "Arutz Sheva",
+          "34",
+          "32",
+          "13"
+        ],
+        "date": "2020-01-09"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8–9 Jan 2020",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "34",
+          "30",
+          "15"
+        ],
+        "date": "2020-01-09"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8–9 Jan 2020",
+          "Panels Politics",
+          "Makor Rishon",
+          "35",
+          "31",
+          "14"
+        ],
+        "date": "2020-01-09"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Jan 2020",
+          "Midgam",
+          "Walla!",
+          "35",
+          "33",
+          "13"
+        ],
+        "date": "2020-01-08"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "7 Jan 2020",
+          "Meretz and Democratic Choice agree to run together as the Democratic Union list"
+        ],
+        "date": "2020-01-07"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 Jan 2020",
+          "KANTAR",
+          "Kan 11",
+          "35",
+          "33",
+          "13"
+        ],
+        "date": "2020-01-02"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 Jan 2020",
+          "Midgam",
+          "Channel 12",
+          "35",
+          "33",
+          "13"
+        ],
+        "date": "2020-01-02"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 Jan 2020",
+          "Panel Project HaMidgam",
+          "Channel 13",
+          "36",
+          "34",
+          "13"
+        ],
+        "date": "2020-01-02"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "1 Jan 2020",
+          "Panels Politics",
+          "Maariv",
+          "36",
+          "30",
+          "13"
+        ],
+        "date": "2020-01-01"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Dec 2019",
+          "Midgam",
+          "Channel 12",
+          "34",
+          "32",
+          "13"
+        ],
+        "date": "2019-12-29"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Dec 2019",
+          "Likud reelects Benjamin Netanyahu as its leader"
+        ],
+        "date": "2019-12-26"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "20 Dec 2019",
+          "The Jewish Home and Otzma Yehudit agree to run together on a list called the United Jewish Home"
+        ],
+        "date": "2019-12-20"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Dec 2019",
+          "Smith",
+          "103fm",
+          "35",
+          "32",
+          "13"
+        ],
+        "date": "2019-12-19"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Dec 2019",
+          "Stav Shaffir announces independent run of the Green Party"
+        ],
+        "date": "2019-12-19"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Dec 2019",
+          "Panels Politics",
+          "Makor Rishon",
+          "38",
+          "34",
+          "14"
+        ],
+        "date": "2019-12-18"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Dec 2019",
+          "Kantar",
+          "Kan 11",
+          "35",
+          "31",
+          "13"
+        ],
+        "date": "2019-12-15"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Dec 2019",
+          "Smith",
+          "Maariv",
+          "35",
+          "33",
+          "12"
+        ],
+        "date": "2019-12-12"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Dec 2019",
+          "Maagar Mochot",
+          "Israel Hayom",
+          "37",
+          "31",
+          "14"
+        ],
+        "date": "2019-12-12"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Dec 2019",
+          "Midgam",
+          "Channel 12",
+          "35",
+          "32",
+          "13"
+        ],
+        "date": "2019-12-12"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Dec 2019",
+          "The Knesset is dissolved"
+        ],
+        "date": "2019-12-12"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Dec 2019",
+          "Panel Project HaMidgam",
+          "Channel 13",
+          "37",
+          "33",
+          "13"
+        ],
+        "date": "2019-12-10"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9–10 Dec 2019",
+          "Midgam",
+          "Walla!",
+          "35",
+          "33",
+          "13"
+        ],
+        "date": "2019-12-10"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Dec 2019",
+          "Kantar",
+          "Kan Radio",
+          "35",
+          "34",
+          "13"
+        ],
+        "date": "2019-12-08"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Dec 2019",
+          "Midgam",
+          "Channel 12",
+          "34",
+          "33",
+          "13"
+        ],
+        "date": "2019-12-05"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Dec 2019",
+          "Maagar Mochot",
+          "103fm",
+          "34",
+          "32",
+          "12"
+        ],
+        "date": "2019-12-05"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Nov 2019",
+          "Maagar Mochot",
+          "Israel Hayom",
+          "35",
+          "33",
+          "13"
+        ],
+        "date": "2019-11-28"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Nov 2019",
+          "Maagar Mochot",
+          "103fm",
+          "35",
+          "33",
+          "13"
+        ],
+        "date": "2019-11-28"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26–27 Nov 2019",
+          "Smith",
+          "Maariv",
+          "35",
+          "33",
+          "13"
+        ],
+        "date": "2019-11-27"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Nov 2019",
+          "Midgam",
+          "Channel 12",
+          "34",
+          "33",
+          "13"
+        ],
+        "date": "2019-11-26"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25–26 Nov 2019",
+          "Midgam",
+          "Walla!",
+          "34",
+          "33",
+          "13"
+        ],
+        "date": "2019-11-26"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Nov 2019",
+          "Panels Politics",
+          "Channel 12",
+          "37",
+          "30",
+          "12"
+        ],
+        "date": "2019-11-25"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Nov 2019",
+          "Panel Project HaMidgam/Statnet",
+          "Channel 13",
+          "36",
+          "33",
+          "13"
+        ],
+        "date": "2019-11-22"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21–22 Nov 2019",
+          "Maagar Mochot",
+          "Israel Hayom",
+          "34",
+          "33",
+          "13"
+        ],
+        "date": "2019-11-22"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Nov 2019",
+          "Midgam",
+          "Channel 12",
+          "33",
+          "33",
+          "13"
+        ],
+        "date": "2019-11-21"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Nov 2019",
+          "Kantar",
+          "Kan 11",
+          "33",
+          "33",
+          "12"
+        ],
+        "date": "2019-11-21"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Nov 2019",
+          "Attorney General indicts incumbent PM Benjamin Netanyahu on corruption charges"
+        ],
+        "date": "2019-11-21"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Nov 2019",
+          "Maagar Mochot",
+          "Israel Hayom",
+          "33",
+          "31",
+          "13"
+        ],
+        "date": "2019-11-15"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Nov 2019",
+          "Panel Project HaMidgam",
+          "Channel 13",
+          "35",
+          "34",
+          "13"
+        ],
+        "date": "2019-11-10"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Oct 2019",
+          "Maagar Mochot",
+          "103fm",
+          "34",
+          "33",
+          "12"
+        ],
+        "date": "2019-10-31"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Oct 2019",
+          "Panel Project HaMidgam",
+          "Channel 13",
+          "34",
+          "33",
+          "13"
+        ],
+        "date": "2019-10-22"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Oct 2019",
+          "Yamina splits into two factions"
+        ],
+        "date": "2019-10-10"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "3–6 Oct 2019",
+          "Midgam",
+          "Walla!",
+          "33",
+          "33",
+          "13"
+        ],
+        "date": "2019-10-06"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Sep 2019",
+          "Election results",
+          "33",
+          "32",
+          "13",
+          "9"
+        ],
+        "date": "2019-09-17"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Dec 2019",
+          "Smith",
+          "103fm",
+          "33",
+          "30",
+          "13"
+        ],
+        "date": "2019-12-19"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Dec 2019",
+          "Panels Politics",
+          "Makor Rishon",
+          "34",
+          "30",
+          "14"
+        ],
+        "date": "2019-12-18"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Dec 2019",
+          "Kantar",
+          "Kan 11",
+          "34",
+          "27",
+          "13"
+        ],
+        "date": "2019-12-15"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Dec 2019",
+          "Maagar Mochot",
+          "Israel Hayom",
+          "33",
+          "31",
+          "15"
+        ],
+        "date": "2019-12-12"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Dec 2019",
+          "Midgam",
+          "Channel 12",
+          "35",
+          "26",
+          "13"
+        ],
+        "date": "2019-12-12"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Dec 2019",
+          "Panel Project HaMidgam",
+          "Channel 13",
+          "35",
+          "29",
+          "13"
+        ],
+        "date": "2019-12-10"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Dec 2019",
+          "Kantar",
+          "Kan 11",
+          "33",
+          "32",
+          "13"
+        ],
+        "date": "2019-12-08"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Nov 2019",
+          "Maagar Mochot",
+          "103fm",
+          "33",
+          "28",
+          "14"
+        ],
+        "date": "2019-11-28"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26–27 Nov 2019",
+          "Smith",
+          "Maariv",
+          "35",
+          "31",
+          "13"
+        ],
+        "date": "2019-11-27"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Nov 2019",
+          "Midgam",
+          "Channel 12",
+          "35",
+          "26",
+          "13"
+        ],
+        "date": "2019-11-26"
+      },
+      {
+        "election": "knesset-23",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "3–6 Oct 2019",
+          "Midgam",
+          "Walla!",
+          "33",
+          "26",
+          "13"
+        ],
+        "date": "2019-10-06"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "election_day_or_future",
+        "row": [
+          "17 Sep",
+          "KANTAR",
+          "Kan 11",
+          "31",
+          "32",
+          "13"
+        ],
+        "date": "2019-09-17"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "election_day_or_future",
+        "row": [
+          "17 Sep",
+          "Midgam",
+          "Channel 12",
+          "32",
+          "32",
+          "13"
+        ],
+        "date": "2019-09-17"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "election_day_or_future",
+        "row": [
+          "17 Sep",
+          "Panel Project HaMidgam",
+          "Channel 13",
+          "30",
+          "32",
+          "15"
+        ],
+        "date": "2019-09-17"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "1 Aug",
+          "Deadline for submitting the candidate lists"
+        ],
+        "date": "2019-08-01"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "1 Aug",
+          "Panel Project HaMidgam",
+          "Channel 13",
+          "30",
+          "29",
+          "11"
+        ],
+        "date": "2019-08-01"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "1 Aug",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "30",
+          "28",
+          "12"
+        ],
+        "date": "2019-08-01"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Jul",
+          "Kulanu officially dissolves and its remaining members join Likud"
+        ],
+        "date": "2019-07-31"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Jul",
+          "Midgam",
+          "Channel 12",
+          "30",
+          "30",
+          "11"
+        ],
+        "date": "2019-07-30"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Jul",
+          "The URWP and the New Right agree to run together as Yamina"
+        ],
+        "date": "2019-07-29"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Jul",
+          "Smith",
+          "103fm/Maariv",
+          "30",
+          "28",
+          "11"
+        ],
+        "date": "2019-07-26"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jul",
+          "Panel Project HaMidgam",
+          "Channel 13",
+          "28",
+          "23",
+          "11"
+        ],
+        "date": "2019-07-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jul",
+          "Midgam",
+          "Channel 12",
+          "29",
+          "27",
+          "11"
+        ],
+        "date": "2019-07-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jul",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "31",
+          "30",
+          "12"
+        ],
+        "date": "2019-07-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jul",
+          "KANTAR",
+          "Kan 11",
+          "30",
+          "30",
+          "10"
+        ],
+        "date": "2019-07-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jul",
+          "Meretz, IDP and the Green Movement agree to run together as the Democratic Union"
+        ],
+        "date": "2019-07-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jul",
+          "Midgam & iPanel",
+          "Walla!",
+          "29",
+          "29",
+          "12"
+        ],
+        "date": "2019-07-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Jul",
+          "Ayelet Shaked becomes the leader of the New Right"
+        ],
+        "date": "2019-07-21"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Jul",
+          "KANTAR",
+          "Kan 11",
+          "30",
+          "30",
+          "10"
+        ],
+        "date": "2019-07-21"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Jul",
+          "Midgam & iPanel",
+          "Channel 12",
+          "30",
+          "29",
+          "11"
+        ],
+        "date": "2019-07-21"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Jul",
+          "Smith",
+          "103fm/Maariv",
+          "32",
+          "29",
+          "10"
+        ],
+        "date": "2019-07-19"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Jul",
+          "Direct Polls",
+          "Makor Rishon",
+          "32",
+          "29",
+          "11"
+        ],
+        "date": "2019-07-19"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Jul",
+          "Labor and Gesher agree to run on a joint list"
+        ],
+        "date": "2019-07-18"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Jul",
+          "Dialog",
+          "Arutz Sheva",
+          "31",
+          "28",
+          "11"
+        ],
+        "date": "2019-07-17"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jul",
+          "Midgam",
+          "Channel 12",
+          "31",
+          "30",
+          "11"
+        ],
+        "date": "2019-07-16"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Jul",
+          "Smith",
+          "103fm/Maariv",
+          "33",
+          "30",
+          "10"
+        ],
+        "date": "2019-07-12"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Jul",
+          "Midgam",
+          "Walla!",
+          "30",
+          "30",
+          "11"
+        ],
+        "date": "2019-07-11"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Jul",
+          "The Jewish Home and Tkuma agree to run together again as the URWP"
+        ],
+        "date": "2019-07-09"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4 Jul",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "31",
+          "30",
+          "9"
+        ],
+        "date": "2019-07-04"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "3 Jul",
+          "Midgam",
+          "Channel 12",
+          "32",
+          "31",
+          "12"
+        ],
+        "date": "2019-07-03"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "3 Jul",
+          "Statnet",
+          "Channel 13",
+          "31",
+          "29",
+          "9"
+        ],
+        "date": "2019-07-03"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 Jul",
+          "Labor elects Amir Peretz as its leader"
+        ],
+        "date": "2019-07-02"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "27 Jun",
+          "Meretz elects Nitzan Horowitz as its leader"
+        ],
+        "date": "2019-06-27"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Jun",
+          "Panel Project HaMidgam",
+          "Channel 13",
+          "32",
+          "32",
+          "12"
+        ],
+        "date": "2019-06-26"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Jun",
+          "Former PM Ehud Barak announces the founding of the Israel Democratic Party"
+        ],
+        "date": "2019-06-26"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jun",
+          "Otzma Yehudit leaves the Union of the Right-Wing Parties"
+        ],
+        "date": "2019-06-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "20 Jun",
+          "Hadash–Ta'al and Ra'am–Balad agree to re-establish the Joint List"
+        ],
+        "date": "2019-06-20"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jul",
+          "Panel ProjectHaMidgam & Statnet",
+          "Channel 13",
+          "28",
+          "23",
+          "11"
+        ],
+        "date": "2019-07-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jul",
+          "Midgam",
+          "Channel 12",
+          "28",
+          "27",
+          "11"
+        ],
+        "date": "2019-07-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jul",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "25",
+          "31",
+          "13"
+        ],
+        "date": "2019-07-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Jul",
+          "Dialog",
+          "Arutz Sheva",
+          "31",
+          "28",
+          "10"
+        ],
+        "date": "2019-07-18"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jul",
+          "Midgam",
+          "Channel 12",
+          "28",
+          "30",
+          "11"
+        ],
+        "date": "2019-07-16"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Jul",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "32",
+          "30",
+          "13"
+        ],
+        "date": "2019-07-25"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Jul",
+          "Dialog",
+          "Arutz Sheva",
+          "32",
+          "29",
+          "11"
+        ],
+        "date": "2019-07-18"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Jul",
+          "Kantar",
+          "Saloona",
+          "28",
+          "29",
+          "10"
+        ],
+        "date": "2019-07-10"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4 Jul",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "25",
+          "31",
+          "8"
+        ],
+        "date": "2019-07-04"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jul",
+          "Midgam",
+          "Channel 12",
+          "31",
+          "28",
+          "11"
+        ],
+        "date": "2019-07-16"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4 Jul",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "31",
+          "26",
+          "8"
+        ],
+        "date": "2019-07-04"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Jul",
+          "Kantar",
+          "Saloona",
+          "30",
+          "29",
+          "10"
+        ],
+        "date": "2019-07-10"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Jul",
+          "Kantar",
+          "Kan 11",
+          "30",
+          "30",
+          "9"
+        ],
+        "date": "2019-07-09"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Jul",
+          "Kantar",
+          "Saloona",
+          "29",
+          "30",
+          "10"
+        ],
+        "date": "2019-07-10"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Jul",
+          "Smith",
+          "103fm/Maariv",
+          "32",
+          "27",
+          "10"
+        ],
+        "date": "2019-07-19"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Jul",
+          "Direct Polls",
+          "Makor Rishon",
+          "30",
+          "28",
+          "11"
+        ],
+        "date": "2019-07-19"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Jul",
+          "Direct Polls",
+          "Makor Rishon",
+          "33",
+          "29",
+          "11"
+        ],
+        "date": "2019-07-19"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Jul",
+          "Midgam",
+          "Channel 12",
+          "28",
+          "29",
+          "11"
+        ],
+        "date": "2019-07-21"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "1 Aug",
+          "Maagar Mohot",
+          "Israel Hayom",
+          "29",
+          "28",
+          "12"
+        ],
+        "date": "2019-08-01"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Jul",
+          "Midgam",
+          "Channel 12",
+          "29",
+          "30",
+          "11"
+        ],
+        "date": "2019-07-30"
+      },
+      {
+        "election": "knesset-22",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Jul",
+          "Midgam",
+          "Channel 12",
+          "28",
+          "30",
+          "11"
+        ],
+        "date": "2019-07-30"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "election_day_or_future",
+        "row": [
+          "16 Apr",
+          "Election results",
+          "35",
+          "6",
+          "35",
+          "4"
+        ],
+        "date": "2019-04-16"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "election_day_or_future",
+        "row": [
+          "9 Apr",
+          "Channel 13 exit poll",
+          "36",
+          "7",
+          "36",
+          "4"
+        ],
+        "date": "2019-04-09"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "election_day_or_future",
+        "row": [
+          "9 Apr",
+          "Channel 11 exit poll",
+          "36",
+          "8",
+          "37",
+          "5"
+        ],
+        "date": "2019-04-09"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "election_day_or_future",
+        "row": [
+          "9 Apr",
+          "Channel 12 exit poll",
+          "33",
+          "6",
+          "37",
+          "4"
+        ],
+        "date": "2019-04-09"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "seat_total_not_120",
+        "pollster": "Maagar Mohot/Radio 103FM & Maariv[fn 5]",
+        "pollster_id": "maagar_mohot",
+        "date": "2019-03-01",
+        "seat_total": 117.0,
+        "row": [
+          "1 Mar",
+          "Maagar Mohot/Radio 103FM & Maariv[fn 5]",
+          "25",
+          "7",
+          "37",
+          "5",
+          "–",
+          "6",
+          "6",
+          "10",
+          "–",
+          "6",
+          "7",
+          "8",
+          "–",
+          "–",
+          "57",
+          "60"
+        ]
+      },
+      {
+        "election": "knesset-21",
+        "reason": "seat_total_not_120",
+        "pollster": "Maagar Mochot/Radio 103 FM",
+        "pollster_id": "maagar_mohot",
+        "date": "2019-02-22",
+        "seat_total": 117.0,
+        "row": [
+          "22 Feb",
+          "Maagar Mochot/Radio 103 FM",
+          "27",
+          "6",
+          "34",
+          "4",
+          "8",
+          "4",
+          "6",
+          "7",
+          "4",
+          "5",
+          "6",
+          "6",
+          "–",
+          "–",
+          "62",
+          "58"
+        ]
+      },
+      {
+        "election": "knesset-21",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Feb",
+          "Panels Politics/Maariv",
+          "29",
+          "7",
+          "35",
+          "4"
+        ],
+        "date": "2019-02-21"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Feb",
+          "Midgam/Yediot Ahronot",
+          "30",
+          "8",
+          "36",
+          "4"
+        ],
+        "date": "2019-02-21"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Feb",
+          "Direct polls/Makor Rishon",
+          "32",
+          "7",
+          "35",
+          "(2.3%)"
+        ],
+        "date": "2019-02-21"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Feb",
+          "Direct polls/Kan",
+          "32",
+          "8",
+          "35",
+          "(1.9%)"
+        ],
+        "date": "2019-02-21"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Feb",
+          "Midgam/Channel 12",
+          "30",
+          "8",
+          "36",
+          "4"
+        ],
+        "date": "2019-02-21"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Feb",
+          "Panel HaMidgam Project/Statnet/Channel 13",
+          "26",
+          "5",
+          "36",
+          "4"
+        ],
+        "date": "2019-02-21"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Feb",
+          "Deadline for party lists to be submitted"
+        ],
+        "date": "2019-02-21"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Feb",
+          "The Joint List splits up. Hadash joins Ta'al as Balad runs with Ra'am."
+        ],
+        "date": "2019-02-21"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Feb",
+          "Yesh Atid and Hosen L'Yisrael reach agreement to run as one list called Blue & White"
+        ],
+        "date": "2019-02-21"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "20 Feb",
+          "The Jewish Home, Tkuma and Otzma Yehudit reach agreement to run as one list called URWP"
+        ],
+        "date": "2019-02-20"
+      },
+      {
+        "election": "knesset-21",
+        "reason": "non_general_population",
+        "pollster": "Panels/National Union of Students",
+        "date": "2019-03-31",
+        "row": [
+          "31 Mar 2019",
+          "Panels/National Union of Students",
+          "13",
+          "14",
+          "47",
+          "–",
+          "–",
+          "(1.9%)",
+          "(2.8%)",
+          "7",
+          "–",
+          "15",
+          "(2.0%)",
+          "7",
+          "(1.1%)",
+          "17",
+          "76",
+          "44"
+        ]
+      },
+      {
+        "election": "knesset-20",
+        "reason": "election_day_or_future",
+        "row": [
+          "17 Mar",
+          "Channel 1 exit poll",
+          "27",
+          "5",
+          "11",
+          "26"
+        ],
+        "date": "2015-03-17"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "election_day_or_future",
+        "row": [
+          "17 Mar",
+          "Channel 2 exit poll",
+          "28",
+          "5",
+          "11",
+          "27"
+        ],
+        "date": "2015-03-17"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "election_day_or_future",
+        "row": [
+          "17 Mar",
+          "Channel 10 exit poll",
+          "27",
+          "5",
+          "11",
+          "27"
+        ],
+        "date": "2015-03-17"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "seat_total_not_120",
+        "pollster": "Panels/Maariv",
+        "pollster_id": "lazar_research",
+        "date": "2015-01-30",
+        "seat_total": 112.0,
+        "row": [
+          "30 Jan",
+          "Panels/Maariv",
+          "25",
+          "5",
+          "11",
+          "24",
+          "14",
+          "7",
+          "8",
+          "6",
+          "12",
+          "0",
+          "0",
+          "8"
+        ]
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Jan",
+          "Deadline for parties to submit final Knesset candidate lists to the Central Elections Commission"
+        ],
+        "date": "2015-01-29"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Jan",
+          "Otzma Yehudit and Yachad reach agreement to run a joint list"
+        ],
+        "date": "2015-01-29"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Jan",
+          "Smith/Globes",
+          "24",
+          "5",
+          "9",
+          "25"
+        ],
+        "date": "2015-01-29"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Jan",
+          "Teleseker/Channel 1",
+          "27",
+          "7",
+          "8",
+          "26"
+        ],
+        "date": "2015-01-29"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Jan",
+          "Channel 10",
+          "23",
+          "4",
+          "10",
+          "25"
+        ],
+        "date": "2015-01-28"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "27 Jan",
+          "Panels/Knesset Channel",
+          "23",
+          "6",
+          "11",
+          "25"
+        ],
+        "date": "2015-01-27"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Jan",
+          "Channel 2/Midgam",
+          "23",
+          "7",
+          "9",
+          "26"
+        ],
+        "date": "2015-01-26"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "24 Jan",
+          "Panels",
+          "22",
+          "7",
+          "11",
+          "22"
+        ],
+        "date": "2015-01-24"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Jan",
+          "Israel Radio",
+          "25",
+          "5",
+          "9",
+          "25"
+        ],
+        "date": "2015-01-23"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Jan",
+          "United Arab List, Ta'al, Hadash, Balad and Islamic Movement in Israel reach agreement to run as a united list"
+        ],
+        "date": "2015-01-22"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Jan",
+          "Teleseker/Channel 1",
+          "26",
+          "7",
+          "8",
+          "24"
+        ],
+        "date": "2015-01-22"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "20 Jan",
+          "Knesset Channel/NRG",
+          "40[c]",
+          "5",
+          "11",
+          "24"
+        ],
+        "date": "2015-01-20"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "20 Jan",
+          "Knesset Channel/NRG",
+          "23",
+          "5",
+          "11",
+          "24"
+        ],
+        "date": "2015-01-20"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jan",
+          "Panels/Maariv",
+          "22",
+          "6",
+          "11",
+          "25"
+        ],
+        "date": "2015-01-16"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jan",
+          "Teleseker/Walla",
+          "24",
+          "5",
+          "8",
+          "26"
+        ],
+        "date": "2015-01-16"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Jan",
+          "Midgam/Channel 2",
+          "23",
+          "6",
+          "11",
+          "25"
+        ],
+        "date": "2015-01-15"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Jan",
+          "Channel 10",
+          "20",
+          "5",
+          "10",
+          "24"
+        ],
+        "date": "2015-01-15"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "14 Jan",
+          "Smith/Globes",
+          "24",
+          "6",
+          "9",
+          "25"
+        ],
+        "date": "2015-01-14"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "13 Jan",
+          "Panels/Knesset Channel",
+          "23",
+          "7",
+          "12",
+          "24"
+        ],
+        "date": "2015-01-13"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Jan",
+          "Teleseker",
+          "24",
+          "7",
+          "10",
+          "23"
+        ],
+        "date": "2015-01-11"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Jan",
+          "Teleseker/Walla-Maariv",
+          "25",
+          "6",
+          "9",
+          "24"
+        ],
+        "date": "2015-01-09"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "7 Jan",
+          "Dialog/Haaretz",
+          "22",
+          "6",
+          "12",
+          "23"
+        ],
+        "date": "2015-01-07"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "6 Jan",
+          "Teleseker/Channel 1",
+          "25",
+          "7",
+          "9",
+          "24"
+        ],
+        "date": "2015-01-06"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "6 Jan",
+          "Panels/Knesset Channel",
+          "24",
+          "7",
+          "12",
+          "23"
+        ],
+        "date": "2015-01-06"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 Jan",
+          "Teleseker/Walla",
+          "26",
+          "7",
+          "9",
+          "23"
+        ],
+        "date": "2015-01-02"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 Jan",
+          "Panels/Galay Israel Radio",
+          "23",
+          "7",
+          "9",
+          "24"
+        ],
+        "date": "2015-01-02"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Dec",
+          "Channel 10",
+          "21",
+          "7",
+          "9",
+          "23"
+        ],
+        "date": "2014-12-31"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Dec",
+          "Panels/Knesset Channel",
+          "23",
+          "5",
+          "10",
+          "24"
+        ],
+        "date": "2014-12-30"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Dec",
+          "Midgam/Channel 2",
+          "24",
+          "8",
+          "9",
+          "24"
+        ],
+        "date": "2014-12-29"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Dec",
+          "Sarid/Channel 2",
+          "22",
+          "10",
+          "9",
+          "25"
+        ],
+        "date": "2014-12-25"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "24 Dec",
+          "Jerusalem Post and Maariv/Panels",
+          "23",
+          "5",
+          "11",
+          "24"
+        ],
+        "date": "2014-12-24"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Dec",
+          "TRI/Nana 10",
+          "20",
+          "7",
+          "19[d]",
+          "21"
+        ],
+        "date": "2014-12-23"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Dec",
+          "Channel 10",
+          "21",
+          "9",
+          "10",
+          "22"
+        ],
+        "date": "2014-12-23"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Dec",
+          "Panels/Knesset Channel",
+          "21",
+          "7",
+          "11",
+          "23"
+        ],
+        "date": "2014-12-22"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Dec",
+          "Arutz 7/Geocartography",
+          "27",
+          "8",
+          "7",
+          "25"
+        ],
+        "date": "2014-12-21"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Dec",
+          "Smith/Reshet Bet",
+          "22",
+          "8",
+          "8",
+          "23"
+        ],
+        "date": "2014-12-19"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "19 Dec",
+          "Smith/Globes",
+          "23",
+          "9",
+          "8",
+          "23"
+        ],
+        "date": "2014-12-19"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Dec",
+          "Panels/Maariv",
+          "21",
+          "8",
+          "10",
+          "23"
+        ],
+        "date": "2014-12-18"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Dec",
+          "Haaretz/Dialog",
+          "21",
+          "8",
+          "11",
+          "21"
+        ],
+        "date": "2014-12-17"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Dec",
+          "Geocartography",
+          "23",
+          "10",
+          "9",
+          "21"
+        ],
+        "date": "2014-12-16"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Dec",
+          "Panels/Knesset Channel",
+          "22",
+          "9",
+          "10",
+          "22"
+        ],
+        "date": "2014-12-16"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Dec",
+          "Former Shas chairman Eli Yishai forms a new party, Yachad"
+        ],
+        "date": "2014-12-15"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Dec",
+          "Panels/NRG",
+          "20",
+          "10",
+          "9",
+          "24"
+        ],
+        "date": "2014-12-12"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "12 Dec",
+          "Geocartography",
+          "25",
+          "9",
+          "8",
+          "18"
+        ],
+        "date": "2014-12-12"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Dec",
+          "Smith/Walla Poll",
+          "18",
+          "10",
+          "10",
+          "21"
+        ],
+        "date": "2014-12-11"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Dec",
+          "Midgam/Channel 2",
+          "23",
+          "8",
+          "8",
+          "24"
+        ],
+        "date": "2014-12-11"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Dec",
+          "Panels/Maariv",
+          "20",
+          "10",
+          "9",
+          "24"
+        ],
+        "date": "2014-12-11"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Dec",
+          "Labor (led by Isaac Herzog) and Hatnuah (led by Tzipi Livni) agree to run on a joint list, called Zionist Union"
+        ],
+        "date": "2014-12-10"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Dec",
+          "Channel 10",
+          "20",
+          "11",
+          "10",
+          "22"
+        ],
+        "date": "2014-12-10"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Dec",
+          "19th Knesset dissolved, elections called"
+        ],
+        "date": "2014-12-08"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Dec",
+          "PanelPolitics",
+          "21",
+          "9",
+          "9",
+          "23"
+        ],
+        "date": "2014-12-08"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Dec",
+          "Panels / Knesset Channel",
+          "21",
+          "10",
+          "12",
+          "17"
+        ],
+        "date": "2014-12-08"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Dec",
+          "Galay Israel/Maagar Mochot",
+          "21",
+          "9",
+          "11",
+          "14"
+        ],
+        "date": "2014-12-05"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Dec",
+          "NRG/Makor Rishon Maagar Mochot",
+          "25",
+          "13",
+          "9",
+          "13"
+        ],
+        "date": "2014-12-05"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Dec",
+          "New Wave/Yisrael Hayom",
+          "22",
+          "10",
+          "10",
+          "12"
+        ],
+        "date": "2014-12-05"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Dec",
+          "Jerusalem Post/Maariv Panels",
+          "21",
+          "9",
+          "11",
+          "14"
+        ],
+        "date": "2014-12-05"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4 Dec",
+          "Smith/Globes",
+          "23",
+          "11",
+          "10",
+          "15"
+        ],
+        "date": "2014-12-04"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "3 Dec",
+          "Teleseker/Walla",
+          "23",
+          "12",
+          "11",
+          "12"
+        ],
+        "date": "2014-12-03"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 Dec",
+          "Dialog/Channel 10",
+          "22",
+          "12",
+          "9",
+          "13"
+        ],
+        "date": "2014-12-02"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 Dec",
+          "Midgam/Channel 2",
+          "22",
+          "10",
+          "9",
+          "13"
+        ],
+        "date": "2014-12-02"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 Dec",
+          "Netanyahu dismisses Yair Lapid and Tzipi Livni from the cabinet"
+        ],
+        "date": "2014-12-02"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Nov",
+          "Dialog/Haaretz",
+          "24",
+          "11",
+          "11",
+          "13"
+        ],
+        "date": "2014-11-30"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "27 Nov",
+          "Smith/Globes",
+          "23",
+          "11",
+          "10",
+          "15"
+        ],
+        "date": "2014-11-27"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "27 Nov",
+          "Panels/Knesset Channel",
+          "23",
+          "7",
+          "13",
+          "14"
+        ],
+        "date": "2014-11-27"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Nov",
+          "Coalition crisis begins as PM Netanyahu re-launches the Jewish nation-state bill"
+        ],
+        "date": "2014-11-23"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Nov",
+          "TRI/Bchardei chadrim",
+          "27",
+          "8",
+          "10",
+          "12"
+        ],
+        "date": "2014-11-22"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "20 Nov",
+          "Panels/Knesset Channel",
+          "20",
+          "8",
+          "13",
+          "13"
+        ],
+        "date": "2014-11-20"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Nov",
+          "Midgam/Channel 10",
+          "22",
+          "9",
+          "14",
+          "13"
+        ],
+        "date": "2014-11-17"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Nov",
+          "Maagar Mochot/Channel 1",
+          "25",
+          "15",
+          "10",
+          "14"
+        ],
+        "date": "2014-11-15"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "13 Nov",
+          "Panels/Knesset Channel",
+          "22",
+          "8",
+          "10",
+          "14"
+        ],
+        "date": "2014-11-13"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "3 Nov",
+          "Panels/NRG",
+          "21",
+          "9",
+          "9",
+          "15"
+        ],
+        "date": "2014-11-03"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Oct",
+          "Panels/Knesset Channel",
+          "24",
+          "10",
+          "9",
+          "14"
+        ],
+        "date": "2014-10-31"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Oct",
+          "Panels/Knesset Channel",
+          "21",
+          "9",
+          "9",
+          "15"
+        ],
+        "date": "2014-10-30"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Oct",
+          "Panels/Knesset Channel",
+          "22",
+          "9",
+          "9",
+          "15"
+        ],
+        "date": "2014-10-23"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Oct",
+          "Midgam/Channel 10",
+          "22",
+          "9",
+          "12",
+          "12"
+        ],
+        "date": "2014-10-23"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 Oct",
+          "Panels/Knesset Channel",
+          "27",
+          "9",
+          "10",
+          "16"
+        ],
+        "date": "2014-10-02"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Aug",
+          "Maagar Mochot/Channel 1",
+          "26",
+          "12",
+          "8",
+          "14"
+        ],
+        "date": "2014-08-30"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Aug",
+          "Geocartography",
+          "32",
+          "17",
+          "9",
+          "12"
+        ],
+        "date": "2014-08-29"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Aug",
+          "Smith/Globes",
+          "28",
+          "12",
+          "9",
+          "14"
+        ],
+        "date": "2014-08-28"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Aug",
+          "Dialog/Haaretz",
+          "26",
+          "11",
+          "12",
+          "14"
+        ],
+        "date": "2014-08-28"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Aug",
+          "Panels/Knesset Channel",
+          "27",
+          "9",
+          "12",
+          "15"
+        ],
+        "date": "2014-08-28"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Aug",
+          "Ceasefire in the 2014 Israel–Gaza conflict"
+        ],
+        "date": "2014-08-26"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "14 Aug",
+          "Panels/Knesset Channel",
+          "28",
+          "9",
+          "11",
+          "15"
+        ],
+        "date": "2014-08-14"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "7 Aug",
+          "Midgam/Channel 2",
+          "23",
+          "12",
+          "10",
+          "14"
+        ],
+        "date": "2014-08-07"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Jul",
+          "Panels/Knesset Channel",
+          "30",
+          "8",
+          "10",
+          "15"
+        ],
+        "date": "2014-07-31"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Jul",
+          "Smith/Globes",
+          "31",
+          "13",
+          "11",
+          "14"
+        ],
+        "date": "2014-07-31"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Jul",
+          "Dialogue/Haaretz",
+          "25",
+          "14",
+          "13",
+          "15"
+        ],
+        "date": "2014-07-09"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "7 Jul",
+          "Panels/Knesset Channel",
+          "21",
+          "11",
+          "11",
+          "19"
+        ],
+        "date": "2014-07-07"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "7 Jul",
+          "Alliance between Likud and Yisrael Beiteinu dissolved"
+        ],
+        "date": "2014-07-07"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "3 Jul",
+          "Panels/Knesset Channel",
+          "28",
+          "13",
+          "21",
+          "3"
+        ],
+        "date": "2014-07-03"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 May",
+          "Smith/Globes",
+          "34",
+          "15",
+          "17",
+          "0"
+        ],
+        "date": "2014-05-30"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "1 May",
+          "Smith/Globes",
+          "35",
+          "14",
+          "19",
+          "0"
+        ],
+        "date": "2014-05-01"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "15 Mar",
+          "Panels",
+          "36",
+          "12",
+          "20",
+          "4"
+        ],
+        "date": "2014-03-15"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Mar",
+          "Electoral threshold raised from 2% to 3.25%"
+        ],
+        "date": "2014-03-10"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "7 Mar",
+          "Panels/Knesset Channel",
+          "30",
+          "12",
+          "21",
+          "4"
+        ],
+        "date": "2014-03-07"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Feb",
+          "Dialogue/Haaretz",
+          "33",
+          "14",
+          "16",
+          "5"
+        ],
+        "date": "2014-02-28"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "27 Feb",
+          "Panels/Knesset Channel",
+          "32",
+          "13",
+          "21",
+          "4"
+        ],
+        "date": "2014-02-27"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Feb",
+          "Teleseker/Walla",
+          "35",
+          "15",
+          "15",
+          "6"
+        ],
+        "date": "2014-02-11"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "6 Feb",
+          "Panels/Knesset Channel",
+          "32",
+          "14",
+          "18",
+          "4"
+        ],
+        "date": "2014-02-06"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "3 Feb",
+          "Panels/Knesset Channel",
+          "30",
+          "13",
+          "19",
+          "5"
+        ],
+        "date": "2014-02-03"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Jan",
+          "Smith Poll",
+          "36",
+          "12",
+          "17",
+          "4"
+        ],
+        "date": "2014-01-31"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Jan",
+          "Panels/Knesset Channel",
+          "30",
+          "12",
+          "19",
+          "4"
+        ],
+        "date": "2014-01-30"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "24 Jan",
+          "Times of Israel",
+          "46",
+          "13",
+          "18",
+          "5"
+        ],
+        "date": "2014-01-24"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "23 Jan",
+          "Panels/Knesset Channel",
+          "34",
+          "14",
+          "17",
+          "6"
+        ],
+        "date": "2014-01-23"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Jan",
+          "GeoCartography",
+          "40",
+          "9",
+          "12",
+          "3"
+        ],
+        "date": "2014-01-22"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Jan",
+          "Channel 1",
+          "34",
+          "13",
+          "16",
+          "4"
+        ],
+        "date": "2014-01-21"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "16 Jan",
+          "Panels/Knesset Channel",
+          "34",
+          "15",
+          "19",
+          "5"
+        ],
+        "date": "2014-01-16"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Jan",
+          "Panels/Knesset Channel",
+          "34",
+          "13",
+          "17",
+          "5"
+        ],
+        "date": "2014-01-09"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Jan",
+          "Channel 2/Dahaf",
+          "33",
+          "14",
+          "16",
+          "7"
+        ],
+        "date": "2014-01-05"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Dec",
+          "Smith poll",
+          "36",
+          "10",
+          "19",
+          "3"
+        ],
+        "date": "2013-12-26"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Dec",
+          "Knesset/Panel Polls",
+          "33",
+          "13",
+          "16",
+          "6"
+        ],
+        "date": "2013-12-26"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Dec",
+          "Midgam/Walla",
+          "32",
+          "14",
+          "17",
+          "7"
+        ],
+        "date": "2013-12-25"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Nov",
+          "Globes/Smith",
+          "37",
+          "11",
+          "19",
+          "3"
+        ],
+        "date": "2013-11-28"
+      },
+      {
+        "election": "knesset-20",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Nov",
+          "Knesset/Panel Polls",
+          "35",
+          "10",
+          "19",
+          "4"
+        ],
+        "date": "2013-11-28"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "election_day_or_future",
+        "row": [
+          "22 Jan",
+          "Channel 1 exit poll",
+          "0",
+          "31",
+          "17",
+          "11"
+        ],
+        "date": "2013-01-22"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "election_day_or_future",
+        "row": [
+          "22 Jan",
+          "Channel 2 exit poll",
+          "0",
+          "31",
+          "17",
+          "12"
+        ],
+        "date": "2013-01-22"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "election_day_or_future",
+        "row": [
+          "22 Jan",
+          "Channel 10 exit poll",
+          "0",
+          "31",
+          "17",
+          "13"
+        ],
+        "date": "2013-01-22"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "seat_total_not_120",
+        "pollster": "Maariv/Maagar",
+        "pollster_id": "maagar_mohot",
+        "date": "2012-12-21",
+        "seat_total": 118.0,
+        "row": [
+          "21 Dec",
+          "Maariv/Maagar",
+          "",
+          "37",
+          "20",
+          "11",
+          "6",
+          "12",
+          "4",
+          "3",
+          "3",
+          "4",
+          "7",
+          "2",
+          "",
+          "9"
+        ]
+      },
+      {
+        "election": "knesset-19",
+        "reason": "seat_total_not_120",
+        "pollster": "Knesset Channel/Panels",
+        "pollster_id": "lazar_research",
+        "date": "2012-12-13",
+        "seat_total": 119.0,
+        "row": [
+          "13 Dec",
+          "Knesset Channel/Panels",
+          "0",
+          "36",
+          "18",
+          "9",
+          "6",
+          "13",
+          "5",
+          "4",
+          "2",
+          "5",
+          "7",
+          "3",
+          "2",
+          "9"
+        ]
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "6 Dec",
+          "Channel 2",
+          "2",
+          "38",
+          "19",
+          "13"
+        ],
+        "date": "2012-12-06"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "6 Dec",
+          "Atzmaut announces withdrawal"
+        ],
+        "date": "2012-12-06"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "6 Dec",
+          "Knesset Channel/Panels",
+          "2",
+          "36",
+          "19",
+          "10"
+        ],
+        "date": "2012-12-06"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "6 Dec",
+          "Reshet Bet/Meno Geva",
+          "0",
+          "36",
+          "20",
+          "10"
+        ],
+        "date": "2012-12-06"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Dec",
+          "Channel 10/Dialog",
+          "2",
+          "37",
+          "20",
+          "10"
+        ],
+        "date": "2012-12-05"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Nov",
+          "Yisrael Hayom/New Wave",
+          "2",
+          "39",
+          "20",
+          "11"
+        ],
+        "date": "2012-11-29"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Nov",
+          "Yedioth Ahronoth/Dahaf",
+          "0",
+          "37",
+          "19",
+          "11"
+        ],
+        "date": "2012-11-29"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Nov",
+          "Globes/Smith",
+          "0",
+          "37",
+          "20",
+          "11"
+        ],
+        "date": "2012-11-29"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Nov",
+          "Haaretz/Dialog",
+          "2",
+          "39",
+          "18",
+          "11"
+        ],
+        "date": "2012-11-28"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22 Nov",
+          "Knesset Channel/Panels",
+          "0",
+          "33",
+          "24",
+          "10"
+        ],
+        "date": "2012-11-22"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Nov",
+          "Panels",
+          "0",
+          "38",
+          "22",
+          "9"
+        ],
+        "date": "2012-11-18"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Nov",
+          "Haaretz/Dialogue",
+          "3",
+          "41",
+          "21",
+          "12"
+        ],
+        "date": "2012-11-18"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "13 Nov",
+          "MAKO/Panels",
+          "2",
+          "36",
+          "21",
+          "10"
+        ],
+        "date": "2012-11-13"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Nov",
+          "Knesset Channel/Panels",
+          "0",
+          "36",
+          "23",
+          "10"
+        ],
+        "date": "2012-11-08"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "6 Nov",
+          "Channel 2/Maagar",
+          "3",
+          "39",
+          "22",
+          "14"
+        ],
+        "date": "2012-11-06"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5–6 Nov",
+          "Maagar",
+          "4",
+          "39",
+          "22",
+          "15"
+        ],
+        "date": "2012-11-06"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4 Nov",
+          "Yedioth Ahronoth",
+          "0",
+          "35",
+          "24",
+          "13"
+        ],
+        "date": "2012-11-04"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Oct",
+          "Maariv/Teleseker",
+          "4",
+          "43",
+          "20",
+          "10"
+        ],
+        "date": "2012-10-28"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Oct",
+          "Channel 2/Maagar",
+          "3",
+          "42",
+          "23",
+          "13"
+        ],
+        "date": "2012-10-28"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Oct",
+          "Channel 10/Panels",
+          "5",
+          "35",
+          "23",
+          "14"
+        ],
+        "date": "2012-10-28"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "25 Oct",
+          "Likud and Yisrael Beiteinu announce joint list"
+        ],
+        "date": "2012-10-25"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Oct",
+          "Haaretz/Dialog",
+          "9",
+          "29",
+          "13",
+          "20"
+        ],
+        "date": "2012-10-18"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Oct",
+          "Globes",
+          "3",
+          "25",
+          "15",
+          "18"
+        ],
+        "date": "2012-10-17"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "11 Oct",
+          "Maariv/Teleseker",
+          "6",
+          "29",
+          "13",
+          "17"
+        ],
+        "date": "2012-10-11"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Oct",
+          "Haaretz/Dialog",
+          "7",
+          "29",
+          "15",
+          "19"
+        ],
+        "date": "2012-10-10"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "1 Aug",
+          "Globes",
+          "4",
+          "27",
+          "15",
+          "19"
+        ],
+        "date": "2012-08-01"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Jul",
+          "Haaretz/Dialog",
+          "7",
+          "25",
+          "15",
+          "21"
+        ],
+        "date": "2012-07-31"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Jul",
+          "Globes",
+          "7",
+          "28",
+          "16",
+          "18"
+        ],
+        "date": "2012-07-26"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "20 Jul",
+          "Yediot Aharonot/Dahaf",
+          "7",
+          "25",
+          "13",
+          "21"
+        ],
+        "date": "2012-07-20"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Jul",
+          "Maariv/Maagar",
+          "7",
+          "27",
+          "16",
+          "17"
+        ],
+        "date": "2012-07-17"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Jul",
+          "Kadima leaves the coalition"
+        ],
+        "date": "2012-07-17"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 May",
+          "Knesset Channel/Panels",
+          "3",
+          "30",
+          "12",
+          "20"
+        ],
+        "date": "2012-05-17"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "13 May",
+          "Globes/Smith",
+          "9",
+          "31",
+          "13",
+          "17"
+        ],
+        "date": "2012-05-13"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 May",
+          "Maariv/TNS",
+          "10",
+          "30",
+          "12",
+          "20"
+        ],
+        "date": "2012-05-08"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 May",
+          "Haaretz/Dialog",
+          "11",
+          "33",
+          "15",
+          "19"
+        ],
+        "date": "2012-05-08"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 May",
+          "Kadima joins the coalition"
+        ],
+        "date": "2012-05-08"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "1 May",
+          "Maariv/TNS",
+          "11",
+          "31",
+          "12",
+          "18"
+        ],
+        "date": "2012-05-01"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "1 May",
+          "Haaretz/Dialog",
+          "11",
+          "32",
+          "14",
+          "19"
+        ],
+        "date": "2012-05-01"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "30 Apr",
+          "Ynet/Dahaf",
+          "11",
+          "30",
+          "13",
+          "18"
+        ],
+        "date": "2012-04-30"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "26 Apr",
+          "Israel Hayom/New Wave",
+          "13",
+          "31",
+          "14",
+          "17"
+        ],
+        "date": "2012-04-26"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "22–23 Apr",
+          "JPost/Smith",
+          "13",
+          "31",
+          "15",
+          "15"
+        ],
+        "date": "2012-04-23"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Mar",
+          "TNS",
+          "13",
+          "30",
+          "13",
+          "18"
+        ],
+        "date": "2012-03-29"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Mar",
+          "Dahaf",
+          "12",
+          "29",
+          "13",
+          "18"
+        ],
+        "date": "2012-03-28"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "28 Mar",
+          "Channel 10/Dialog",
+          "15",
+          "32",
+          "14",
+          "15"
+        ],
+        "date": "2012-03-28"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "27 Mar",
+          "Shaul Mofaz wins 2012 Kadima leadership election"
+        ],
+        "date": "2012-03-27"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "21 Mar",
+          "Yedioth Ahronoth",
+          "12",
+          "29",
+          "14",
+          "13"
+        ],
+        "date": "2012-03-21"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Mar",
+          "Teleseker",
+          "14",
+          "27",
+          "14",
+          "14"
+        ],
+        "date": "2012-03-09"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "4–5 Mar",
+          "Haaretz/Dialog",
+          "12",
+          "35",
+          "15",
+          "14"
+        ],
+        "date": "2012-03-05"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Feb",
+          "Geocartography",
+          "12",
+          "39",
+          "13",
+          "12"
+        ],
+        "date": "2012-02-17"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "31 Jan",
+          "Benjamin Netanyahu wins 2012 Likud leadership election"
+        ],
+        "date": "2012-01-31"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "27 Jan",
+          "Globes/Smith",
+          "13",
+          "30",
+          "14",
+          "15"
+        ],
+        "date": "2012-01-27"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "18 Jan",
+          "Maagar",
+          "9",
+          "28",
+          "17",
+          "15"
+        ],
+        "date": "2012-01-18"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Jan",
+          "Geocartography",
+          "11",
+          "33",
+          "16",
+          "13"
+        ],
+        "date": "2012-01-17"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "10 Jan",
+          "New Wave",
+          "14",
+          "28",
+          "14",
+          "15"
+        ],
+        "date": "2012-01-10"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Jan",
+          "Dahaf",
+          "8",
+          "28",
+          "16",
+          "14"
+        ],
+        "date": "2012-01-09"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Jan",
+          "Teleseker",
+          "15",
+          "26",
+          "14",
+          "17"
+        ],
+        "date": "2012-01-09"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "9 Jan",
+          "Panels",
+          "9",
+          "29",
+          "13",
+          "12"
+        ],
+        "date": "2012-01-09"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Jan",
+          "Maagar",
+          "12",
+          "27",
+          "17",
+          "14"
+        ],
+        "date": "2012-01-08"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "8 Jan",
+          "Haaretz",
+          "10",
+          "24",
+          "14",
+          "15"
+        ],
+        "date": "2012-01-08"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "29 Dec",
+          "Globes/Smith",
+          "19",
+          "31",
+          "14",
+          "18"
+        ],
+        "date": "2011-12-29"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "27 Oct",
+          "Channel 2/Sarid",
+          "17",
+          "37",
+          "15",
+          "22"
+        ],
+        "date": "2011-10-27"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "5 Aug",
+          "Maagar",
+          "25",
+          "29",
+          "16",
+          "11"
+        ],
+        "date": "2011-08-05"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "2 May",
+          "Globes/Smith",
+          "26",
+          "29",
+          "18",
+          "8"
+        ],
+        "date": "2011-05-02"
+      },
+      {
+        "election": "knesset-19",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "17 Jan",
+          "Channel 10/Dialog",
+          "27",
+          "30",
+          "17",
+          "6"
+        ],
+        "date": "2011-01-17"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "election_day_or_future",
+        "row": [
+          "Feb 10, 2009",
+          "",
+          "Final Results",
+          "28",
+          "13",
+          "11"
+        ],
+        "date": "2009-02-10"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "seat_total_not_120",
+        "pollster": "Midgam Research",
+        "pollster_id": "midgam_geva",
+        "date": "2009-02-06",
+        "seat_total": 122.0,
+        "row": [
+          "Feb 6, 2009",
+          "Channel 1",
+          "Midgam Research",
+          "23",
+          "16",
+          "10",
+          "28",
+          "19",
+          "4",
+          "4",
+          "2",
+          "3",
+          "3",
+          "0",
+          "5",
+          "5",
+          "0",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-02-05",
+        "row": [
+          "Feb 5, 2009",
+          "Channel 2",
+          "Panels",
+          "25",
+          "14",
+          "10",
+          "26",
+          "18",
+          "3",
+          "4",
+          "2",
+          "3",
+          "4",
+          "0",
+          "5",
+          "6",
+          "0",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-02-02",
+        "row": [
+          "Feb 2, 2009",
+          "Channel 2",
+          "Panels",
+          "24",
+          "14",
+          "11",
+          "27",
+          "17",
+          "4",
+          "3",
+          "2",
+          "3",
+          "4",
+          "0",
+          "5",
+          "6",
+          "0",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-01-29",
+        "row": [
+          "Jan 29, 2009",
+          "Channel 2",
+          "Panels",
+          "23",
+          "13",
+          "10",
+          "29",
+          "16",
+          "4",
+          "4",
+          "2",
+          "3",
+          "4",
+          "0",
+          "5",
+          "5",
+          "2",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-01-26",
+        "row": [
+          "Jan 26, 2009",
+          "Channel 2",
+          "Panels",
+          "22",
+          "15",
+          "11",
+          "29",
+          "16",
+          "4",
+          "4",
+          "2",
+          "0",
+          "5",
+          "0",
+          "6",
+          "6",
+          "0",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-01-22",
+        "row": [
+          "Jan 22, 2009",
+          "Channel 2",
+          "Panels",
+          "24",
+          "15",
+          "10",
+          "30",
+          "15",
+          "4",
+          "3",
+          "2",
+          "2",
+          "4",
+          "0",
+          "5",
+          "6",
+          "0",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-01-19",
+        "row": [
+          "Jan 19, 2009",
+          "Channel 2",
+          "Panels",
+          "24",
+          "14",
+          "10",
+          "30",
+          "15",
+          "3",
+          "4",
+          "2",
+          "2",
+          "4",
+          "0",
+          "5",
+          "5",
+          "2",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-01-15",
+        "row": [
+          "Jan 15, 2009",
+          "Channel 2",
+          "Panels",
+          "27",
+          "15",
+          "8",
+          "29",
+          "13",
+          "3",
+          "4",
+          "3",
+          "2",
+          "4",
+          "0",
+          "5",
+          "5",
+          "2",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-01-12",
+        "row": [
+          "Jan 12, 2009",
+          "Channel 2",
+          "Panels",
+          "28",
+          "13",
+          "8",
+          "33",
+          "13",
+          "2",
+          "4",
+          "3",
+          "0",
+          "4",
+          "0",
+          "5",
+          "5",
+          "2",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-01-08",
+        "row": [
+          "Jan 8, 2009",
+          "Knesset Channel",
+          "Panels",
+          "27",
+          "15",
+          "9",
+          "31",
+          "12",
+          "0",
+          "4",
+          "3",
+          "2",
+          "4",
+          "0",
+          "4",
+          "5",
+          "2",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-01-05",
+        "row": [
+          "Jan 5, 2009",
+          "Channel 2",
+          "Panels",
+          "28",
+          "15",
+          "9",
+          "31",
+          "13",
+          "4",
+          "3",
+          "2",
+          "2",
+          "4",
+          "0",
+          "4",
+          "5",
+          "0",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2009-01-01",
+        "row": [
+          "Jan 1, 2009",
+          "Channel 2",
+          "Panels",
+          "27",
+          "14",
+          "8",
+          "30",
+          "11",
+          "10",
+          "3",
+          "3",
+          "0",
+          "6",
+          "7",
+          "1",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2008-12-29",
+        "row": [
+          "Dec 29, 2008",
+          "Channel 2",
+          "Panels",
+          "29",
+          "14",
+          "8",
+          "29",
+          "13",
+          "10",
+          "3",
+          "3",
+          "0",
+          "4",
+          "7",
+          "0",
+          "",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_lineage_cutoff",
+        "pollster": "Panels",
+        "pollster_id": "lazar_research",
+        "date": "2008-12-25",
+        "row": [
+          "Dec 25, 2008",
+          "Channel 2",
+          "Panels",
+          "27",
+          "11",
+          "10",
+          "30",
+          "10",
+          "3",
+          "4",
+          "3",
+          "6",
+          "0",
+          "4",
+          "7",
+          "2",
+          "Hatikva 3",
+          ""
+        ]
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 22, 2008",
+          "Channel 2",
+          "Panels",
+          "29",
+          "10",
+          "10"
+        ],
+        "date": "2008-12-22"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 19, 2008",
+          "Maariv",
+          "TNS Teleseker",
+          "30",
+          "12",
+          "9"
+        ],
+        "date": "2008-12-19"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 18, 2008",
+          "Channel 2",
+          "Panels",
+          "30",
+          "10",
+          "10"
+        ],
+        "date": "2008-12-18"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 16, 2008",
+          "Channel 2's \"Mishal Cham\"",
+          "Maagar Mochot",
+          "25",
+          "10",
+          "12"
+        ],
+        "date": "2008-12-16"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 15, 2008",
+          "Channel 2",
+          "Panels",
+          "27",
+          "13",
+          "11"
+        ],
+        "date": "2008-12-15"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 11, 2008",
+          "Maariv",
+          "TNS Teleseker",
+          "28",
+          "12",
+          "9"
+        ],
+        "date": "2008-12-11"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 10, 2008",
+          "Haaretz",
+          "Dialog",
+          "27",
+          "12",
+          "9"
+        ],
+        "date": "2008-12-10"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 10, 2008",
+          "Israel Radio's \"Hakol Diburim\" (It's All Talk)",
+          "Shvakim Panorama",
+          "20-21",
+          "14-15",
+          "12"
+        ],
+        "date": "2008-12-10"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 10, 2008",
+          "Yedioth Ahronoth",
+          "Dahaf",
+          "24",
+          "11",
+          "11"
+        ],
+        "date": "2008-12-10"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 4, 2008",
+          "Knesset Channel",
+          "Panels",
+          "27",
+          "7",
+          "11"
+        ],
+        "date": "2008-12-04"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 1, 2008",
+          "Channel 2",
+          "Panels",
+          "25",
+          "6",
+          "12"
+        ],
+        "date": "2008-12-01"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Dec 1, 2008",
+          "Israel Hayom",
+          "Gal Hadash (New Wave)",
+          "26",
+          "8",
+          "10"
+        ],
+        "date": "2008-12-01"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Nov 27, 2008",
+          "Knesset Channel",
+          "Panels",
+          "26",
+          "7",
+          "10"
+        ],
+        "date": "2008-11-27"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Nov 25, 2008",
+          "Channel 1",
+          "Geocartography",
+          "25",
+          "7",
+          "11"
+        ],
+        "date": "2008-11-25"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Nov 20, 2008",
+          "Haaretz",
+          "Dialog",
+          "28",
+          "10",
+          "10"
+        ],
+        "date": "2008-11-20"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Nov 20, 2008",
+          "Yedioth Ahronoth",
+          "Dahaf",
+          "26",
+          "8",
+          "11"
+        ],
+        "date": "2008-11-20"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Nov 19, 2008",
+          "Israel Radio's \"Hakol Diburim\" (It's All Talk)",
+          "Maagar Mochot",
+          "23",
+          "8",
+          "13"
+        ],
+        "date": "2008-11-19"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Nov 13, 2008",
+          "Israel Hayom",
+          "Gal Hadash (New Wave)",
+          "28",
+          "11",
+          "10"
+        ],
+        "date": "2008-11-13"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Oct 31, 2008",
+          "The Jerusalem Post",
+          "Smith",
+          "27",
+          "14",
+          "11"
+        ],
+        "date": "2008-10-31"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Oct 30, 2008",
+          "Haaretz",
+          "Dialog",
+          "31",
+          "10",
+          "10"
+        ],
+        "date": "2008-10-30"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Oct 30, 2008",
+          "Israel Hayom",
+          "Gal Hadash (New Wave)",
+          "30",
+          "13",
+          "10"
+        ],
+        "date": "2008-10-30"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Oct 29, 2008",
+          "Israel Radio's \"Hakol Diburim\" (It's All Talk)",
+          "Shvakim Panorama",
+          "22-23",
+          "16-17",
+          "11-12"
+        ],
+        "date": "2008-10-29"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Oct 28, 2008",
+          "Channel 1",
+          "Geocartography",
+          "32",
+          "10",
+          "9"
+        ],
+        "date": "2008-10-28"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Oct 27, 2008",
+          "Maariv",
+          "TNS Teleseker",
+          "31",
+          "11",
+          "8"
+        ],
+        "date": "2008-10-27"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Oct 27, 2008",
+          "Yedioth Ahronoth",
+          "Dahaf",
+          "29",
+          "11",
+          "11"
+        ],
+        "date": "2008-10-27"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Sep 11, 2008",
+          "Maariv",
+          "TNS Teleseker",
+          "25",
+          "14",
+          "9"
+        ],
+        "date": "2008-09-11"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Aug 29, 2008",
+          "Maariv",
+          "TNS Teleseker",
+          "23",
+          "12",
+          "9"
+        ],
+        "date": "2008-08-29"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Aug 1, 2008",
+          "Haaretz",
+          "Dialog",
+          "26",
+          "14",
+          "11"
+        ],
+        "date": "2008-08-01"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Aug 1, 2008",
+          "Maariv",
+          "TNS Teleseker",
+          "20",
+          "17",
+          "9"
+        ],
+        "date": "2008-08-01"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Aug 1, 2008",
+          "Yedioth Ahronoth",
+          "Dahaf",
+          "29",
+          "14",
+          "10"
+        ],
+        "date": "2008-08-01"
+      },
+      {
+        "election": "knesset-18",
+        "reason": "before_stable_list_cutoff",
+        "row": [
+          "Mar 28, 2006",
+          "",
+          "Current Composition",
+          "29",
+          "19",
+          "12"
+        ],
+        "date": "2006-03-28"
+      }
+    ],
+    "duplicates_removed": [
+      {
+        "kept": {
+          "pollster": "lazar_research",
+          "election": "knesset-25",
+          "date": "2022-10-13",
+          "source": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369",
+          "outlet": "Maariv",
+          "source_pollster_name": "Panels Politics",
+          "parties": {
+            "likud": 32,
+            "yesh_atid": 24,
+            "national_unity": 12,
+            "shas": 8,
+            "jewish_home": 0,
+            "labor": 5,
+            "utj": 7,
+            "yisrael_beiteinu": 6,
+            "religious_zionism": 13,
+            "hadash_taal": 4,
+            "meretz": 5,
+            "raam": 4,
+            "balad": 0
+          }
+        },
+        "duplicate": {
+          "pollster": "lazar_research",
+          "election": "knesset-25",
+          "date": "2022-10-13",
+          "source": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369",
+          "outlet": "Maariv",
+          "source_pollster_name": "Panels Politics",
+          "parties": {
+            "likud": 32,
+            "yesh_atid": 24,
+            "national_unity": 12,
+            "shas": 8,
+            "jewish_home": 0,
+            "labor": 5,
+            "utj": 7,
+            "yisrael_beiteinu": 6,
+            "religious_zionism": 13,
+            "hadash_taal": 4,
+            "meretz": 5,
+            "raam": 4,
+            "balad": 0
+          }
+        }
+      },
+      {
+        "kept": {
+          "pollster": "lazar_research",
+          "election": "knesset-25",
+          "date": "2022-10-04",
+          "source": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369",
+          "outlet": "Mako/Knesset Channel",
+          "source_pollster_name": "Panels Politics",
+          "parties": {
+            "likud": 32,
+            "yesh_atid": 24,
+            "national_unity": 11,
+            "shas": 8,
+            "jewish_home": 0,
+            "labor": 6,
+            "utj": 7,
+            "yisrael_beiteinu": 6,
+            "religious_zionism": 13,
+            "hadash_taal": 4,
+            "meretz": 5,
+            "raam": 4,
+            "balad": 0
+          }
+        },
+        "duplicate": {
+          "pollster": "lazar_research",
+          "election": "knesset-25",
+          "date": "2022-10-04",
+          "source": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369",
+          "outlet": "Mako/Knesset Channel",
+          "source_pollster_name": "Panels Politics",
+          "parties": {
+            "likud": 32,
+            "yesh_atid": 24,
+            "national_unity": 11,
+            "shas": 8,
+            "jewish_home": 0,
+            "labor": 6,
+            "utj": 7,
+            "yisrael_beiteinu": 6,
+            "religious_zionism": 13,
+            "hadash_taal": 4,
+            "meretz": 5,
+            "raam": 4,
+            "balad": 0
+          }
+        }
+      },
+      {
+        "kept": {
+          "pollster": "direct_polls_shared",
+          "election": "knesset-25",
+          "date": "2022-09-29",
+          "source": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369",
+          "outlet": "Channel 14",
+          "source_pollster_name": "Direct Polls",
+          "parties": {
+            "likud": 35,
+            "yesh_atid": 23,
+            "national_unity": 13,
+            "shas": 9,
+            "jewish_home": 0,
+            "labor": 4,
+            "utj": 7,
+            "yisrael_beiteinu": 6,
+            "religious_zionism": 11,
+            "hadash_taal": 4,
+            "meretz": 4,
+            "raam": 4,
+            "balad": 0
+          }
+        },
+        "duplicate": {
+          "pollster": "direct_polls_shared",
+          "election": "knesset-25",
+          "date": "2022-09-29",
+          "source": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369",
+          "outlet": "Channel 14",
+          "source_pollster_name": "Direct Polls",
+          "parties": {
+            "likud": 35,
+            "yesh_atid": 23,
+            "national_unity": 13,
+            "shas": 9,
+            "jewish_home": 0,
+            "labor": 4,
+            "utj": 7,
+            "yisrael_beiteinu": 6,
+            "religious_zionism": 11,
+            "hadash_taal": 4,
+            "meretz": 4,
+            "raam": 4,
+            "balad": 0
+          }
+        }
+      }
+    ],
+    "conflicting_same_day_rows": [
+      {
+        "pollster": "lazar_research",
+        "election": "knesset-25",
+        "date": "2022-09-29",
+        "polls": [
+          {
+            "pollster": "lazar_research",
+            "election": "knesset-25",
+            "date": "2022-09-29",
+            "source": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369",
+            "outlet": "Maariv",
+            "source_pollster_name": "Panels Politics",
+            "parties": {
+              "likud": 31,
+              "yesh_atid": 24,
+              "national_unity": 13,
+              "shas": 8,
+              "jewish_home": 0,
+              "labor": 5,
+              "utj": 7,
+              "yisrael_beiteinu": 6,
+              "religious_zionism": 13,
+              "hadash_taal": 4,
+              "meretz": 5,
+              "raam": 4,
+              "balad": 0
+            }
+          },
+          {
+            "pollster": "lazar_research",
+            "election": "knesset-25",
+            "date": "2022-09-29",
+            "source": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369",
+            "outlet": "Mako/Knesset Channel",
+            "source_pollster_name": "Panels Politics",
+            "parties": {
+              "likud": 32,
+              "yesh_atid": 24,
+              "national_unity": 12,
+              "shas": 8,
+              "jewish_home": 0,
+              "labor": 5,
+              "utj": 7,
+              "yisrael_beiteinu": 6,
+              "religious_zionism": 13,
+              "hadash_taal": 4,
+              "meretz": 5,
+              "raam": 4,
+              "balad": 0
+            }
+          }
+        ]
+      },
+      {
+        "pollster": "midgam_geva",
+        "election": "knesset-21",
+        "date": "2019-04-04",
+        "polls": [
+          {
+            "pollster": "midgam_geva",
+            "election": "knesset-21",
+            "date": "2019-04-04",
+            "source": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_April_2019_Israeli_legislative_election&oldid=1368358661",
+            "outlet": "Midgam/Yedioth Ahronoth",
+            "source_pollster_name": "Midgam/Yedioth Ahronoth",
+            "parties": {
+              "likud": 26,
+              "labor": 11,
+              "blue_white": 30,
+              "kulanu": 5,
+              "raam_balad": 4,
+              "shas": 5,
+              "utj": 7,
+              "urwp": 5,
+              "yisrael_beiteinu": 4,
+              "meretz": 5,
+              "hadash_taal": 7,
+              "new_right": 6,
+              "gesher": 0,
+              "zehut": 5
+            }
+          },
+          {
+            "pollster": "midgam_geva",
+            "election": "knesset-21",
+            "date": "2019-04-04",
+            "source": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_April_2019_Israeli_legislative_election&oldid=1368358661",
+            "outlet": "Midgam/iPanel/Channel 12",
+            "source_pollster_name": "Midgam/iPanel/Channel 12",
+            "parties": {
+              "likud": 26,
+              "labor": 10,
+              "blue_white": 30,
+              "kulanu": 5,
+              "raam_balad": 4,
+              "shas": 5,
+              "utj": 7,
+              "urwp": 5,
+              "yisrael_beiteinu": 5,
+              "meretz": 5,
+              "hadash_taal": 7,
+              "new_right": 6,
+              "gesher": 0,
+              "zehut": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "errors": [],
+  "model_errors": []
+}
