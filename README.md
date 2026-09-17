@@ -71,3 +71,15 @@ The Pages workflow uses GitHub's Actions deployment source and generates the sta
 All user-facing application copy is Hebrew and the document is `dir="rtl"`. Code, filenames, documentation, and identifiers are English.
 
 PollTrust reports descriptive statistical performance. It is not voting advice and does not predict who should win an election.
+
+### One-time historical collection
+
+The production historical input can be collected reproducibly with:
+
+```bash
+python scripts/build_historical_dataset.py
+python scripts/build_historical_model.py --input data/historical-polls.json --output data/historical-model.json
+python -m pytest
+```
+
+The collector caches source HTML under `.cache/historical/`, so an interrupted or repeated run does not redownload successful sources. Use `--refresh` to deliberately refetch. By default the build fails closed if any configured archive cannot be parsed; `--allow-partial` is available only for inspection/debugging. The generated JSON records source provenance and per-source poll counts. Commit `data/historical-polls.json` only after reviewing the provenance/counts and tests.
