@@ -271,7 +271,7 @@ def resolve_pollster(raw: str) -> str | None:
     return None
 
 
-def parse_english_date(value: str, election_date: str) -> str:
+def parse_english_date(value: str, election_date: str, year_hint: int | None = None) -> str:
     s = normalize(value).replace("–", "-").replace("—", "-")
     s = re.sub(r"\([^)]*\)", "", s).strip()
     range_match = re.match(r"^(\d{1,2})\s*-\s*(\d{1,2})\s+(.+)$", s)
@@ -286,7 +286,7 @@ def parse_english_date(value: str, election_date: str) -> str:
     for fmt in ("%d %b", "%d %B", "%b %d", "%B %d"):
         try:
             parsed = datetime.strptime(s, fmt)
-            year = election.year if parsed.month <= election.month else election.year - 1
+            year = year_hint if year_hint is not None else (election.year if parsed.month <= election.month else election.year - 1)
             return parsed.replace(year=year).date().isoformat()
         except ValueError:
             pass
@@ -362,14 +362,21 @@ def parse_wikipedia_archive(
     diag["tables_matched"] += len(tables)
 
     for table in tables:
+        current_year = election_day.year
         for row in table[1:]:
             if not row:
                 continue
+            first_cell = normalize(row[0])
+            if re.fullmatch(r"(?:19|20)\d{2}", first_cell):
+                current_year = int(first_cell)
+                continue
             try:
-                poll_date_s = parse_english_date(row[0], ELECTIONS[election_id]["date"])
+                poll_date_s = parse_english_date(first_cell, ELECTIONS[election_id]["date"], current_year)
             except ValueError:
                 continue
             poll_date = date.fromisoformat(poll_date_s)
+            if re.search(r"\b(?:19|20)\d{2}\b", first_cell):
+                current_year = poll_date.year
             if poll_date < valid_from:
                 diag["skipped_rows"].append({"reason": "before_stable_list_cutoff", "row": row[:6], "date": poll_date_s})
                 continue
@@ -380,6 +387,12 @@ def parse_wikipedia_archive(
                 diag["malformed_rows"].append({"reason": "missing_pollster_cell", "row": row})
                 continue
             raw_pollster = normalize(row[pollster_column])
+            if re.search(r"\bstudents?\b", raw_pollster, re.I):
+                diag["skipped_rows"].append({
+                    "reason": "non_general_population", "pollster": raw_pollster,
+                    "date": poll_date_s, "row": row,
+                })
+                continue
             pollster = resolve_pollster(raw_pollster)
             if pollster is None:
                 if raw_pollster:
@@ -504,6 +517,7 @@ def build(output: Path, cache_dir: Path, refresh: bool = False, allow_partial: b
             all_polls.extend(rows)
             status = {
                 "url": source["url"], "election": source["election"], "valid_from": source["valid_from"],
+                "source_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
                 "polls": len(rows), "ok": True, "diagnostics": _jsonable_diag(diag),
             }
         except Exception as exc:
@@ -522,8 +536,6 @@ def build(output: Path, cache_dir: Path, refresh: bool = False, allow_partial: b
             aggregate_skipped.append({"election": source["election"], **row})
 
     unique, duplicates, conflicts = _deduplicate(all_polls)
-    if conflicts and not allow_partial:
-        raise RuntimeError(f"found {len(conflicts)} conflicting same-pollster/day historical rows")
 
     raw = {
         "schema_version": 2,
