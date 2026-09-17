@@ -31,6 +31,19 @@ PARTY_ORDER = [
 
 DEFAULT_VALID_FROM = "2026-09-09"
 
+ALLOWED_OUTLETS = {
+    "Channel 13",
+    "Channel 14",
+    "Channel 16",
+    "HaHadashot 12",
+    "i24 News",
+    "Israel Hayom",
+    "Kan 11",
+    "Maariv",
+    "Walla",
+    "Zman Yisrael",
+}
+
 POLLSTER_ALIASES = {
     "midgam r&c": "midgam_geva",
     "kantar": "kantar_hasid",
@@ -185,6 +198,10 @@ def parse_current_polling_page(
             if malformed or sum(parties.values()) != 120:
                 continue
 
+            outlet = normalize(raw_row[2])
+            if outlet not in ALLOWED_OUTLETS:
+                continue
+
             sample_size = None
             sample_text = normalize(raw_row[3]).replace(",", "")
             if sample_text.isdigit():
@@ -194,7 +211,7 @@ def parse_current_polling_page(
                 "pollster": pollster,
                 "date": poll_date_s,
                 "source": source_url,
-                "outlet": normalize(raw_row[2]) or None,
+                "outlet": outlet,
                 "source_pollster_name": normalize(raw_row[1]),
                 "sample_size": sample_size,
                 "parties": parties,
