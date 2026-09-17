@@ -29,7 +29,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-WIKI = "https://en.wikipedia.org/wiki/"
+WIKI = "https://en.wikipedia.org/wiki/"  # retained for coverage-note references
 
 ELECTIONS: dict[str, dict[str, Any]] = {
     "knesset-25": {
