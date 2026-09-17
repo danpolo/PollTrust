@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {"name":"manual-normalized-import","type":"repository_fixture","enabled":false,"path":"data/incoming/current-polls.json"},
+    {"name":"remote-normalized-json","type":"json_feed","enabled":false,"url":"https://example.invalid/polltrust/current-polls.json"}
+  ]
+}
