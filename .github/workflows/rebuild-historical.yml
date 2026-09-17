@@ -1,4 +1,4 @@
-name: Rebuild historical model
+name: Rebuild historical calibration
 on:
   workflow_dispatch:
 permissions:
@@ -12,9 +12,17 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r requirements-dev.txt
-      - run: python scripts/build_historical_model.py
+      - name: Recollect pinned historical sources
+        run: python scripts/build_historical_dataset.py --refresh
+      - name: Rebuild production model
+        run: python scripts/build_historical_model.py
+      - name: Audit dataset and model
+        run: python scripts/validate_historical_dataset.py --model data/historical-model.json
       - run: python -m pytest
       - uses: actions/upload-artifact@v4
         with:
-          name: historical-model
-          path: data/historical-model.json
+          name: historical-calibration
+          path: |
+            data/historical-polls.json
+            data/historical-model.json
+            data/historical-validation.json
