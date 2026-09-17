@@ -3,7 +3,7 @@ on:
   push:
     branches: [work/real-historical-data]
 permissions:
-  contents: read
+  contents: write
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -21,6 +21,15 @@ jobs:
         run: python scripts/validate_historical_dataset.py --model data/historical-model.json
       - name: Run complete tests
         run: python -m pytest
+      - name: Commit validated historical calibration
+        if: github.ref == 'refs/heads/work/real-historical-data'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/historical-polls.json data/historical-model.json data/historical-validation.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Commit validated historical calibration data"
+          git push
       - name: Print audit summary
         if: always()
         run: |
