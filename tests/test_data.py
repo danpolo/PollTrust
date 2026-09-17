@@ -11,8 +11,13 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_current_poll_file_is_valid():
     election = json.loads((ROOT / "data/election.json").read_text(encoding="utf-8"))
     current = json.loads((ROOT / "data/current-polls.json").read_text(encoding="utf-8"))
+    active = set(election["pollsters"])
+    assert current["polls"], "current poll dataset must not be empty in production"
+    assert {poll["pollster"] for poll in current["polls"]} == active
     for poll in current["polls"]:
-        validate_poll(poll, set(election["pollsters"]))
+        validate_poll(poll, active)
+        assert date.fromisoformat(poll["date"]) < date.fromisoformat(election["election_date"])
+    assert current.get("last_successful_check")
 
 
 def test_committed_historical_dataset_is_production_and_valid():
