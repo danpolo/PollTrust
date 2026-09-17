@@ -64,6 +64,8 @@ The frontend consumes only the generated static model; it does not recompute the
 - `rebuild-historical.yml`: manually produces a reproducible historical-model artifact.
 - `deploy-pages.yml`: builds, tests, stages, and deploys GitHub Pages from `main`.
 
+The Pages workflow uses GitHub's Actions deployment source and generates the static historical model during the build.
+
 ## UI
 
 All user-facing application copy is Hebrew and the document is `dir="rtl"`. Code, filenames, documentation, and identifiers are English.
