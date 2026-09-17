@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       refresh:
-        description: Refetch source archives instead of using cache
+        description: Refetch pinned source archives instead of using cache
         required: false
         type: boolean
         default: true
@@ -21,7 +21,9 @@ jobs:
       - name: Collect historical polls
         run: python scripts/build_historical_dataset.py ${{ inputs.refresh && '--refresh' || '' }}
       - name: Build production historical model
-        run: python scripts/build_historical_model.py --input data/historical-polls.json --output data/historical-model.json
+        run: python scripts/build_historical_model.py
+      - name: Audit historical data
+        run: python scripts/validate_historical_dataset.py --model data/historical-model.json
       - run: python -m pytest
       - uses: actions/upload-artifact@v4
         with:
@@ -29,3 +31,4 @@ jobs:
           path: |
             data/historical-polls.json
             data/historical-model.json
+            data/historical-validation.json

@@ -19,7 +19,12 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r requirements-dev.txt
-      - run: python scripts/build_historical_model.py
+      - name: Rebuild historical model deterministically
+        run: python scripts/build_historical_model.py --output /tmp/historical-model.json
+      - name: Verify committed model matches production input
+        run: cmp data/historical-model.json /tmp/historical-model.json
+      - name: Validate production historical files
+        run: python scripts/validate_historical_dataset.py --model data/historical-model.json --output /tmp/historical-validation.json
       - run: python -m pytest
       - run: |
           mkdir -p _site

@@ -58,16 +58,28 @@ def balanced_benchmark(predictions: list[tuple[str, Mapping[str, float]]], clust
 
 
 def leave_one_election_out_debiased_errors(records: list[dict]) -> list[float]:
+    """Correct only party identifiers that are comparable across elections.
+
+    A party/list that exists only in the held-out election receives no invented
+    correction. Likewise, parties that existed only in other elections are not
+    injected into the held-out vector. This matters in Israel where alliances
+    and candidate lists change frequently between election cycles.
+    """
     output: list[float] = []
     for i, row in enumerate(records):
         others = [r for j, r in enumerate(records) if j != i]
         if not others:
             output.append(seat_transfer_distance(row["predicted"], row["actual"]))
             continue
-        parties = set(row["predicted"]) | set(row["actual"])
-        for r in others:
-            parties |= set(r["predicted"]) | set(r["actual"])
-        error_vector = {p: mean(float(r["predicted"].get(p, 0)) - float(r["actual"].get(p, 0)) for r in others) for p in parties}
-        corrected = {p: float(row["predicted"].get(p, 0)) - error_vector[p] for p in parties}
+        target_parties = set(row["predicted"]) | set(row["actual"])
+        corrected: dict[str, float] = {}
+        for party in target_parties:
+            comparable = [
+                float(r["predicted"].get(party, 0)) - float(r["actual"].get(party, 0))
+                for r in others
+                if party in r["predicted"] or party in r["actual"]
+            ]
+            correction = mean(comparable) if comparable else 0.0
+            corrected[party] = float(row["predicted"].get(party, 0)) - correction
         output.append(seat_transfer_distance(corrected, row["actual"]))
     return output
