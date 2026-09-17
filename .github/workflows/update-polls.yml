@@ -3,6 +3,12 @@ on:
   schedule:
     - cron: '17 3 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - data/sources.json
+      - polltrust/adapters/**
+      - scripts/update_current_polls.py
 permissions:
   contents: write
 concurrency:
@@ -16,10 +22,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python scripts/update_current_polls.py
-      - run: |
+      - name: Fetch and merge current polls
+        run: python scripts/update_current_polls.py
+      - name: Validate current data
+        run: |
           python -m pip install -r requirements-dev.txt
-          python -m pytest tests/test_ingestion.py tests/test_data.py
+          python -m pytest tests/test_current_poll_adapter.py tests/test_ingestion.py tests/test_data.py
       - name: Commit valid changes
         run: |
           if git diff --quiet -- data/current-polls.json; then exit 0; fi

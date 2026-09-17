@@ -12,7 +12,7 @@ The historical calibration is now sourced production data rather than demo data.
 
 The collector uses immutable Wikipedia revision URLs for reproducible bulk election tables, records the SHA-256 of each fetched source snapshot, and keeps source provenance on every poll. TheMadad remains a useful cross-check, but it is not a required automated dependency because it returns HTTP 403 to GitHub Actions.
 
-Current-poll network sources remain disabled by default until each deterministic source adapter is validated. This is deliberate fail-safe behavior: an unavailable or broken current source must never erase the last valid dataset.
+Current-poll ingestion is now enabled through a deterministic adapter for the main 2026 Israeli election mandate-poll table on Wikipedia. Only the eight approved current pollster identities are accepted, publisher names are allowlisted, only post-list-closure rows (from 9 September 2026 onward) are eligible, and every imported mandate vector must total exactly 120 seats. The stored dataset is append-only under normal updates, so an unavailable or broken source cannot erase the last valid polls.
 
 ## Historical coverage
 
@@ -108,7 +108,13 @@ The collector caches source HTML under `.cache/historical/`. The generated datas
 
 ## Current-poll ingestion
 
-`data/sources.json` configures adapters. v1 includes normalized repository-fixture and remote-JSON adapters. Publisher-specific adapters can implement `PollSourceAdapter.fetch()`, normalize party identifiers, validate expected shape and 120-seat totals, and then be enabled. Incoming rows are validated before mutation and deduplicated.
+`data/sources.json` configures adapters. The enabled production adapter currently reads the non-scenario 2026 mandate table from Wikipedia and normalizes the final candidate-list configuration into stable party identifiers.
+
+The adapter accepts only these current identities: Midgam/Mano Geva, Kantar/Dudi Hasid, Lazar Research, Maagar Mohot, Direct Polls/Zuriel Sharon, NEXT DATA/Shlomo Filber, the Channel 13 HaMadad consortium, and Yossi Tatika. It also allowlists the expected publishers and rejects rows before 9 September 2026, malformed rows, unknown pollsters/publishers, and any projection that does not sum to exactly 120 mandates.
+
+`data/current-polls.json` retains the normalized current-cycle rows. The frontend selects the newest poll per pollster and displays its positive-seat mandate vector together with that pollster's historical reliability metrics. `last_successful_check` tracks source availability separately from `last_successful_update`, so a quiet polling day is not mistaken for a failed ingestion job.
+
+The daily GitHub Action reruns the adapter, validates the resulting file, and commits only valid data. A source failure leaves the last valid current-poll dataset untouched.
 
 ## GitHub Actions
 
