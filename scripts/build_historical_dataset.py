@@ -115,7 +115,7 @@ ELECTIONS: dict[str, dict[str, Any]] = {
 SOURCES: list[dict[str, Any]] = [
     {
         "election": "knesset-25",
-        "url": WIKI + "Opinion_polling_for_the_2022_Israeli_legislative_election",
+        "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369",
         "valid_from": "2022-09-16", "meta_columns": 3, "pollster_column": 1,
         "party_order": ["likud", "yesh_atid", "national_unity", "shas", "jewish_home",
                         "labor", "utj", "yisrael_beiteinu", "religious_zionism",
@@ -124,7 +124,7 @@ SOURCES: list[dict[str, Any]] = [
     },
     {
         "election": "knesset-24",
-        "url": WIKI + "Opinion_polling_for_the_2021_Israeli_legislative_election",
+        "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2021_Israeli_legislative_election&oldid=1357147509",
         "valid_from": "2021-02-05", "meta_columns": 3, "pollster_column": 1,
         "party_order": ["likud", "yesh_atid", "blue_white", "joint_list", "shas", "utj",
                         "yisrael_beiteinu", "meretz", "raam", "yamina", "new_hope",
@@ -133,7 +133,7 @@ SOURCES: list[dict[str, Any]] = [
     },
     {
         "election": "knesset-23",
-        "url": WIKI + "Opinion_polling_for_the_2020_Israeli_legislative_election",
+        "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2020_Israeli_legislative_election&oldid=1357147489",
         "valid_from": "2020-01-17", "meta_columns": 3, "pollster_column": 1,
         "party_order": ["blue_white", "likud", "joint_list", "labor_gesher_meretz",
                         "shas", "yisrael_beiteinu", "utj", "yamina", "otzma"],
@@ -141,7 +141,7 @@ SOURCES: list[dict[str, Any]] = [
     },
     {
         "election": "knesset-22",
-        "url": WIKI + "Opinion_polling_for_the_September_2019_Israeli_legislative_election",
+        "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_September_2019_Israeli_legislative_election&oldid=1357147577",
         "valid_from": "2019-08-02", "meta_columns": 3, "pollster_column": 1,
         "party_order": ["likud", "blue_white", "joint_list", "shas", "utj", "yamina",
                         "labor_gesher", "yisrael_beiteinu", "democratic_union", "zehut", "otzma"],
@@ -149,7 +149,7 @@ SOURCES: list[dict[str, Any]] = [
     },
     {
         "election": "knesset-21",
-        "url": WIKI + "Opinion_polling_for_the_April_2019_Israeli_legislative_election",
+        "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_April_2019_Israeli_legislative_election&oldid=1368358661",
         "valid_from": "2019-02-22", "meta_columns": 2, "pollster_column": 1,
         "party_order": ["likud", "labor", "blue_white", "kulanu", "raam_balad", "shas", "utj",
                         "urwp", "yisrael_beiteinu", "meretz", "hadash_taal", "new_right",
@@ -158,7 +158,7 @@ SOURCES: list[dict[str, Any]] = [
     },
     {
         "election": "knesset-20",
-        "url": WIKI + "Opinion_polling_for_the_2015_Israeli_legislative_election",
+        "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2015_Israeli_legislative_election&oldid=1368358626",
         "valid_from": "2015-01-30", "meta_columns": 2, "pollster_column": 1,
         "party_order": ["likud", "yisrael_beiteinu", "yesh_atid", "zionist_union",
                         "jewish_home", "shas", "utj", "meretz", "joint_list", "yachad", "kulanu"],
@@ -166,7 +166,7 @@ SOURCES: list[dict[str, Any]] = [
     },
     {
         "election": "knesset-19",
-        "url": WIKI + "Opinion_polling_for_the_2013_Israeli_legislative_election",
+        "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2013_Israeli_legislative_election&oldid=1368358600",
         "valid_from": "2012-12-07", "meta_columns": 2, "pollster_column": 1,
         "party_order": ["kadima", "likud_beiteinu", "labor", "shas", "utj", "jewish_home",
                         "ual_taal", "hadash", "balad", "meretz", "yesh_atid", "otzma",
@@ -175,7 +175,7 @@ SOURCES: list[dict[str, Any]] = [
     },
     {
         "election": "knesset-18",
-        "url": WIKI + "Opinion_polling_for_the_2009_Israeli_legislative_election",
+        "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2009_Israeli_legislative_election&oldid=1357147435",
         "valid_from": "2008-12-23", "meta_columns": 3, "pollster_column": 2,
         "party_order": ["kadima", "labor", "shas", "likud", "yisrael_beiteinu", "ual_taal",
                         "hadash", "balad", "jewish_home", "national_union", "gil", "utj",
