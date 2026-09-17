@@ -354,6 +354,12 @@ def parse_seat_cell(value: str, *, allow_other_text: bool = False) -> float:
     s = normalize(value).replace(",", "")
     if not s or s in {"-", "–", "—", "N/A", "N/a", "n/a", "N/a—"}:
         return 0.0
+    # Some Wikipedia rows encode a seat projection together with the vote share,
+    # e.g. "4(3.9%)". Keep the leading seat count. A pure percentage such as
+    # "(3.1%)" means the party is below threshold and therefore has zero seats.
+    seat_with_share = re.fullmatch(r"(\d+(?:\.\d+)?)\s*\([^)]*%\)", s)
+    if seat_with_share:
+        return float(seat_with_share.group(1))
     if "%" in s:
         return 0.0
     if allow_other_text:
