@@ -206,7 +206,7 @@ _ALIAS_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     ("direct_polls_shared", re.compile(r"\bdirect\s+polls?\b", re.I)),
     ("kantar_hasid", re.compile(r"\bkantar\b", re.I)),
     ("lazar_research", re.compile(r"\bpanels(?:\s+politics)?\b", re.I)),
-    ("maagar_mohot", re.compile(r"\bma['’]?a?gar\s+mo(?:h|c)ot\b|\bmaagar\s+mo(?:h|c)ot\b", re.I)),
+    ("maagar_mohot", re.compile(r"\bma['’]?a?gar\s+mo(?:h|ch)ot\b|\bmaagar\s+mo(?:h|ch)ot\b", re.I)),
     ("midgam_geva", re.compile(r"\bmidgam(?:\s+research)?\b", re.I)),
 ]
 
