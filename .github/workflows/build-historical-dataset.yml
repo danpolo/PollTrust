@@ -1,0 +1,31 @@
+name: Build historical dataset
+on:
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: Refetch source archives instead of using cache
+        required: false
+        type: boolean
+        default: true
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Collect historical polls
+        run: python scripts/build_historical_dataset.py ${{ inputs.refresh && '--refresh' || '' }}
+      - name: Build production historical model
+        run: python scripts/build_historical_model.py --input data/historical-polls.json --output data/historical-model.json
+      - run: python -m pytest
+      - uses: actions/upload-artifact@v4
+        with:
+          name: polltrust-historical-data
+          path: |
+            data/historical-polls.json
+            data/historical-model.json
