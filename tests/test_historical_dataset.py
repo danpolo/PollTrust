@@ -59,3 +59,38 @@ def test_history_is_configured_back_through_2009():
 
 def test_official_result_vectors_are_exactly_120():
     assert all(sum(e["result"].values()) == 120 for e in ELECTIONS.values())
+
+
+def test_year_section_prevents_old_rows_being_inferred_as_election_year():
+    html = """<table>
+    <tr><th>Date</th><th>Polling firm</th><th>Likud</th><th>Yisrael Beitenu</th><th>Yesh Atid</th><th>Zionist Union</th><th>Jewish Home</th><th>Shas</th><th>UTJ</th><th>Meretz</th><th>Joint List</th><th>Yachad</th><th>Kulanu</th></tr>
+    <tr><td>3 Feb 2015</td><td>Panels/Knesset Channel</td><td>25</td><td>5</td><td>11</td><td>24</td><td>13</td><td>6</td><td>7</td><td>5</td><td>12</td><td>4</td><td>8</td></tr>
+    <tr><td>2014</td></tr>
+    <tr><td>3 Feb</td><td>Panels/Knesset Channel</td><td>30</td><td>13</td><td>19</td><td>5</td><td>16</td><td>9</td><td>6</td><td>11</td><td>4</td><td>3</td><td>4</td></tr>
+    </table>"""
+    diagnostics = {}
+    rows = parse_wikipedia_archive(
+        html,
+        "knesset-20",
+        "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2015_Israeli_legislative_election",
+        diagnostics=diagnostics,
+    )
+    assert [r["date"] for r in rows] == ["2015-02-03"]
+    assert any(r["date"] == "2014-02-03" and r["reason"] == "before_stable_list_cutoff"
+               for r in diagnostics["skipped_rows"])
+
+
+def test_subgroup_poll_is_reported_and_excluded():
+    html = """<table>
+    <tr><th>Date</th><th>Polling firm</th><th>Likud</th><th>Labor</th><th>Blue &amp; White</th><th>Kulanu</th><th>Raam-Balad</th><th>Shas</th><th>UTJ</th><th>URWP</th><th>Yisrael Beitenu</th><th>Meretz</th><th>Hadash-Taal</th><th>New Right</th><th>Gesher</th><th>Zehut</th></tr>
+    <tr><td>31 Mar 2019</td><td>Panels/National Union of Students</td><td>13</td><td>14</td><td>47</td><td>0</td><td>0</td><td>0</td><td>0</td><td>7</td><td>0</td><td>15</td><td>0</td><td>7</td><td>0</td><td>17</td></tr>
+    </table>"""
+    diagnostics = {}
+    rows = parse_wikipedia_archive(
+        html,
+        "knesset-21",
+        "https://en.wikipedia.org/wiki/Opinion_polling_for_the_April_2019_Israeli_legislative_election",
+        diagnostics=diagnostics,
+    )
+    assert rows == []
+    assert any(r["reason"] == "non_general_population" for r in diagnostics["skipped_rows"])
