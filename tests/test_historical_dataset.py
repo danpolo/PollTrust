@@ -94,3 +94,8 @@ def test_subgroup_poll_is_reported_and_excluded():
     )
     assert rows == []
     assert any(r["reason"] == "non_general_population" for r in diagnostics["skipped_rows"])
+
+
+def test_target_aliases_from_older_archives_are_resolved():
+    assert resolve_pollster("Maariv/Maagar") == "maagar_mohot"
+    assert resolve_pollster("Reshet Bet/Meno Geva") == "midgam_geva"
