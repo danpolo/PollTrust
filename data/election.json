@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "election_id": "knesset-26",
+  "election_date": "2026-10-27",
+  "election_date_source": "https://pop.education.gov.il/headquarters-civil-education-coexistence/elections-knesset/",
+  "last_update_time": "2026-09-18T00:00:00+03:00",
+  "stale_after_hours": 72,
+  "pollsters": {
+    "midgam_geva": {"name_he":"מדגם / מנו גבע","outlet_he":"חדשות 12"},
+    "kantar_hasid": {"name_he":"קנטאר / דודי חסיד","outlet_he":"כאן 11"},
+    "lazar_research": {"name_he":"לזר מחקרים / מנחם לזר","outlet_he":"מעריב"},
+    "maagar_mohot": {"name_he":"מאגר מוחות / יצחק כ״ץ","outlet_he":"כלי תקשורת נוכחי"},
+    "direct_polls_sharon": {"name_he":"Direct Polls / צוריאל שרון","outlet_he":"i24NEWS","lineage_note_he":"חלק מהערכת האמינות ההיסטורית מבוסס על התקופה שבה הסוקר פעל במסגרת Direct Polls המשותפת. משקל היסטוריה זו מופחת ויורד ככל שמצטברים נתונים עצמאיים מהפעילות הנוכחית."},
+    "next_data_filber": {"name_he":"NEXT DATA / שלמה פילבר","outlet_he":"ערוץ 14","lineage_note_he":"חלק מהערכת האמינות ההיסטורית מבוסס על התקופה שבה הסוקר פעל במסגרת Direct Polls המשותפת. משקל היסטוריה זו מופחת ויורד ככל שמצטברים נתונים עצמאיים מהפעילות הנוכחית."},
+    "hamadad_consortium": {"name_he":"המדד / קונסורציום חדשות 13","outlet_he":"חדשות 13"},
+    "tatika": {"name_he":"יוסי טאטיקה / Tatika Research & Media","outlet_he":"כלי תקשורת נוכחי"}
+  }
+}
