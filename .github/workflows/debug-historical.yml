@@ -1,30 +1,56 @@
-name: Debug historical sources
+name: Validate historical sources
 on:
   push:
     branches: [work/real-historical-data]
 permissions:
   contents: read
 jobs:
-  debug:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Run collector against live sources
-        run: python scripts/build_historical_dataset.py --refresh --allow-partial
-      - name: Print provenance
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Build historical dataset from live sources
+        run: python scripts/build_historical_dataset.py --refresh
+      - name: Build production historical model
+        run: python scripts/build_historical_model.py --input data/historical-polls.json --output data/historical-model.json
+      - name: Audit dataset and model
+        run: python scripts/validate_historical_dataset.py --model data/historical-model.json
+      - name: Run complete tests
+        run: python -m pytest
+      - name: Print audit summary
         if: always()
         run: |
-          if [ -f data/historical-polls.json ]; then
+          if [ -f data/historical-validation.json ]; then
             python - <<'PY'
           import json
-          from collections import Counter
-          d=json.load(open('data/historical-polls.json'))
-          print(json.dumps(d.get('provenance',{}), ensure_ascii=False, indent=2))
-          print('polls', len(d.get('polls',[])))
-          print('by election', Counter(p['election'] for p in d.get('polls',[])))
-          print('by pollster', Counter(p['pollster'] for p in d.get('polls',[])))
+          d=json.load(open('data/historical-validation.json'))
+          print(json.dumps({
+              'valid': d.get('valid'),
+              'poll_count': d.get('poll_count'),
+              'by_election': d.get('poll_counts_by_election'),
+              'by_pollster': d.get('poll_counts_by_pollster'),
+              'lineage_coverage': d.get('lineage_coverage'),
+              'same_day_competing': d.get('same_day_competing_projections'),
+              'suspicious_values': d.get('suspicious_imported_values'),
+              'unmatched_pollsters': d.get('parser_diagnostics',{}).get('unmatched_pollster_names'),
+              'malformed_count': len(d.get('parser_diagnostics',{}).get('malformed_rows',[])),
+              'skipped_count': len(d.get('parser_diagnostics',{}).get('skipped_rows',[])),
+              'duplicates_removed': len(d.get('parser_diagnostics',{}).get('duplicates_removed',[])),
+              'source_reparse': d.get('source_reparse_verification'),
+              'errors': d.get('errors'),
+              'model_errors': d.get('model_errors'),
+          }, ensure_ascii=False, indent=2))
           PY
           fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: historical-audit
+          path: |
+            data/historical-polls.json
+            data/historical-model.json
+            data/historical-validation.json
