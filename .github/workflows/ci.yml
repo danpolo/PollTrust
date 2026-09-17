@@ -21,4 +21,6 @@ jobs:
         run: cmp data/historical-model.json /tmp/historical-model.json
       - name: Validate committed historical dataset and model
         run: python scripts/validate_historical_dataset.py --model data/historical-model.json --output /tmp/historical-validation.json
+      - name: Validate frontend JavaScript syntax
+        run: node --check assets/app.js
       - run: python -m pytest
