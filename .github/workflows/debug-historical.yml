@@ -1,0 +1,30 @@
+name: Debug historical sources
+on:
+  push:
+    branches: [work/real-historical-data]
+permissions:
+  contents: read
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run collector against live sources
+        run: python scripts/build_historical_dataset.py --refresh --allow-partial
+      - name: Print provenance
+        if: always()
+        run: |
+          if [ -f data/historical-polls.json ]; then
+            python - <<'PY'
+          import json
+          from collections import Counter
+          d=json.load(open('data/historical-polls.json'))
+          print(json.dumps(d.get('provenance',{}), ensure_ascii=False, indent=2))
+          print('polls', len(d.get('polls',[])))
+          print('by election', Counter(p['election'] for p in d.get('polls',[])))
+          print('by pollster', Counter(p['pollster'] for p in d.get('polls',[])))
+          PY
+          fi
