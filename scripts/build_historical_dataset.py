@@ -17,11 +17,21 @@ if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
 
 SOURCES=[
  {"election":"knesset-25","url":"https://themadad.com/allpolls25/","parser":"hebrew_table"},
- {"election":"knesset-24","url":"https://themadad.com/poll-trends-2021/","parser":"hebrew_table"},
+ {"election":"knesset-24","url":"https://themadad.com/%D7%A1%D7%A7%D7%A8%D7%99%D7%9D-%D7%9C%D7%91%D7%97%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%9B%D7%A0%D7%A1%D7%AA-24-%D7%9E%D7%A8%D7%A5-2021/","parser":"hebrew_table"},
+ # Older election archives. These are fallback public tables; only rows from
+ # pollster lineages we explicitly recognize are retained.
+ {"election":"knesset-23","url":"https://en.wikipedia.org/wiki/Opinion_polling_for_the_2020_Israeli_legislative_election","parser":"english_wiki"},
+ {"election":"knesset-22","url":"https://en.wikipedia.org/wiki/Opinion_polling_for_the_September_2019_Israeli_legislative_election","parser":"english_wiki"},
+ {"election":"knesset-21","url":"https://en.wikipedia.org/wiki/Opinion_polling_for_the_April_2019_Israeli_legislative_election","parser":"english_wiki"},
+ {"election":"knesset-20","url":"https://en.wikipedia.org/wiki/Opinion_polling_for_the_2015_Israeli_legislative_election","parser":"english_wiki"},
 ]
 ELECTIONS={
  "knesset-25":{"date":"2022-11-01","result":{"likud":32,"yesh_atid":24,"religious_zionism":14,"national_unity":12,"shas":11,"utj":7,"yisrael_beiteinu":6,"raam":5,"hadash_taal":5,"labor":4,"meretz":0,"balad":0}},
  "knesset-24":{"date":"2021-03-23","result":{"likud":30,"yesh_atid":17,"shas":9,"blue_white":8,"yamina":7,"utj":7,"labor":7,"yisrael_beiteinu":7,"religious_zionism":6,"joint_list":6,"new_hope":6,"meretz":6,"raam":4}},
+ "knesset-23":{"date":"2020-03-02","result":{"likud":36,"blue_white":33,"joint_list":15,"shas":9,"utj":7,"labor_gesher_meretz":7,"yisrael_beiteinu":7,"yamina":6}},
+ "knesset-22":{"date":"2019-09-17","result":{"blue_white":33,"likud":32,"joint_list":13,"shas":9,"yisrael_beiteinu":8,"utj":7,"yamina":7,"labor_gesher":6,"democratic_union":5}},
+ "knesset-21":{"date":"2019-04-09","result":{"likud":35,"blue_white":35,"shas":8,"utj":8,"hadash_taal":6,"labor":6,"yisrael_beiteinu":5,"urwp":5,"meretz":4,"kulanu":4,"raam_balad":4}},
+ "knesset-20":{"date":"2015-03-17","result":{"likud":30,"zionist_union":24,"joint_list":13,"yesh_atid":11,"kulanu":10,"jewish_home":8,"shas":7,"yisrael_beiteinu":6,"utj":6,"meretz":5}},
 }
 POLLSTERS={
  "מנו גבע":"midgam_geva","דודי חסיד":"kantar_hasid","מנחם לזר":"lazar",
@@ -37,6 +47,17 @@ PARTIES={
  "הרשימה המשותפת":"joint_list","חדש תע״ל":"hadash_taal","חד״ש תע״ל":"hadash_taal",
  "חד״ש-תע״ל":"hadash_taal",
 }
+
+WIKI_PARTIES={
+ "Likud":"likud","Blue and White":"blue_white","Blue & White":"blue_white","Joint List":"joint_list",
+ "Shas":"shas","UTJ":"utj","United Torah Judaism":"utj","Yisrael Beitenu":"yisrael_beiteinu",
+ "Yamina":"yamina","Labor–Gesher–Meretz":"labor_gesher_meretz","Labor-Gesher-Meretz":"labor_gesher_meretz",
+ "Labor–Gesher":"labor_gesher","Labor-Gesher":"labor_gesher","Democratic Union":"democratic_union",
+ "Hadash–Ta'al":"hadash_taal","Hadash-Ta'al":"hadash_taal","Labor":"labor","Meretz":"meretz",
+ "Kulanu":"kulanu","Jewish Home":"jewish_home","Union of Right-Wing Parties":"urwp",
+ "Ra'am–Balad":"raam_balad","Ra'am-Balad":"raam_balad","Zionist Union":"zionist_union","Yesh Atid":"yesh_atid",
+}
+
 META={"מספר הסקר","מספר","תאריך","משיבים","נדגמים","כלי תקשורת","מפרסם","עורך משאלים","סוקר"}
 
 class TableParser(HTMLParser):
@@ -106,6 +127,61 @@ def parse_archive(source_text,election_id,source_url):
      "parties":normalized})
  return polls
 
+
+def parse_wikipedia_archive(source_text,election_id,source_url):
+ p=TableParser(); p.feed(source_text); polls=[]
+ for table in p.tables:
+  if len(table)<2: continue
+  headers=[normalize(x) for x in table[0]]
+  di=_header_index(headers,"Date"); pi=_header_index(headers,"Polling firm","Polling Firm")
+  if di is None or pi is None: continue
+  outlet_i=_header_index(headers,"Publisher")
+  party_cols={}
+  for i,h in enumerate(headers):
+   clean=re.sub(r"\[[^]]+\]","",h).strip()
+   if clean in WIKI_PARTIES: party_cols[i]=WIKI_PARTIES[clean]
+  if not party_cols: continue
+  for row in table[1:]:
+   if len(row)<=max(di,pi): continue
+   firm=normalize(row[pi])
+   pollster=None
+   for label,pid in POLLSTERS.items():
+    if label and label.lower() in firm.lower(): pollster=pid; break
+   if not pollster: continue
+   try: poll_date=parse_english_date(row[di],ELECTIONS[election_id]["date"])
+   except ValueError: continue
+   parties={}
+   for i,pid in party_cols.items():
+    if i>=len(row): continue
+    raw=normalize(row[i]).replace(",","")
+    m=re.match(r"^\d+(?:\.\d+)?$",raw)
+    if m: parties[pid]=float(raw)
+   universe=set(ELECTIONS[election_id]["result"]); normalized={pid:parties.get(pid,0) for pid in universe}
+   normalized.update({k:v for k,v in parties.items() if k not in normalized})
+   if abs(sum(normalized.values())-120)>.001: continue
+   normalized={k:int(v) if float(v).is_integer() else v for k,v in normalized.items()}
+   polls.append({"pollster":pollster,"election":election_id,"date":poll_date,"source":source_url,
+    "outlet":normalize(row[outlet_i]) if outlet_i is not None and outlet_i<len(row) else None,"parties":normalized})
+ return polls
+
+def parse_english_date(value,election_date):
+ s=re.sub(r"\[[^]]+\]","",normalize(value)).replace("–","-")
+ # For date ranges, use the later fieldwork/publication date.
+ if "-" in s and re.match(r"^\d{1,2}\s*-\s*\d{1,2}\s+",s):
+  first,rest=s.split("-",1); month_year=rest.strip().split(maxsplit=1)
+  if len(month_year)==2: s=month_year[0]+" "+month_year[1]
+ for fmt in ("%d %b %Y","%d %B %Y","%d %b %y","%d %B %y"):
+  try: return datetime.strptime(s,fmt).date().isoformat()
+  except ValueError: pass
+ # Some archive rows omit the year; infer it from the election campaign.
+ for fmt in ("%d %b","%d %B"):
+  try:
+   d=datetime.strptime(s,fmt); ed=datetime.fromisoformat(election_date)
+   year=ed.year if d.month<=ed.month else ed.year-1
+   return d.replace(year=year).date().isoformat()
+  except ValueError: pass
+ raise ValueError(f"unsupported English date {value!r}")
+
 def fetch_cached(url,cache_dir,refresh=False):
  cache_dir.mkdir(parents=True,exist_ok=True); key=hashlib.sha256(url.encode()).hexdigest()[:16]
  path=cache_dir/f"{key}.html"
@@ -119,7 +195,7 @@ def build(output,cache_dir,refresh=False,allow_partial=False):
  all_polls=[]; status=[]
  for src in SOURCES:
   try:
-   text=fetch_cached(src["url"],cache_dir,refresh); rows=parse_archive(text,src["election"],src["url"])
+   text=fetch_cached(src["url"],cache_dir,refresh); rows=(parse_wikipedia_archive(text,src["election"],src["url"]) if src.get("parser")=="english_wiki" else parse_archive(text,src["election"],src["url"]))
    if not rows: raise RuntimeError("no valid 120-seat rows parsed")
    all_polls.extend(rows); status.append({"url":src["url"],"election":src["election"],"polls":len(rows),"ok":True})
   except Exception as exc:

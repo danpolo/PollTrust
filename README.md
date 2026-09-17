@@ -83,3 +83,5 @@ python -m pytest
 ```
 
 The collector caches source HTML under `.cache/historical/`, so an interrupted or repeated run does not redownload successful sources. Use `--refresh` to deliberately refetch. By default the build fails closed if any configured archive cannot be parsed; `--allow-partial` is available only for inspection/debugging. The generated JSON records source provenance and per-source poll counts. Commit `data/historical-polls.json` only after reviewing the provenance/counts and tests.
+
+The historical collector follows a **maximum defensible history** rule: each current pollster lineage is taken as far back as a reconstructable seat-level archive and defensible continuity allow. Coverage is therefore intentionally asymmetric. The configured fallback archive now reaches the 2015 election for long-running lineages, plus April 2019, September 2019, 2020, 2021 and 2022. It does not fabricate older continuity for newer entities such as HaMadad or Tatika.
