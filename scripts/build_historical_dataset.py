@@ -189,6 +189,49 @@ HISTORICAL_POLLSTERS = [
     "midgam_geva", "kantar_hasid", "lazar_research", "maagar_mohot", "direct_polls_shared"
 ]
 
+LINEAGE_STARTS = {
+    # Mano Geva is directly documented as CEO of Midgam in January 2009.
+    "midgam_geva": "2008-12-23",
+    # Kantar rows are kept only under the Kantar name; earlier TNS/Teleseker is not inherited.
+    "kantar_hasid": "2019-08-02",
+    # Generic Panels rows are attributed to Lazar only from the 2013 campaign,
+    # where contemporary sources explicitly identify Menachem Lazar of Panels Politics.
+    "lazar_research": "2012-12-07",
+    # Maagar Mohot / Yitzhak Katz continuity is clear before 2009. A 2006
+    # archive row was checked but excluded because the published vector totals 119.
+    "maagar_mohot": "2008-12-23",
+    # The shared Filber/Sharon Direct Polls lineage starts in the 2019 campaign.
+    "direct_polls_shared": "2019-02-22",
+}
+
+HISTORICAL_COVERAGE_NOTES = {
+    "midgam_geva": {
+        "earliest_imported_campaign": "knesset-18",
+        "note": "Mano Geva is directly documented as CEO of Midgam in January 2009; no earlier complete 120-seat election vector was found in the reviewed public archives.",
+        "references": ["https://www.runi.ac.il/research-institutes/government/ips/herzliya-conference/hc2009/presentations"],
+    },
+    "kantar_hasid": {
+        "earliest_imported_campaign": "knesset-22",
+        "note": "Only rows explicitly branded Kantar are inherited. TNS/Teleseker rows are deliberately excluded because continuity to Dudi Hasid/Kantar was not established.",
+        "references": ["https://www.globes.co.il/news/article.aspx?did=1001301132"],
+    },
+    "lazar_research": {
+        "earliest_imported_campaign": "knesset-19",
+        "note": "Panels Politics is treated as Menachem Lazar continuity from the 2013 campaign onward. Generic Panels rows from 2009 are excluded because personal continuity was not sufficiently established.",
+        "references": ["https://jewishjournal.com/israel/121116/israelis-support-an-attack-on-assad-but-also-support-assad/"],
+    },
+    "maagar_mohot": {
+        "earliest_imported_campaign": "knesset-18",
+        "note": "Maagar Mohot continuity predates 2009. The reviewed 2006 election archive contains a Maagar Mohot projection totaling 119 seats, so it is documented but not repaired or imported.",
+        "references": ["https://en.wikipedia.org/wiki/2006_Israeli_legislative_election"],
+    },
+    "direct_polls_shared": {
+        "earliest_imported_campaign": "knesset-21",
+        "note": "Historical Direct Polls rows are stored only as shared Filber/Sharon history and feed both current entities through the configured discounted prior.",
+        "references": ["https://themadad.com/english/poll-accuracy-2022/"],
+    },
+}
+
 ACTIVE_POLLSTERS = [
     {"id": "midgam_geva", "historical_id": "midgam_geva", "name_he": "מדגם / מנו גבע", "outlet_he": "חדשות 12"},
     {"id": "kantar_hasid", "historical_id": "kantar_hasid", "name_he": "קנטאר / דודי חסיד", "outlet_he": "כאן 11"},
@@ -206,8 +249,8 @@ _ALIAS_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     ("direct_polls_shared", re.compile(r"\bdirect\s+polls?\b", re.I)),
     ("kantar_hasid", re.compile(r"\bkantar\b", re.I)),
     ("lazar_research", re.compile(r"\bpanels(?:\s+politics)?\b", re.I)),
-    ("maagar_mohot", re.compile(r"\bma['’]?a?gar\s+mo(?:h|ch)ot\b|\bmaagar\s+mo(?:h|ch)ot\b", re.I)),
-    ("midgam_geva", re.compile(r"\bmidgam(?:\s+research)?\b", re.I)),
+    ("maagar_mohot", re.compile(r"\bma['’]?a?gar\s+mo(?:h|ch)ot\b|\bmaagar\s+mo(?:h|ch)ot\b|\bmaariv/maagar\b", re.I)),
+    ("midgam_geva", re.compile(r"\bmidgam(?:\s+research)?\b|\bmeno\s+geva\b|\bmanu\s+geva\b", re.I)),
 ]
 
 class TableParser(HTMLParser):
@@ -398,6 +441,13 @@ def parse_wikipedia_archive(
                 if raw_pollster:
                     diag["unmatched_pollster_names"][raw_pollster] += 1
                 continue
+            lineage_start = date.fromisoformat(LINEAGE_STARTS[pollster])
+            if poll_date < lineage_start:
+                diag["skipped_rows"].append({
+                    "reason": "before_lineage_cutoff", "pollster": raw_pollster,
+                    "pollster_id": pollster, "date": poll_date_s, "row": row,
+                })
+                continue
             diag["matched_rows"] += 1
             need = meta_columns + len(party_order)
             if len(row) < need:
@@ -557,6 +607,7 @@ def build(output: Path, cache_dir: Path, refresh: bool = False, allow_partial: b
         "elections": [{"id": election_id, **election} for election_id, election in ELECTIONS.items()],
         "polls": sorted(unique, key=lambda p: (p["election"], p["date"], p["pollster"], p.get("outlet") or "")),
         "historical_pollsters": HISTORICAL_POLLSTERS,
+        "historical_coverage_notes": HISTORICAL_COVERAGE_NOTES,
         "active_pollsters": ACTIVE_POLLSTERS,
         "shared_prior": {
             "historical_id": "direct_polls_shared",
