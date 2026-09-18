@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 .venv/
 .DS_Store
+.agents/
+setup-third-party-skills.ps1
