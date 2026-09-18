@@ -5,7 +5,134 @@
 <header class="site-header"><div class="shell header-inner"><div><p class="eyebrow">PollTrust</p><h1>כמה אפשר לסמוך על הסקר?</h1><p class="subtitle">השוואה שקופה בין ביצועי סוקרים לאורך מערכות בחירות ובנקודת הזמן הנוכחית.</p></div><div id="electionBadge" class="election-badge" aria-live="polite"></div></div></header>
 <main class="shell"><div id="demoNotice" class="notice notice-warning" hidden></div><div id="staleNotice" class="notice notice-danger" hidden></div>
 <nav class="tabs" aria-label="תצוגות"><button class="tab is-active" data-tab="live" type="button">סקרים נוכחיים</button><button class="tab" data-tab="history" type="button">השוואה היסטורית</button><button class="tab" data-tab="method" type="button">איך זה מחושב?</button></nav>
-<section id="live" class="panel is-active"><div class="section-heading"><div><p class="eyebrow">המצב עכשיו</p><h2>הסקרים האחרונים לפי הסוקר שמאחוריהם</h2></div><div id="updateMeta" class="meta"></div></div><p class="context-note">הציון ההיסטורי מחושב לפי הסוקר, לא לפי הערוץ. הערוץ מוצג רק כדי לזהות את הסקר שהציבור רואה.</p><div id="pollCards" class="cards"></div></section>
-<section id="history" class="panel"><div class="section-heading"><div><p class="eyebrow">מבחן הזמן</p><h2>אמינות היסטורית לפי מרחק מיום הבחירות</h2></div></div><div class="slider-box"><label for="daysSlider">כמה ימים לפני הבחירות?</label><div class="slider-row"><input id="daysSlider" type="range" min="0" max="120" value="30"><output id="daysValue">30 ימים</output></div><p>לכל מערכת בחירות נבחר רק הסקר האחרון שהיה זמין עד נקודת הזמן הזו. סקרים שפורסמו מאוחר יותר אינם נכנסים לחישוב.</p></div><div class="table-wrap"><table><thead><tr><th>סוקר</th><th>שגיאה צפויה בנקודה זו</th><th>שגיאה ממוצעת בסקר האחרון</th><th>הטיית אמת</th><th>דיוק לאחר תיקון הטיה</th><th>ערך מוסף של הנטייה היחסית</th><th>תמיכת נתונים</th></tr></thead><tbody id="historyRows"></tbody></table></div><p class="small-note">ערך נמוך יותר בשגיאת המנדטים פירושו מרחק קטן יותר מתוצאת האמת. הבדלים קטנים אינם בהכרח משמעותיים, במיוחד כשמספר מערכות הבחירות קטן.</p></section>
-<section id="method" class="panel"><div class="section-heading"><div><p class="eyebrow">מתודולוגיה</p><h2>מה בדיוק נמדד?</h2></div></div><div class="method-grid"><article class="method-card"><h3>שגיאת מנדטים</h3><p>המדד המרכזי הוא חצי מסכום ההפרשים המוחלטים בין תחזית הסקר לתוצאה בפועל.</p></article><article class="method-card"><h3>מערכת בחירות היא יחידת המשקל</h3><p>תדירות פרסום גבוהה אינה מגדילה אוטומטית את המשקל ההיסטורי.</p></article><article class="method-card"><h3>ללא מידע מהעתיד</h3><p>בחישוב X ימים לפני הבחירות נבחר רק סקר שהיה זמין עד אותו יום.</p></article><article class="method-card"><h3>הטיית אמת מול נטייה יחסית</h3><p>הטיית אמת נמדדת מול תוצאת הבחירות; נטייה יחסית מול מרכז סקרים מאוזן בין אשכולות.</p></article><article class="method-card"><h3>תיקון הטיה בלי דליפת מידע</h3><p>כל מערכת מתוקנת באמצעות הטיה שנלמדה ממערכות הבחירות האחרות בלבד.</p></article><article class="method-card"><h3>אי-ודאות</h3><p>מוצגים היקף התמיכה ורווח אי-ודאות כדי לא ליצור דיוק מדומה.</p></article></div><div class="formula" dir="ltr">SeatTransferDistance = ½ × Σ | predictedᵢ − actualᵢ |</div></section>
-</main><footer class="site-footer"><div class="shell"><p>PollTrust מציג מדדים תיאוריים ושקופים על ביצועי סקרים. הוא אינו המלצת הצבעה ואינו תחזית לתוצאת הבחירות.</p></div></footer><script src="assets/app.js" defer></script></body></html>
+<section id="live" class="panel is-active"><div class="section-heading"><div><p class="eyebrow">המצב עכשיו</p><h2>הסקרים האחרונים לפי הסוקר שמאחוריהם</h2></div><div id="updateMeta" class="meta"></div></div><p class="context-note">הציון ההיסטורי מחושב לפי הסוקר, לא לפי הערוץ. הערוץ מוצג רק כדי לזהות את הסקר שהציבור רואה.</p><div id="blocConfigNotice" class="notice notice-danger" hidden></div><div id="pollCards" class="cards"></div></section>
+<section id="history" class="panel">
+  <div class="section-heading"><div><p class="eyebrow">מבחן הזמן</p><h2>אמינות היסטורית לפי מרחק מיום הבחירות</h2></div></div>
+  <div class="slider-box">
+    <label for="daysSlider">כמה ימים לפני הבחירות?</label>
+    <div class="slider-row"><input id="daysSlider" type="range" min="0" max="120" value="30"><output id="daysValue">30 ימים</output></div>
+    <p>לכל מערכת בחירות נבחר רק הסקר האחרון שהיה זמין עד נקודת הזמן הזו. סקרים שפורסמו מאוחר יותר אינם נכנסים לחישוב.</p>
+  </div>
+  <div class="table-wrap"><table class="history-table"><thead><tr>
+    <th>סוקר</th>
+    <th><span class="metric-heading">שגיאה צפויה בנקודה זו <button class="info-button" type="button" data-help="expected_error" aria-label="הסבר על שגיאה צפויה בנקודה זו" aria-controls="metricHelpPopover" aria-expanded="false">i</button></span></th>
+    <th><span class="metric-heading">שגיאה ממוצעת בסקר האחרון <button class="info-button" type="button" data-help="overall_raw_error" aria-label="הסבר על שגיאה ממוצעת בסקר האחרון" aria-controls="metricHelpPopover" aria-expanded="false">i</button></span></th>
+    <th><span class="metric-heading">הטיית אמת <button class="info-button" type="button" data-help="truth_bias" aria-label="הסבר על הטיית אמת" aria-controls="metricHelpPopover" aria-expanded="false">i</button></span></th>
+    <th><span class="metric-heading">דיוק לאחר תיקון הטיה <button class="info-button" type="button" data-help="debiased_error" aria-label="הסבר על דיוק לאחר תיקון הטיה" aria-controls="metricHelpPopover" aria-expanded="false">i</button></span></th>
+    <th><span class="metric-heading">ערך מוסף של הנטייה היחסית <button class="info-button" type="button" data-help="lean_value_added" aria-label="הסבר על ערך מוסף של הנטייה היחסית" aria-controls="metricHelpPopover" aria-expanded="false">i</button></span></th>
+    <th><span class="metric-heading">תמיכת נתונים <button class="info-button" type="button" data-help="support" aria-label="הסבר על תמיכת נתונים" aria-controls="metricHelpPopover" aria-expanded="false">i</button></span></th>
+  </tr></thead><tbody id="historyRows"></tbody></table></div>
+  <p class="small-note">ערך נמוך יותר בשגיאת המנדטים פירושו מרחק קטן יותר מתוצאת האמת. הבדלים קטנים אינם בהכרח משמעותיים, במיוחד כשמספר מערכות הבחירות קטן.</p>
+</section>
+<section id="method" class="panel">
+  <div class="section-heading"><div><p class="eyebrow">מתודולוגיה</p><h2>איך PollTrust מחשב אמינות?</h2></div></div>
+  <p class="method-intro">המודל ההיסטורי דטרמיניסטי ומבוסס על מערכות בחירות שהסתיימו. יחידת המשקל היא מערכת בחירות, לא מספר הסקרים שסוקר פרסם. ההסברים כאן משקפים את המימוש בפועל בקוד המודל והמדדים.</p>
+  <div class="method-detail">
+    <article class="method-card method-card-wide">
+      <h3>1. מדד השגיאה המרכזי — מרחק העברת מנדטים</h3>
+      <p>לכל מפלגה משווים את מספר המנדטים בסקר לתוצאה בפועל. מחברים את גודל כל ההפרשים ומחלקים בשתיים, משום שכל מנדט שעובר ממפלגה אחת לאחרת היה נספר פעמיים בלי החלוקה.</p>
+      <div class="formula-block" dir="ltr"><span class="formula-expression"><var>D</var>(<var>P</var>, <var>A</var>) = ½ × ∑<sub>i</sub> |<var>P</var><sub>i</sub> − <var>A</var><sub>i</sub>|</span></div>
+      <p class="method-note">אם חמישה מנדטים עוברים בין שתי מפלגות וכל היתר זהה, השגיאה היא 5 ולא 10.</p>
+    </article>
+    <article class="method-card method-card-wide">
+      <h3>2. בחירת הסקר לפי המרחק מיום הבחירות</h3>
+      <p>באופק של X ימים נבנה תאריך חיתוך: יום הבחירות פחות X. בכל מערכת נבחר רק תאריך הסקר המאוחר ביותר שהיה זמין עד החיתוך. מידע שפורסם לאחר החיתוך לעולם אינו נכנס לחישוב.</p>
+      <div class="formula-block" dir="ltr">
+        <span class="formula-expression"><var>cutoff</var><sub>e,X</sub> = <var>electionDate</var><sub>e</sub> − <var>X</var></span>
+        <span class="formula-expression"><var>date</var>(P̂<sub>e,X</sub>) = max { <var>date</var>(p) : <var>date</var>(p) ≤ <var>cutoff</var><sub>e,X</sub> }</span>
+      </div>
+      <p>אם הסקר האחרון שנמצא ישן ביותר מ־45 ימים ביחס לנקודת החיתוך, אותה מערכת בחירות אינה מספקת תצפית לאופק הזה.</p>
+    </article>
+    <article class="method-card">
+      <h3>3. כמה סקרים של אותו סוקר באותו יום</h3>
+      <p>כאשר קיימות כמה תחזיות שונות של אותו סוקר באותו תאריך שנבחר, המודל אינו בוחר אחת שרירותית. לכל מפלגה נלקח הממוצע האריתמטי של התחזיות באותו יום.</p>
+      <div class="formula-block" dir="ltr"><span class="formula-expression">P̄<sub>i</sub> = (1 / <var>k</var>) × ∑<sub>j=1</sub><sup>k</sup> P<sub>j,i</sub></span></div>
+    </article>
+    <article class="method-card">
+      <h3>4. שגיאה גולמית ועקביות</h3>
+      <p>״שגיאה ממוצעת בסקר האחרון״ היא ממוצע מרחק העברת המנדטים של הסקר האחרון הזמין לפני כל מערכת בחירות. כל מערכת בחירות מקבלת משקל אחד, גם אם פורסמו בה הרבה סקרים.</p>
+      <div class="formula-block" dir="ltr">
+        <span class="formula-expression">RawError = (1 / <var>n</var>) × ∑<sub>e=1</sub><sup>n</sup> D<sub>e</sub></span>
+        <span class="formula-expression">Consistency = √[(1 / <var>n</var>) × ∑<sub>e</sub>(D<sub>e</sub> − D̄)²]</span>
+      </div>
+      <p>נשמרים גם חציון, השגיאה הטובה ביותר והגרועה ביותר; העקביות היא סטיית תקן של האוכלוסייה על שגיאות מערכות הבחירות שנכללו.</p>
+    </article>
+    <article class="method-card method-card-wide">
+      <h3>5. שגיאה צפויה לפי ימים</h3>
+      <p>לכל ערך בין 0 ל־120 ימים המודל חוזר על כלל הבחירה לעיל ומחשב את ממוצע השגיאה רק במערכות שבהן נמצא סקר תקף ולא ישן מדי. זהו הערך שמוצג כ״שגיאה צפויה בנקודה זו״ וגם בכרטיסי הסקרים הנוכחיים.</p>
+      <div class="formula-block" dir="ltr"><span class="formula-expression">ExpectedError(<var>X</var>) = (1 / <var>n</var><sub>X</sub>) × ∑<sub>e∈E(X)</sub> D(P̂<sub>e,X</sub>, A<sub>e</sub>)</span></div>
+    </article>
+    <article class="method-card">
+      <h3>6. הטיית אמת</h3>
+      <p>כאשר יש מיפוי היסטורי בר־הגנה, לכל מערכת בחירות מוגדר אוסף רשימות ספציפי לאותה מערכת. ההטיה היא הפער בין סך המנדטים שהסוקר נתן לאוסף הזה לבין הסך שקיבל בפועל. מערכות בלי מיפוי מתאים אינן נכנסות למדד.</p>
+      <div class="formula-block" dir="ltr">
+        <span class="formula-expression">Bias<sub>e</sub> = ∑<sub>i∈B(e)</sub>P<sub>e,i</sub> − ∑<sub>i∈B(e)</sub>A<sub>e,i</sub></span>
+        <span class="formula-expression">TruthBias = mean<sub>e</sub>(Bias<sub>e</sub>)</span>
+      </div>
+      <p class="method-note">זהו מדד היסטורי נפרד משלושת צבעי הגושים בתצוגת הסקרים הנוכחיים.</p>
+    </article>
+    <article class="method-card method-card-wide">
+      <h3>7. תיקון הטיה בלי דליפת מידע</h3>
+      <p>כל מערכת בחירות נבחנת כאילו היא העתיד. לכל מזהה מפלגה במערכת המוחזקת בצד, התיקון נלמד רק ממערכות הבחירות האחרות שבהן אותו מזהה ניתן להשוואה. אם אין היסטוריה ברת־השוואה, התיקון הוא אפס. כך שינויים בחיבורים וברשימות אינם הופכים אוטומטית לאותה מפלגה היסטורית.</p>
+      <div class="formula-block" dir="ltr">
+        <span class="formula-expression">b<sub>e,i</sub> = mean<sub>j≠e, comparable</sub>(P<sub>j,i</sub> − A<sub>j,i</sub>)</span>
+        <span class="formula-expression">P′<sub>e,i</sub> = P<sub>e,i</sub> − b<sub>e,i</sub></span>
+        <span class="formula-expression">DebiasedError = mean<sub>e</sub> D(P′<sub>e</sub>, A<sub>e</sub>)</span>
+      </div>
+    </article>
+    <article class="method-card">
+      <h3>8. עלות ההטיה</h3>
+      <p>עלות ההטיה משווה בין השגיאה הגולמית לשגיאה לאחר התיקון. ערך חיובי פירושו שהתיקון הקטין את השגיאה בממוצע; ערך שלילי פירושו שהתיקון החמיר אותה.</p>
+      <div class="formula-block" dir="ltr"><span class="formula-expression">BiasCost = RawError − DebiasedError</span></div>
+    </article>
+    <article class="method-card method-card-wide">
+      <h3>9. מרכז סקרים מאוזן בין אשכולות</h3>
+      <p>למדידת נטייה יחסית, תחילה מחושב לכל אשכול סוקרים מרכז מפלגתי כממוצע הסוקרים הזמינים בו; לאחר מכן כל אשכול מקבל משקל שווה ביצירת נקודת הייחוס. כך אשכול עם יותר סוקרים אינו מקבל משקל עודף רק בגלל גודלו.</p>
+      <div class="formula-block" dir="ltr">
+        <span class="formula-expression">Center<sub>c,i</sub> = mean<sub>p∈c</sub>(P<sub>p,i</sub>)</span>
+        <span class="formula-expression">Benchmark<sub>i</sub> = mean<sub>c</sub>(Center<sub>c,i</sub>)</span>
+      </div>
+    </article>
+    <article class="method-card">
+      <h3>10. נטייה יחסית וערך מוסף</h3>
+      <p>הנטייה היחסית היא הפער בין סך הסוקר לסך מרכז האשכולות באוסף הרשימות ההיסטורי. הערך המוסף בודק האם הסטייה הזו קירבה את הסוקר לאמת או הרחיקה אותו. ערך חיובי בערך המוסף מציין שיפור ביחס למרכז.</p>
+      <div class="formula-block" dir="ltr">
+        <span class="formula-expression">Lean<sub>e</sub> = PollsterBloc<sub>e</sub> − BenchmarkBloc<sub>e</sub></span>
+        <span class="formula-expression">LVA<sub>e</sub> = |BenchmarkBloc<sub>e</sub> − ActualBloc<sub>e</sub>| − |PollsterBloc<sub>e</sub> − ActualBloc<sub>e</sub>|</span>
+        <span class="formula-expression">LeanValueAdded = mean<sub>e</sub>(LVA<sub>e</sub>)</span>
+      </div>
+    </article>
+    <article class="method-card">
+      <h3>11. התאמה לכיוון האמת</h3>
+      <p>כאשר גם נטיית הסוקר ביחס למרכז וגם סטיית האמת מהמרכז אינן אפס, נבדק אם שתיהן באותו כיוון. בנוסף נשמר קו רגרסיה תיאורי של הנטייה על סטיית האמת כאשר קיימות לפחות שתי תצפיות עם שונות.</p>
+      <div class="formula-block" dir="ltr">
+        <span class="formula-expression">Alignment = mean[ 1(sign(Lean<sub>e</sub>) = sign(Truth<sub>e</sub>)) ]</span>
+        <span class="formula-expression">Lean = α + β × Truth</span>
+      </div>
+    </article>
+    <article class="method-card method-card-wide">
+      <h3>12. אי־ודאות ותמיכת נתונים</h3>
+      <p>תמיכת הנתונים היא מספר מערכות הבחירות שתומכות בסיכום. רווח ה־95% מחושב באמצעות דגימה חוזרת דטרמיניסטית של 2,000 דגימות מתוך שגיאות מערכות הבחירות, ולא מתוך הנחה על התפלגות נורמלית.</p>
+      <div class="formula-block" dir="ltr"><span class="formula-expression">CI<sub>95%</sub> = [ percentile<sub>2.5%</sub>(D̄*), percentile<sub>97.5%</sub>(D̄*) ]</span></div>
+      <p class="method-note">כאשר יש מקדם היסטורי משותף, רווח ה־95% אינו מומצא ממנו. לכן ייתכן שיוצג משקל היסטורי משותף בלי רווח אי־ודאות אם עדיין אין היסטוריה עצמאית.</p>
+    </article>
+    <article class="method-card method-card-wide">
+      <h3>13. המקדם ההיסטורי המשותף של Direct Polls</h3>
+      <p>Direct Polls / צוריאל שרון ו־NEXT DATA / שלמה פילבר נשמרים כישויות נוכחיות נפרדות. ההיסטוריה המשותפת של Direct Polls נכנסת לכל אחת מהן במשקל 0.5 בלבד לכל מערכת בחירות. בחמש מערכות הבחירות המשותפות הקיימות כיום מדובר ב־2.5 מערכות בחירות אפקטיביות.</p>
+      <div class="formula-block" dir="ltr">
+        <span class="formula-expression">n<sub>shared,eff</sub> = δ × n<sub>shared</sub>, &nbsp; δ = 0.5</span>
+        <span class="formula-expression">M<sub>merged</sub> = (n<sub>ind</sub>M<sub>ind</sub> + δn<sub>shared</sub>M<sub>shared</sub>) / (n<sub>ind</sub> + δn<sub>shared</sub>)</span>
+      </div>
+      <p>היסטוריה עצמאית מקבלת משקל מלא ולכן דוחקת בהדרגה את ההשפעה היחסית של ההיסטוריה המשותפת. אותו עיקרון משמש גם לעקומת השגיאה לפי ימים כאשר יש נתון זמין לרכיב המתאים.</p>
+    </article>
+    <article class="method-card">
+      <h3>14. מדדי אבחון נוספים</h3>
+      <p>במהלך הניתוח מחושבים גם שגיאה מוחלטת ממוצעת למפלגה, שורש ממוצע ריבועי השגיאות והשגיאה המקסימלית של מפלגה בודדת. אלה מדדי אבחון ואינם מוצגים כרגע כעמודות ההשוואה הראשיות.</p>
+    </article>
+    <article class="method-card">
+      <h3>15. גושי הצבע בסקרים הנוכחיים</h3>
+      <p>השיוך הכחול, האדום והאפור נקרא במפורש מתצורת הבחירות הנוכחית ומשמש רק לצביעת מפלגות ולסיכום 120 המנדטים בכל סקר. הוא אינו נגזר מהטיית האמת ההיסטורית, מאשכולות הסוקרים או משמות המפלגות, ואינו משנה שום ציון אמינות.</p>
+    </article>
+  </div>
+</section>
+</main><div id="metricHelpPopover" class="info-popover" role="tooltip" hidden></div><footer class="site-footer"><div class="shell"><p>PollTrust מציג מדדים תיאוריים ושקופים על ביצועי סקרים. הוא אינו המלצת הצבעה ואינו תחזית לתוצאת הבחירות.</p></div></footer><script src="assets/app.js" defer></script></body></html>

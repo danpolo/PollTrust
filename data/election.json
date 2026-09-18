@@ -58,5 +58,37 @@
     "amcha_yisrael": "עמך ישראל",
     "haredi_public": "הציבור החרדי",
     "others": "אחרים"
+  },
+  "presentation_blocs": {
+    "change": {
+      "label_he": "גוש השינוי",
+      "class_name": "bloc-change"
+    },
+    "coalition": {
+      "label_he": "גוש הקואליציה הנוכחית",
+      "class_name": "bloc-coalition"
+    },
+    "other": {
+      "label_he": "אחר / ללא שיוך",
+      "class_name": "bloc-other"
+    }
+  },
+  "party_presentation_blocs": {
+    "likud": "coalition",
+    "together": "change",
+    "rzp_zehut": "coalition",
+    "otzma": "coalition",
+    "blue_white": "change",
+    "shas": "coalition",
+    "utj": "coalition",
+    "yisrael_beiteinu": "change",
+    "raam": "other",
+    "joint_list": "other",
+    "democrats": "change",
+    "yashar": "change",
+    "reservists_nep": "other",
+    "amcha_yisrael": "coalition",
+    "haredi_public": "other",
+    "others": "other"
   }
 }

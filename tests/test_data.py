@@ -20,6 +20,25 @@ def test_current_poll_file_is_valid():
     assert current.get("last_successful_check")
 
 
+def test_current_party_presentation_blocs_are_complete_and_sum_to_120():
+    election = json.loads((ROOT / "data/election.json").read_text(encoding="utf-8"))
+    current = json.loads((ROOT / "data/current-polls.json").read_text(encoding="utf-8"))
+    blocs = election["presentation_blocs"]
+    mapping = election["party_presentation_blocs"]
+
+    assert set(blocs) == {"change", "coalition", "other"}
+    assert all(blocs[bloc].get("label_he") for bloc in blocs)
+    assert set(mapping) == set(election["party_names"])
+    assert set(mapping.values()) <= set(blocs)
+
+    for poll in current["polls"]:
+        assert set(poll["parties"]) <= set(mapping), "new current party must receive an explicit presentation bloc"
+        totals = {bloc: 0 for bloc in blocs}
+        for party, seats in poll["parties"].items():
+            totals[mapping[party]] += seats
+        assert sum(totals.values()) == 120
+
+
 def test_committed_historical_dataset_is_production_and_valid():
     raw = json.loads((ROOT / "data/historical-polls.json").read_text(encoding="utf-8"))
     report, errors = validate_dataset(raw)
