@@ -2,17 +2,19 @@
 <html lang="he" dir="rtl">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="PollTrust — כלי שקוף להשוואת אמינות היסטורית של סוקרי בחירות בישראל"><title>PollTrust — אמינות סקרים</title><link rel="stylesheet" href="assets/styles.css"></head>
 <body>
-<header class="site-header"><div class="shell header-inner"><div><p class="eyebrow">PollTrust</p><h1>כמה אפשר לסמוך על הסקר?</h1><p class="subtitle">השוואה שקופה בין ביצועי סוקרים לאורך מערכות בחירות ובנקודת הזמן הנוכחית.</p></div><div id="electionBadge" class="election-badge" aria-live="polite"></div></div></header>
+<header class="site-header"><div class="shell header-inner"><div class="brand-copy"><p class="eyebrow">PollTrust · אמינות סקרים</p><h1>כמה אפשר לסמוך על הסקר?</h1><p class="subtitle">תמונת מצב ברורה של הסקרים הנוכחיים, לצד ביצועי הסוקרים במערכות בחירות קודמות — בלי להפוך את הממשק למודל מתמטי.</p></div><div id="electionBadge" class="election-badge" aria-live="polite"></div></div></header>
 <main class="shell"><div id="demoNotice" class="notice notice-warning" hidden></div><div id="staleNotice" class="notice notice-danger" hidden></div>
-<nav class="tabs" aria-label="תצוגות"><button class="tab is-active" data-tab="live" type="button">סקרים נוכחיים</button><button class="tab" data-tab="history" type="button">השוואה היסטורית</button><button class="tab" data-tab="method" type="button">איך זה מחושב?</button></nav>
-<section id="live" class="panel is-active"><div class="section-heading"><div><p class="eyebrow">המצב עכשיו</p><h2>הסקרים האחרונים לפי הסוקר שמאחוריהם</h2></div><div id="updateMeta" class="meta"></div></div><p class="context-note">הציון ההיסטורי מחושב לפי הסוקר, לא לפי הערוץ. הערוץ מוצג רק כדי לזהות את הסקר שהציבור רואה.</p><div id="blocConfigNotice" class="notice notice-danger" hidden></div><div id="pollCards" class="cards"></div></section>
-<section id="history" class="panel">
+<nav class="tabs" role="tablist" aria-label="תצוגות"><button class="tab is-active" id="tab-live" role="tab" aria-selected="true" aria-controls="live" data-tab="live" type="button">סקרים נוכחיים</button><button class="tab" id="tab-history" role="tab" aria-selected="false" aria-controls="history" data-tab="history" type="button">השוואה היסטורית</button><button class="tab" id="tab-method" role="tab" aria-selected="false" aria-controls="method" data-tab="method" type="button">איך זה מחושב?</button></nav>
+<section id="live" class="panel is-active" role="tabpanel" aria-labelledby="tab-live"><div class="section-heading"><div><p class="eyebrow">המצב עכשיו</p><h2>הסקרים האחרונים, במבט אחד</h2><p class="section-lede">התחילו בהשוואת הגושים בין הסוקרים, ואז פתחו כל סקר לפרטי המפלגות והאמינות ההיסטורית שלו.</p></div><div id="updateMeta" class="meta"></div></div><div id="blocConfigNotice" class="notice notice-danger" hidden></div><div id="liveOverview" class="overview-card" aria-live="polite"></div><div class="content-divider"><span>פירוט לפי סוקר</span></div><p class="context-note">ציוני האמינות מחושבים לפי הסוקר, לא לפי ערוץ השידור. צבעי הגושים הם שכבת הצגה בלבד ואינם משפיעים על הציון.</p><div id="pollCards" class="cards"></div></section>
+<section id="history" class="panel" role="tabpanel" aria-labelledby="tab-history">
   <div class="section-heading"><div><p class="eyebrow">מבחן הזמן</p><h2>אמינות היסטורית לפי מרחק מיום הבחירות</h2></div></div>
   <div class="slider-box">
     <label for="daysSlider">כמה ימים לפני הבחירות?</label>
     <div class="slider-row"><input id="daysSlider" type="range" min="0" max="120" value="30"><output id="daysValue">30 ימים</output></div>
     <p>לכל מערכת בחירות נבחר רק הסקר האחרון שהיה זמין עד נקודת הזמן הזו. סקרים שפורסמו מאוחר יותר אינם נכנסים לחישוב.</p>
   </div>
+  <div id="historyOverview" class="history-overview" aria-live="polite"></div>
+  <div class="table-caption-row"><strong>כל המדדים</strong><span>אפשר לגלול אופקית; שם הסוקר נשאר מוצמד במסכים צרים.</span></div>
   <div class="table-wrap"><table class="history-table"><thead><tr>
     <th>סוקר</th>
     <th><span class="metric-heading">שגיאה צפויה בנקודה זו <button class="info-button" type="button" data-help="expected_error" aria-label="הסבר על שגיאה צפויה בנקודה זו" aria-controls="metricHelpPopover" aria-expanded="false">i</button></span></th>
@@ -24,7 +26,7 @@
   </tr></thead><tbody id="historyRows"></tbody></table></div>
   <p class="small-note">ערך נמוך יותר בשגיאת המנדטים פירושו מרחק קטן יותר מתוצאת האמת. הבדלים קטנים אינם בהכרח משמעותיים, במיוחד כשמספר מערכות הבחירות קטן.</p>
 </section>
-<section id="method" class="panel">
+<section id="method" class="panel" role="tabpanel" aria-labelledby="tab-method">
   <div class="section-heading"><div><p class="eyebrow">מתודולוגיה</p><h2>איך PollTrust מחשב אמינות?</h2></div></div>
   <p class="method-intro">המודל ההיסטורי דטרמיניסטי ומבוסס על מערכות בחירות שהסתיימו. יחידת המשקל היא מערכת בחירות, לא מספר הסקרים שסוקר פרסם. ההסברים כאן משקפים את המימוש בפועל בקוד המודל והמדדים.</p>
   <div class="method-detail">
