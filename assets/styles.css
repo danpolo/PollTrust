@@ -64,3 +64,14 @@ main{padding-top:0}.tabs{position:sticky;top:0;z-index:30;margin:0 -10px 26px;pa
 @media(max-width:720px){.shell{width:min(100% - 24px,1240px)}.site-header{padding:32px 0 28px}.header-inner{gap:18px}.election-badge{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px}.election-badge strong{margin:0}.tabs{margin-inline:-12px;padding-inline:12px}.section-heading{gap:10px}.meta{align-self:flex-start}.overview-card{padding:17px;border-radius:18px}.overview-stats{grid-template-columns:1fr 1fr}.overview-stats>div:first-child{grid-column:1/-1}.overview-row-head{align-items:flex-start}.overview-values{display:grid;grid-template-columns:repeat(3,1fr)}.overview-values span{text-align:center}.metric-grid{grid-template-columns:1fr 1fr}.metric-grid .metric:last-child{grid-column:1/-1}.history-bar-row{grid-template-columns:120px 1fr 40px;gap:8px}.history-bar-label strong{font-size:.76rem}.history-bar-label span{display:none}.table-caption-row{align-items:flex-start;flex-direction:column;gap:3px}}
 @media(max-width:520px){h1{font-size:2.25rem}.subtitle{font-size:.98rem}.overview-stats{grid-template-columns:1fr}.overview-stats>div:first-child{grid-column:auto}.overview-values{grid-template-columns:1fr}.poll-card{padding:16px}.metric-grid{grid-template-columns:1fr 1fr}.metric-grid .metric:last-child{grid-column:1/-1}.card-footer{align-items:flex-start;flex-direction:column}.bloc-totals.compact{grid-template-columns:1fr}.history-overview{padding:16px}.history-bar-row{grid-template-columns:100px 1fr 36px}.history-bar-value{font-size:.78rem}.history-table th:first-child,.history-table td:first-child{min-width:168px;max-width:188px}.method-card{padding:16px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+.party-results{border-top:1px solid #edf0f4;border-bottom:1px solid #edf0f4;margin:14px 0;padding:12px 0}
+.party-results-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.party-results-heading h4{margin:0;font-size:.88rem;color:#344054}
+.party-results-heading span{font-size:.7rem;color:var(--muted)}
+.party-results .mandate-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.party-results .mandate-chip{justify-content:space-between;min-width:0;width:100%;background:#fff;border-radius:10px}
+.party-results .mandate-chip>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.party-results .mandate-chip strong{font-variant-numeric:tabular-nums}
+@media(max-width:720px){.party-results .mandate-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.party-results .mandate-list{grid-template-columns:1fr}.party-results .mandate-chip>span:first-child{white-space:normal}}
