@@ -1,8 +1,34 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-09-18T08:20:30Z",
+  "last_successful_update": "2026-09-19T08:08:17Z",
   "data_note_he": "הסקרים הנוכחיים נאספים אוטומטית מטבלת סקרי המנדטים לבחירות 2026, ורק שורות של סוקרים מאושרים, לאחר סגירת הרשימות ובסכום של 120 מנדטים, נכנסות למאגר.",
   "polls": [
+    {
+      "pollster": "tatika",
+      "date": "2026-09-17",
+      "source": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election",
+      "outlet": "Zman Yisrael",
+      "source_pollster_name": "Yossi Tatika",
+      "sample_size": 500,
+      "parties": {
+        "likud": 22,
+        "together": 14,
+        "rzp_zehut": 4,
+        "otzma": 7,
+        "blue_white": 0,
+        "shas": 9,
+        "utj": 9,
+        "yisrael_beiteinu": 9,
+        "raam": 6,
+        "joint_list": 8,
+        "democrats": 8,
+        "yashar": 24,
+        "reservists_nep": 0,
+        "amcha_yisrael": 0,
+        "haredi_public": 0,
+        "others": 0
+      }
+    },
     {
       "pollster": "next_data_filber",
       "date": "2026-09-17",
@@ -420,5 +446,5 @@
       }
     }
   ],
-  "last_successful_check": "2026-09-18T08:20:30Z"
+  "last_successful_check": "2026-09-19T08:08:17Z"
 }
