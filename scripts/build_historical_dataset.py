@@ -423,7 +423,12 @@ def _party_concept(value: str) -> str | None:
         return "religious_zionism"
     if ("jewishhome" in compact or "habayithayehudi" in compact) and ("tkuma" in compact or "otzma" in compact):
         return "urwp"
-    if ("yeshatid" in compact and ("hosen" in compact or "israelresilience" in compact)) or "bluewhite" in compact or compact == "bw":
+    if (
+        ("yeshatid" in compact and ("hosen" in compact or "israelresilience" in compact))
+        or "bluewhite" in compact
+        or "blueandwhite" in compact
+        or compact in {"bw", "bandw"}
+    ):
         return "blue_white"
     if "nationalunity" in compact:
         return "national_unity"
