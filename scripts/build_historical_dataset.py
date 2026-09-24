@@ -434,9 +434,9 @@ def _party_concept(value: str) -> str | None:
         return "national_unity"
     if "zionistunion" in compact:
         return "zionist_union"
-    if "democraticunion" in compact:
+    if "democraticunion" in compact or compact == "demunion":
         return "democratic_union"
-    if "democraticisrael" in compact:
+    if "democraticisrael" in compact or compact == "idp":
         return "democratic_israel"
     if "jointlist" in compact:
         return "joint_list"
