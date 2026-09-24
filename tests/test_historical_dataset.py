@@ -110,7 +110,7 @@ def test_seat_with_parenthetical_vote_share_is_not_dropped():
 
 def test_pre_final_2021_schema_is_normalized_and_retained():
     html = """<table>
-    <tr><th>Date</th><th>Polling firm</th><th>Publisher</th><th>Likud</th><th>Yesh Atid</th><th>B&amp;W</th><th>Joint List</th><th>Ta'al</th><th>Ra'am</th><th>Shas</th><th>UTJ</th><th>YB</th><th>Meretz</th><th>Yamina</th><th>Labor</th><th>New Hope</th><th>RZ</th><th>Otzma-Noam</th><th>JH</th><th>Israelis</th><th>NEP</th></tr>
+    <tr><th>Date</th><th>Polling firm</th><th>Publisher</th><th>Likud</th><th>Yesh Atid</th><th>Blue &amp; White</th><th>Joint List</th><th>Ta'al</th><th>Ra'am</th><th>Shas</th><th>UTJ</th><th>YB</th><th>Meretz</th><th>Yamina</th><th>Labor</th><th>New Hope</th><th>RZ</th><th>Otzma-Noam</th><th>JH</th><th>Israelis</th><th>NEP</th></tr>
     <tr><td>20 Jan 2021</td><td>Midgam/iPanel</td><td>Channel 12</td><td>28</td><td>15</td><td>11</td><td>11</td><td>0</td><td>0</td><td>8</td><td>7</td><td>7</td><td>5</td><td>12</td><td>6</td><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
     </table>"""
     diagnostics = {}
