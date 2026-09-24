@@ -1,3 +1,5 @@
+import json
+from pathlib import Path
 from datetime import date
 
 from polltrust.demo_data import build_demo_raw
@@ -56,3 +58,20 @@ def test_grouped_early_poll_collapses_election_truth_the_same_way():
         "raam": 5.0,
         "likud": 110.0,
     }
+
+
+
+def test_production_history_extends_beyond_final_list_cutoff():
+    model = json.loads(Path("data/historical-model.json").read_text(encoding="utf-8"))
+    expected_minimum_horizons = {
+        "midgam_geva": 120,
+        "kantar_hasid": 100,
+        "lazar_research": 100,
+        "maagar_mohot": 100,
+        "direct_polls_sharon": 100,
+        "next_data_filber": 100,
+    }
+    for pollster_id, minimum_day in expected_minimum_horizons.items():
+        curve = model["pollsters"][pollster_id]["expected_error_by_days"]
+        non_null_days = [int(day) for day, value in curve.items() if value is not None]
+        assert max(non_null_days) >= minimum_day, pollster_id
