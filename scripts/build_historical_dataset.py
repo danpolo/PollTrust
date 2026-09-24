@@ -914,8 +914,16 @@ def build(output: Path, cache_dir: Path, refresh: bool = False, allow_partial: b
             text = fetch_cached(source["url"], cache_dir, refresh)
             rows = parse_wikipedia_archive(text, source["election"], source["url"], diagnostics=diag)
             if not rows:
+                summary = {
+                    "tables_matched": diag.get("tables_matched"),
+                    "matched_rows": diag.get("matched_rows"),
+                    "pre_final_normalized_rows": diag.get("pre_final_normalized_rows"),
+                    "malformed_rows": diag.get("malformed_rows", [])[:5],
+                    "skipped_rows": diag.get("skipped_rows", [])[:5],
+                    "unmatched_pollster_names": dict(diag.get("unmatched_pollster_names", {})),
+                }
                 raise RuntimeError(
-                    f"no valid target-lineage 120-seat rows parsed for {source['election']}"
+                    f"no valid target-lineage 120-seat rows parsed for {source['election']}: {summary}"
                 )
             all_polls.extend(rows)
             status = {
