@@ -914,7 +914,9 @@ def build(output: Path, cache_dir: Path, refresh: bool = False, allow_partial: b
             text = fetch_cached(source["url"], cache_dir, refresh)
             rows = parse_wikipedia_archive(text, source["election"], source["url"], diagnostics=diag)
             if not rows:
-                raise RuntimeError("no valid target-lineage 120-seat rows parsed")
+                raise RuntimeError(
+                    f"no valid target-lineage 120-seat rows parsed for {source['election']}"
+                )
             all_polls.extend(rows)
             status = {
                 "url": source["url"], "election": source["election"], "valid_from": source["valid_from"],
