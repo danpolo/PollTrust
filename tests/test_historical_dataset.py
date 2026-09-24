@@ -75,9 +75,9 @@ def test_year_section_prevents_old_rows_being_inferred_as_election_year():
         "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2015_Israeli_legislative_election",
         diagnostics=diagnostics,
     )
-    assert [r["date"] for r in rows] == ["2015-02-03"]
-    assert any(r["date"] == "2014-02-03" and r["reason"] == "before_stable_list_cutoff"
-               for r in diagnostics["skipped_rows"])
+    assert [r["date"] for r in rows] == ["2015-02-03", "2014-02-03"]
+    # The year marker still controls the inferred year, but an otherwise valid
+    # older row is no longer discarded merely because final lists were not set.
 
 
 def test_subgroup_poll_is_reported_and_excluded():
@@ -105,3 +105,30 @@ def test_seat_with_parenthetical_vote_share_is_not_dropped():
     from scripts.build_historical_dataset import parse_seat_cell
     assert parse_seat_cell("4(3.9%)") == 4
     assert parse_seat_cell("(3.1%)") == 0
+
+
+
+def test_pre_final_2021_schema_is_normalized_and_retained():
+    html = """<table>
+    <tr><th>Date</th><th>Polling firm</th><th>Publisher</th><th>Likud</th><th>Yesh Atid</th><th>B&amp;W</th><th>Joint List</th><th>Ta'al</th><th>Ra'am</th><th>Shas</th><th>UTJ</th><th>YB</th><th>Meretz</th><th>Yamina</th><th>Labor</th><th>New Hope</th><th>RZ</th><th>Otzma-Noam</th><th>JH</th><th>Israelis</th><th>NEP</th></tr>
+    <tr><td>20 Jan 2021</td><td>Midgam/iPanel</td><td>Channel 12</td><td>28</td><td>15</td><td>11</td><td>11</td><td>0</td><td>0</td><td>8</td><td>7</td><td>7</td><td>5</td><td>12</td><td>6</td><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+    </table>"""
+    diagnostics = {}
+    rows = parse_wikipedia_archive(
+        html,
+        "knesset-24",
+        "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2021_Israeli_legislative_election",
+        diagnostics=diagnostics,
+    )
+    assert len(rows) == 1
+    poll = rows[0]
+    assert poll["date"] == "2021-01-20"
+    assert poll["party_configuration"] == "pre_final_normalized"
+    assert sum(poll["parties"].values()) == 120
+    assert poll["parties"]["joint_list_pre_raam_split"] == 11
+    assert poll["comparison_groups"] == [{
+        "key": "joint_list_pre_raam_split",
+        "actual_components": ["joint_list", "raam"],
+    }]
+    assert diagnostics["pre_final_normalized_rows"] == 1
+    assert not any(r["reason"] == "before_stable_list_cutoff" for r in diagnostics["skipped_rows"])
