@@ -55,19 +55,31 @@ def _election_bloc(raw: dict[str, Any], election: dict[str, Any]) -> list[str] |
     return raw.get("analysis", {}).get("truth_bias_bloc_parties")
 
 
+
+def _actual_for_selected_poll(selected: dict[str, Any], election: dict[str, Any]) -> dict[str, float]:
+    actual = {k: float(v) for k, v in election["result"].items()}
+    for group in selected.get("comparison_groups", []):
+        key = group["key"]
+        components = list(group.get("actual_components", []))
+        actual[key] = sum(float(actual.pop(component, 0)) for component in components)
+    return actual
+
+
 def _records(raw, pollster_id, days_before, staleness):
     out = []
     for election in raw["elections"]:
         polls = [p for p in raw["polls"] if p["pollster"] == pollster_id and p["election"] == election["id"]]
         selected = select_poll_at_horizon(polls, parse_date(election["date"]), days_before, staleness)
         if selected:
-            pred, actual = selected["parties"], election["result"]
+            pred = selected["parties"]
+            actual = _actual_for_selected_poll(selected, election)
             bloc = _election_bloc(raw, election)
+            comparison_groups = selected.get("comparison_groups", [])
             out.append({
                 "election_id": election["id"], "predicted": pred, "actual": actual,
                 "error": seat_transfer_distance(pred, actual), "party_mae": party_mae(pred, actual),
                 "party_rmse": party_rmse(pred, actual), "max_party_error": max_party_error(pred, actual),
-                "directional_error": directional_error(pred, actual, bloc) if bloc else None,
+                "directional_error": directional_error(pred, actual, bloc) if bloc and not comparison_groups else None,
                 "truth_bias_parties": bloc,
                 "same_day_aggregate_count": selected.get("_same_day_aggregate_count", 1),
             })
@@ -212,7 +224,7 @@ def build_model(raw: dict[str, Any]) -> dict[str, Any]:
         "methodology": {
             "primary_metric": "SeatTransferDistance = 0.5 * sum(abs(predicted - actual))",
             "historical_unit": "election",
-            "horizon_rule": "latest poll date available by election_date - X; same-day target-pollster polls are averaged; no future polls",
+            "horizon_rule": "latest poll date available by election_date - X; pre-final-list party schemas are normalized to the eventual election lists/groups; same-day target-pollster polls are averaged; no future polls",
             "max_staleness_days": staleness,
             "shared_prior_discount": shared_cfg.get("discount"),
             "truth_bias_bloc": "election-specific party/list mapping; elections without a defensible mapping are excluded",
