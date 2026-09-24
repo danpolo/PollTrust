@@ -3,9 +3,14 @@
 
 The collector intentionally keeps only:
 * polls from a defensible lineage of a currently active pollster;
-* polls after the election-specific final-list configuration is stable;
+* polls whose party/list configuration can be normalized to the eventual election;
 * polls strictly before election day; and
 * seat projections that sum to exactly 120 mandates.
+
+Pre-final-list polls are retained when their table schema can be normalized
+deterministically. Mergers are collapsed into the eventual list; where one
+earlier list later split into multiple final lists, the poll stores an explicit
+comparison group so the model collapses the official result the same way.
 
 Every candidate row that is not imported is represented in diagnostics instead
 of being silently discarded.
@@ -369,6 +374,311 @@ def parse_seat_cell(value: str, *, allow_other_text: bool = False) -> float:
     raise ValueError(f"unparseable seat cell {value!r}")
 
 
+
+# Header-driven parsing lets us keep defensible polls from before the final
+# candidate-list deadline. Wikipedia repeats a "Date / Polling firm / ..."
+# header whenever the party configuration changes; we switch schemas at those
+# boundaries instead of applying one final-list column order to the whole table.
+_AGGREGATE_HEADER_TOKENS = {
+    "gov", "government", "coalition", "opposition", "lead", "majority",
+    "left", "right", "l", "r", "c", "bloc", "blocks", "total",
+}
+
+
+def _header_token(value: str) -> str:
+    s = normalize(value).lower()
+    s = s.replace("’", "'").replace("–", "-").replace("—", "-").replace("&", " and ")
+    s = re.sub(r"\([^)]*\)", " ", s)
+    s = re.sub(r"[^a-z0-9+']+", " ", s)
+    return " ".join(s.split()).strip()
+
+
+def _party_concept(value: str) -> str | None:
+    t = _header_token(value)
+    compact = re.sub(r"[^a-z0-9]", "", t)
+    if not compact:
+        return None
+
+    # Most-specific combined-list labels first.
+    if "laborgeshermeretz" in compact:
+        return "labor_gesher_meretz"
+    if "laborgesher" in compact:
+        return "labor_gesher"
+    if "likud" in compact and ("beiteinu" in compact or "beitenu" in compact):
+        return "likud_beiteinu"
+    if "raam" in compact and ("taal" in compact or "taal" in compact):
+        return "raam_taal"
+    if "raam" in compact and "balad" in compact:
+        return "raam_balad"
+    if "hadash" in compact and "taal" in compact:
+        return "hadash_taal"
+    if "labor" in compact and "meretz" in compact:
+        return "labor_meretz"
+    if ("jewishhome" in compact or "habayithayehudi" in compact) and "nationalunion" in compact:
+        return "jewish_home_national_union"
+    if "religiouszion" in compact and ("otzma" in compact or "noam" in compact):
+        return "religious_zionism"
+    if ("jewishhome" in compact or "habayithayehudi" in compact) and ("tkuma" in compact or "otzma" in compact):
+        return "urwp"
+    if ("yeshatid" in compact and ("hosen" in compact or "israelresilience" in compact)) or "bluewhite" in compact or compact == "bw":
+        return "blue_white"
+    if "nationalunity" in compact:
+        return "national_unity"
+    if "zionistunion" in compact:
+        return "zionist_union"
+    if "democraticunion" in compact:
+        return "democratic_union"
+    if "democraticisrael" in compact:
+        return "democratic_israel"
+    if "jointlist" in compact:
+        return "joint_list"
+    if "newhope" in compact:
+        return "new_hope"
+    if "newright" in compact:
+        return "new_right"
+    if "new economic" in t or compact in {"nep", "neweconomicparty"}:
+        return "new_economic"
+    if "religiouszion" in compact or compact == "rz":
+        return "religious_zionism"
+    if "unitedright" in compact or "rightwingpart" in compact or compact == "urwp":
+        return "urwp"
+    if "yisraelbeiteinu" in compact or "yisraelbeitenu" in compact or compact in {"yb", "israelourhome"}:
+        return "yisrael_beiteinu"
+    if "unitedtorah" in compact or compact == "utj":
+        return "utj"
+    if "yeshatid" in compact:
+        return "yesh_atid"
+    if "hosen" in compact or "israelresilience" in compact:
+        return "hosen"
+    if compact in {"taal", "taalparty"}:
+        return "taal"
+    if compact in {"raam", "raam"}:
+        return "raam"
+    if "balad" in compact:
+        return "balad"
+    if "hadash" in compact:
+        return "hadash"
+    if "otzma" in compact:
+        return "otzma"
+    if compact == "noam" or compact.startswith("noam"):
+        return "noam"
+    if "jewishhome" in compact or "habayithayehudi" in compact or compact == "jh":
+        return "jewish_home"
+    if "nationalunion" in compact or compact == "tkuma":
+        return "national_union"
+    if "yamina" in compact:
+        return "yamina"
+    if "kulanu" in compact:
+        return "kulanu"
+    if "meretz" in compact:
+        return "meretz"
+    if "labor" in compact or "labour" in compact:
+        return "labor"
+    if "hatnuah" in compact or compact == "hatn":
+        return "hatnuah"
+    if "gesher" in compact:
+        return "gesher"
+    if "telem" in compact:
+        return "telem"
+    if "israelis" in compact:
+        return "israelis"
+    if "tnufa" in compact:
+        return "tnufa"
+    if "likud" in compact:
+        return "likud"
+    if "shas" in compact:
+        return "shas"
+    if "zehut" in compact:
+        return "zehut"
+    if "yachad" in compact:
+        return "yachad"
+    if "kadima" in compact:
+        return "kadima"
+    if "amshalem" in compact:
+        return "am_shalem"
+    if compact in {"gil", "pensioners"}:
+        return "gil"
+    if "independence" in compact or "atzmaut" in compact:
+        return "independence"
+    if "greens" in compact or compact == "greenparty":
+        return "greens"
+    if compact == "other":
+        return "other"
+    return None
+
+
+_ELECTION_CONCEPT_TARGETS: dict[str, dict[str, str]] = {
+    "knesset-25": {
+        "likud": "likud", "yesh_atid": "yesh_atid", "blue_white": "national_unity",
+        "new_hope": "national_unity", "national_unity": "national_unity",
+        "shas": "shas", "jewish_home": "jewish_home", "labor": "labor", "utj": "utj",
+        "yisrael_beiteinu": "yisrael_beiteinu", "religious_zionism": "religious_zionism",
+        "otzma": "religious_zionism", "noam": "religious_zionism",
+        "hadash_taal": "hadash_taal", "taal": "hadash_taal", "hadash": "hadash_taal",
+        "meretz": "meretz", "raam": "raam", "balad": "balad",
+        "joint_list": "joint_list_pre_split",
+    },
+    "knesset-24": {
+        "likud": "likud", "yesh_atid": "yesh_atid", "blue_white": "blue_white",
+        "joint_list": "joint_list", "taal": "joint_list", "hadash": "joint_list",
+        "balad": "joint_list", "shas": "shas", "utj": "utj",
+        "yisrael_beiteinu": "yisrael_beiteinu", "meretz": "meretz", "raam": "raam",
+        "yamina": "yamina", "new_hope": "new_hope", "labor": "labor",
+        "religious_zionism": "religious_zionism", "otzma": "religious_zionism",
+        "noam": "religious_zionism", "new_economic": "new_economic",
+        "gesher": "likud", "jewish_home": "legacy_jewish_home",
+        "telem": "legacy_telem", "israelis": "legacy_israelis", "tnufa": "legacy_tnufa",
+    },
+    "knesset-23": {
+        "blue_white": "blue_white", "likud": "likud", "joint_list": "joint_list",
+        "hadash_taal": "joint_list", "raam_balad": "joint_list",
+        "labor": "labor_gesher_meretz", "labor_gesher": "labor_gesher_meretz",
+        "meretz": "labor_gesher_meretz", "democratic_union": "labor_gesher_meretz",
+        "labor_meretz": "labor_gesher_meretz", "labor_gesher_meretz": "labor_gesher_meretz",
+        "shas": "shas", "yisrael_beiteinu": "yisrael_beiteinu", "utj": "utj",
+        "yamina": "yamina", "new_right": "yamina", "jewish_home": "yamina",
+        "national_union": "yamina", "urwp": "yamina", "otzma": "otzma",
+    },
+    "knesset-22": {
+        "likud": "likud", "kulanu": "likud", "blue_white": "blue_white",
+        "joint_list": "joint_list", "hadash_taal": "joint_list", "raam_balad": "joint_list",
+        "hadash": "joint_list", "taal": "joint_list", "raam": "joint_list", "balad": "joint_list",
+        "shas": "shas", "utj": "utj", "yamina": "yamina", "new_right": "yamina",
+        "urwp": "yamina", "jewish_home": "yamina", "national_union": "yamina",
+        "labor": "labor_gesher", "gesher": "labor_gesher", "labor_gesher": "labor_gesher",
+        "yisrael_beiteinu": "yisrael_beiteinu",
+        "democratic_union": "democratic_union", "democratic_israel": "democratic_union",
+        "meretz": "democratic_union", "greens": "democratic_union",
+        "zehut": "zehut", "otzma": "otzma",
+    },
+    "knesset-21": {
+        "likud": "likud", "labor": "labor", "blue_white": "blue_white",
+        "yesh_atid": "blue_white", "hosen": "blue_white", "telem": "blue_white",
+        "kulanu": "kulanu", "joint_list": "joint_list_pre_split",
+        "hadash_taal": "hadash_taal", "hadash": "hadash_taal", "taal": "hadash_taal",
+        "raam_balad": "raam_balad", "raam": "raam_balad", "balad": "raam_balad",
+        "shas": "shas", "utj": "utj", "urwp": "urwp", "jewish_home": "urwp",
+        "national_union": "urwp", "otzma": "urwp", "yisrael_beiteinu": "yisrael_beiteinu",
+        "meretz": "meretz", "new_right": "new_right", "gesher": "gesher", "zehut": "zehut",
+        "hatnuah": "legacy_hatnuah",
+    },
+    "knesset-20": {
+        "likud": "likud", "yisrael_beiteinu": "yisrael_beiteinu", "yesh_atid": "yesh_atid",
+        "labor": "zionist_union", "hatnuah": "zionist_union", "zionist_union": "zionist_union",
+        "jewish_home": "jewish_home", "national_union": "jewish_home",
+        "shas": "shas", "utj": "utj", "meretz": "meretz",
+        "joint_list": "joint_list", "hadash": "joint_list", "balad": "joint_list",
+        "raam_taal": "joint_list", "raam": "joint_list", "taal": "joint_list",
+        "yachad": "yachad", "otzma": "yachad", "kulanu": "kulanu",
+    },
+    "knesset-19": {
+        "kadima": "kadima", "likud": "likud_beiteinu", "yisrael_beiteinu": "likud_beiteinu",
+        "likud_beiteinu": "likud_beiteinu", "labor": "labor", "shas": "shas", "utj": "utj",
+        "jewish_home": "jewish_home", "national_union": "jewish_home",
+        "raam_taal": "ual_taal", "raam": "ual_taal", "taal": "ual_taal",
+        "hadash": "hadash", "balad": "balad", "meretz": "meretz", "yesh_atid": "yesh_atid",
+        "otzma": "otzma", "am_shalem": "am_shalem", "hatnuah": "hatnuah",
+        "independence": "legacy_independence",
+    },
+    "knesset-18": {
+        "kadima": "kadima", "labor": "labor", "shas": "shas", "likud": "likud",
+        "yisrael_beiteinu": "yisrael_beiteinu", "raam_taal": "ual_taal",
+        "raam": "ual_taal", "taal": "ual_taal", "hadash": "hadash", "balad": "balad",
+        "jewish_home": "jewish_home", "national_union": "national_union",
+        "jewish_home_national_union": "jewish_home_national_union_pre_split",
+        "gil": "gil", "utj": "utj", "meretz": "meretz", "greens": "greens",
+        "other": "other_nonwinning",
+    },
+}
+
+
+def _target_for_header(election_id: str, value: str) -> str | None:
+    concept = _party_concept(value)
+    if concept is None:
+        return None
+    return _ELECTION_CONCEPT_TARGETS.get(election_id, {}).get(concept)
+
+
+def _schema_from_header(row: list[str], source: dict[str, Any], election_id: str) -> dict[str, Any] | None:
+    if not row:
+        return None
+    tokens = [_header_token(c) for c in row]
+    pollster_column = next(
+        (i for i, t in enumerate(tokens) if "polling firm" in t or t == "pollster"),
+        None,
+    )
+    if pollster_column is None:
+        return None
+    outlet_column = next(
+        (i for i, t in enumerate(tokens) if t in {"publisher", "media", "outlet"}),
+        None,
+    )
+    party_columns: list[tuple[int, str]] = []
+    for idx, cell in enumerate(row):
+        if idx == 0 or idx == pollster_column or idx == outlet_column:
+            continue
+        target = _target_for_header(election_id, cell)
+        if target:
+            party_columns.append((idx, target))
+    if len(party_columns) < 5:
+        return None
+    return {
+        "pollster_column": pollster_column,
+        "outlet_column": outlet_column,
+        "party_columns": party_columns,
+    }
+
+
+def _fallback_schema(source: dict[str, Any]) -> dict[str, Any]:
+    meta_columns = int(source["meta_columns"])
+    pollster_column = int(source["pollster_column"])
+    outlet_column = None
+    if meta_columns >= 3:
+        outlet_column = 1 if pollster_column == 2 else 2
+    return {
+        "pollster_column": pollster_column,
+        "outlet_column": outlet_column,
+        "party_columns": [
+            (meta_columns + idx, party_id)
+            for idx, party_id in enumerate(source["party_order"])
+        ],
+    }
+
+
+def _comparison_groups_for_poll(
+    election_id: str,
+    poll_date: date,
+    parties: dict[str, int | float],
+) -> list[dict[str, Any]]:
+    groups: list[dict[str, Any]] = []
+
+    def collapse(key: str, components: list[str]) -> None:
+        total = sum(float(parties.pop(component, 0)) for component in components)
+        if total:
+            parties[key] = int(total) if total.is_integer() else total
+        groups.append({"key": key, "actual_components": components})
+
+    if election_id == "knesset-25" and "joint_list_pre_split" in parties:
+        groups.append({
+            "key": "joint_list_pre_split",
+            "actual_components": ["hadash_taal", "balad"],
+        })
+    if election_id == "knesset-24" and poll_date < date(2021, 1, 28):
+        if "joint_list" in parties or "raam" in parties:
+            collapse("joint_list_pre_raam_split", ["joint_list", "raam"])
+    if election_id == "knesset-21" and "joint_list_pre_split" in parties:
+        groups.append({
+            "key": "joint_list_pre_split",
+            "actual_components": ["hadash_taal", "raam_balad"],
+        })
+    if election_id == "knesset-18" and "jewish_home_national_union_pre_split" in parties:
+        groups.append({
+            "key": "jewish_home_national_union_pre_split",
+            "actual_components": ["jewish_home", "national_union"],
+        })
+    return groups
+
+
 def _source_tables(source_text: str, source: dict[str, Any]) -> list[list[list[str]]]:
     parser = TableParser()
     parser.feed(source_text)
@@ -400,21 +710,29 @@ def parse_wikipedia_archive(
     diag.setdefault("skipped_rows", [])
     diag.setdefault("matched_rows", 0)
     diag.setdefault("tables_matched", 0)
+    diag.setdefault("pre_final_normalized_rows", 0)
 
     polls: list[dict[str, Any]] = []
     election_day = date.fromisoformat(ELECTIONS[election_id]["date"])
-    valid_from = date.fromisoformat(source["valid_from"])
-    party_order = list(source["party_order"])
-    meta_columns = int(source["meta_columns"])
-    pollster_column = int(source["pollster_column"])
+    final_lists_from = date.fromisoformat(source["valid_from"])
     tables = _source_tables(source_text, source)
     diag["tables_matched"] += len(tables)
 
     for table in tables:
         current_year = election_day.year
+        schema = _schema_from_header(table[0], source, election_id) or _fallback_schema(source)
+
         for row in table[1:]:
             if not row:
                 continue
+
+            # Wikipedia repeats headers inside a table whenever the party/list
+            # configuration changes. Switch parsing schema at that boundary.
+            replacement_schema = _schema_from_header(row, source, election_id)
+            if replacement_schema is not None:
+                schema = replacement_schema
+                continue
+
             first_cell = normalize(row[0])
             if re.fullmatch(r"(?:19|20)\d{2}", first_cell):
                 current_year = int(first_cell)
@@ -426,12 +744,11 @@ def parse_wikipedia_archive(
             poll_date = date.fromisoformat(poll_date_s)
             if re.search(r"\b(?:19|20)\d{2}\b", first_cell):
                 current_year = poll_date.year
-            if poll_date < valid_from:
-                diag["skipped_rows"].append({"reason": "before_stable_list_cutoff", "row": row[:6], "date": poll_date_s})
-                continue
             if poll_date >= election_day:
                 diag["skipped_rows"].append({"reason": "election_day_or_future", "row": row[:6], "date": poll_date_s})
                 continue
+
+            pollster_column = int(schema["pollster_column"])
             if len(row) <= pollster_column:
                 diag["malformed_rows"].append({"reason": "missing_pollster_cell", "row": row})
                 continue
@@ -454,30 +771,47 @@ def parse_wikipedia_archive(
                     "pollster_id": pollster, "date": poll_date_s, "row": row,
                 })
                 continue
+
             diag["matched_rows"] += 1
-            need = meta_columns + len(party_order)
-            if len(row) < need:
-                diag["malformed_rows"].append({
-                    "reason": "too_few_columns", "pollster": raw_pollster, "date": poll_date_s,
-                    "expected_min": need, "actual": len(row), "row": row,
-                })
-                continue
             parties: dict[str, int | float] = {}
             bad_cell = None
-            for idx, party_id in enumerate(party_order):
-                raw = row[meta_columns + idx]
+            missing_column = None
+            for idx, party_id in schema["party_columns"]:
+                if idx >= len(row):
+                    missing_column = {"index": idx, "party": party_id}
+                    break
+                raw = row[idx]
                 try:
-                    value = parse_seat_cell(raw, allow_other_text=party_id == source.get("other_text_column"))
+                    value = parse_seat_cell(
+                        raw,
+                        allow_other_text=party_id == source.get("other_text_column"),
+                    )
                 except ValueError as exc:
                     bad_cell = {"party": party_id, "value": raw, "error": str(exc)}
                     break
-                parties[party_id] = int(value) if float(value).is_integer() else value
+                if value:
+                    parties[party_id] = float(parties.get(party_id, 0)) + value
+                elif party_id not in parties:
+                    parties[party_id] = 0
+
+            if missing_column:
+                diag["malformed_rows"].append({
+                    "reason": "too_few_columns", "pollster": raw_pollster, "date": poll_date_s,
+                    "missing": missing_column, "actual": len(row), "row": row,
+                })
+                continue
             if bad_cell:
                 diag["malformed_rows"].append({
                     "reason": "malformed_seat_cell", "pollster": raw_pollster, "date": poll_date_s,
                     **bad_cell, "row": row,
                 })
                 continue
+
+            comparison_groups = _comparison_groups_for_poll(election_id, poll_date, parties)
+            parties = {
+                key: int(value) if float(value).is_integer() else value
+                for key, value in parties.items()
+            }
             total = sum(float(v) for v in parties.values())
             if abs(total - 120.0) > 0.001:
                 diag["skipped_rows"].append({
@@ -485,20 +819,31 @@ def parse_wikipedia_archive(
                     "date": poll_date_s, "seat_total": total, "row": row,
                 })
                 continue
+
             outlet = None
-            if meta_columns >= 3 and len(row) > 2:
-                outlet = normalize(row[1] if pollster_column == 2 else row[2]) or None
-            elif meta_columns == 2:
-                outlet = normalize(row[pollster_column]) or None
-            polls.append({
+            outlet_column = schema.get("outlet_column")
+            if outlet_column is not None and outlet_column < len(row):
+                outlet = normalize(row[outlet_column]) or None
+            elif int(source["meta_columns"]) == 2:
+                outlet = raw_pollster or None
+
+            configuration = "final_lists" if poll_date >= final_lists_from else "pre_final_normalized"
+            if configuration == "pre_final_normalized":
+                diag["pre_final_normalized_rows"] += 1
+
+            poll = {
                 "pollster": pollster,
                 "election": election_id,
                 "date": poll_date_s,
                 "source": source_url,
                 "outlet": outlet,
                 "source_pollster_name": raw_pollster,
+                "party_configuration": configuration,
                 "parties": parties,
-            })
+            }
+            if comparison_groups:
+                poll["comparison_groups"] = comparison_groups
+            polls.append(poll)
     return polls
 
 
@@ -599,7 +944,7 @@ def build(output: Path, cache_dir: Path, refresh: bool = False, allow_partial: b
         "as_of": datetime.now(timezone.utc).isoformat(),
         "provenance": {
             "builder": "scripts/build_historical_dataset.py",
-            "source_policy": "Wikipedia election archives are the reproducible fallback; TheMadad is a manual cross-check because it returns HTTP 403 in GitHub Actions.",
+            "source_policy": "Wikipedia election archives are the reproducible fallback; pre-final-list rows are retained only when their table schema can be normalized deterministically; TheMadad is a manual cross-check because it returns HTTP 403 in GitHub Actions.",
             "sources": source_status,
             "diagnostics": {
                 "unmatched_pollster_names": dict(aggregate_unmatched.most_common()),
