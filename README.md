@@ -6,7 +6,7 @@ PollTrust is a static Hebrew/RTL web application for comparing the historical ac
 
 The historical calibration is now sourced production data rather than demo data. The repository contains:
 
-- `data/historical-polls.json`: 187 validated historical polls from the 2009–2022 election cycles.
+- `data/historical-polls.json`: 281 validated historical polls from the 2009–2022 election cycles, including defensibly normalized pre-final-list polls.
 - `data/historical-model.json`: the deterministic precomputed reliability model consumed by the frontend.
 - `data/historical-validation.json`: the audit report from the production historical build.
 
@@ -28,7 +28,7 @@ Coverage is intentionally asymmetric: each current pollster lineage goes back on
 | HaMadad | none yet | Treated as a new current entity. |
 | Tatika | none yet | Treated as a new current entity. |
 
-The committed dataset currently contains 187 polls: 8 (2009), 7 (2013), 23 (2015), 32 (April 2019), 12 (September 2019), 31 (2020), 35 (2021), and 39 (2022).
+The committed dataset currently contains 281 polls: 8 (2009), 8 (2013), 28 (2015), 35 (April 2019), 33 (September 2019), 51 (2020), 79 (2021), and 39 (2022).
 
 ## Architecture
 
@@ -46,7 +46,7 @@ tests/                      metric, leakage, lineage, prior and fail-safe tests
 
 `SeatTransferDistance = 0.5 * Σ | predicted_i - actual_i |`
 
-The historical weighting unit is an election, not a poll. At X days before an election, the model selects the latest poll date available on or before `election_date - X` and never uses election-day/future information. If the same pollster has multiple distinct polls on the same latest date, they are averaged rather than selected arbitrarily. A maximum staleness window prevents very old polls from representing a pollster at a later horizon.
+The historical weighting unit is an election, not a poll. At X days before an election, the model selects the latest poll date available on or before `election_date - X` and never uses election-day/future information. If the same pollster has multiple distinct polls on the same latest date, they are averaged rather than selected arbitrarily. A maximum staleness window prevents very old polls from representing a pollster at a later horizon. Historical collection no longer applies a blanket final-list-date cutoff: when an archive changes party columns before final candidate lists are submitted, the parser switches schemas at the archive header boundary and deterministically maps mergers into the eventual list. When an earlier combined list later splits, the poll keeps an explicit comparison group and the official election result is collapsed into that same group for accuracy scoring. Rows that cannot be normalized defensibly, violate lineage rules, or do not total exactly 120 seats remain excluded.
 
 The model separately calculates raw error, consistency, election-list-aware truth bias, leave-one-election-out debiased precision, cluster-balanced relative lean, lean value added, alignment, uncertainty, and support. Cross-election debiasing only corrects party identifiers that are actually comparable across the relevant elections; changing Israeli party alliances are not silently treated as the same list.
 
@@ -67,7 +67,7 @@ The production audit is deterministic and checks:
 - source-snapshot reparse equivalence;
 - production model active-pollster coverage and shared-prior support.
 
-Rows are never silently repaired to reach 120 seats. Known source anomalies remain in the validation diagnostics and are excluded.
+Rows are never silently repaired to reach 120 seats. Known source anomalies remain in the validation diagnostics and are excluded. The production model also has a regression test requiring historical horizon coverage beyond the former ~49-day final-list boundary for the established lineages.
 
 Two legitimate same-day competing projections currently exist: Midgam on 2019-04-04 and Panels/Lazar on 2022-09-29. Both are retained, disclosed by the audit, and averaged deterministically when that date is selected by the model.
 
