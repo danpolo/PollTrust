@@ -406,7 +406,7 @@ def _party_concept(value: str) -> str | None:
         return "labor_gesher"
     if "likud" in compact and ("beiteinu" in compact or "beitenu" in compact):
         return "likud_beiteinu"
-    if "raam" in compact and ("taal" in compact or "taal" in compact):
+    if ("raam" in compact or "ual" in compact) and "taal" in compact:
         return "raam_taal"
     if "raam" in compact and "balad" in compact:
         return "raam_balad"
@@ -416,7 +416,10 @@ def _party_concept(value: str) -> str | None:
         return "labor_meretz"
     if ("jewishhome" in compact or "habayithayehudi" in compact) and "nationalunion" in compact:
         return "jewish_home_national_union"
-    if "religiouszion" in compact and ("otzma" in compact or "noam" in compact):
+    if (
+        ("religiouszion" in compact and ("otzma" in compact or "noam" in compact))
+        or ("rzp" in compact and "oy" in compact)
+    ):
         return "religious_zionism"
     if ("jewishhome" in compact or "habayithayehudi" in compact) and ("tkuma" in compact or "otzma" in compact):
         return "urwp"
@@ -438,7 +441,7 @@ def _party_concept(value: str) -> str | None:
         return "new_right"
     if "new economic" in t or compact in {"nep", "neweconomicparty"}:
         return "new_economic"
-    if "religiouszion" in compact or compact == "rz":
+    if "religiouszion" in compact or compact in {"rz", "rzp"}:
         return "religious_zionism"
     if "unitedright" in compact or "rightwingpart" in compact or compact == "urwp":
         return "urwp"
@@ -458,7 +461,7 @@ def _party_concept(value: str) -> str | None:
         return "balad"
     if "hadash" in compact:
         return "hadash"
-    if "otzma" in compact:
+    if "otzma" in compact or compact == "oy":
         return "otzma"
     if compact == "noam" or compact.startswith("noam"):
         return "noam"
@@ -472,7 +475,7 @@ def _party_concept(value: str) -> str | None:
         return "kulanu"
     if "meretz" in compact:
         return "meretz"
-    if "labor" in compact or "labour" in compact:
+    if "labor" in compact or "labour" in compact or compact == "emet":
         return "labor"
     if "hatnuah" in compact or compact == "hatn":
         return "hatnuah"
