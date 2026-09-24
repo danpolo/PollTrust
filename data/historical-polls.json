@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "demo_mode": false,
-  "as_of": "2026-09-24T07:28:31.792909+00:00",
+  "as_of": "2026-09-24T07:31:35.329672+00:00",
   "provenance": {
     "builder": "scripts/build_historical_dataset.py",
     "source_policy": "Wikipedia election archives are the reproducible fallback; pre-final-list rows are retained only when their table schema can be normalized deterministically; TheMadad is a manual cross-check because it returns HTTP 403 in GitHub Actions.",
@@ -10,7 +10,7 @@
         "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2022_Israeli_legislative_election&oldid=1360584369",
         "election": "knesset-25",
         "valid_from": "2022-09-16",
-        "source_sha256": "c6bc023bcf134350d0f5c762b3d6cb987f220bbbb7af02cffc0fd92257516373",
+        "source_sha256": "54616b1dd5657e28c916fe5179ad456e73bea5724895b936202cbbab90143d31",
         "polls": 42,
         "ok": true,
         "diagnostics": {
@@ -93,7 +93,7 @@
         "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2021_Israeli_legislative_election&oldid=1357147509",
         "election": "knesset-24",
         "valid_from": "2021-02-05",
-        "source_sha256": "a16793fa2990cadf908ac2e550c6ce8bcceda1426f09c155aadbb101ed89e99d",
+        "source_sha256": "253249e45a1ad6dc08ee85576cd682a4f989940ffb093c73ded81504cbe939f4",
         "polls": 81,
         "ok": true,
         "diagnostics": {
@@ -422,7 +422,7 @@
         "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2020_Israeli_legislative_election&oldid=1357147489",
         "election": "knesset-23",
         "valid_from": "2020-01-17",
-        "source_sha256": "3e88d5873618419644f4baff305e34249463278651a46082a420cb8f8e57c0d7",
+        "source_sha256": "4d99c92cd3a9a9b2009c85df8aa27db3b63baa08766fa1a014f9ce812798e93e",
         "polls": 52,
         "ok": true,
         "diagnostics": {
@@ -934,7 +934,7 @@
         "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_September_2019_Israeli_legislative_election&oldid=1357147577",
         "election": "knesset-22",
         "valid_from": "2019-08-02",
-        "source_sha256": "32ab9828f5667d84b943db5df6ab1d57879c8e3f21f1639441edf357541ea142",
+        "source_sha256": "995235ed3afa23a2d8d5b087526ecb12ef81da2d8b97c5509e01feb75b9b854a",
         "polls": 33,
         "ok": true,
         "diagnostics": {
@@ -1527,7 +1527,7 @@
         "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_April_2019_Israeli_legislative_election&oldid=1368358661",
         "election": "knesset-21",
         "valid_from": "2019-02-22",
-        "source_sha256": "5c321c2902819467974383fe3f55f748d413820f8777bde5379573bb7121e751",
+        "source_sha256": "799029b3cd8bb368485163f474dde5ce6a2828b3023ed87a850be7cc32408057",
         "polls": 35,
         "ok": true,
         "diagnostics": {
@@ -1740,7 +1740,7 @@
         "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2015_Israeli_legislative_election&oldid=1368358626",
         "election": "knesset-20",
         "valid_from": "2015-01-30",
-        "source_sha256": "b992c3a45bafbd4da109176e436e0b5bec5504d66810b6fe8e1e70b9c26edc7b",
+        "source_sha256": "dd7d5cbbfc961f12cfc9d59afafa365c01c726e6334a681dafc1271386a18573",
         "polls": 28,
         "ok": true,
         "diagnostics": {
@@ -2993,7 +2993,7 @@
         "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2013_Israeli_legislative_election&oldid=1368358600",
         "election": "knesset-19",
         "valid_from": "2012-12-07",
-        "source_sha256": "20cd0c9ab4d1931aac924f5a2bed041786c6e1378acda64c3d51999508959506",
+        "source_sha256": "f0f3519be82e1da7d87d05cc3f9d1fbc5864df273a94c50f676ff9a4c669739a",
         "polls": 8,
         "ok": true,
         "diagnostics": {
@@ -3407,7 +3407,7 @@
         "url": "https://en.wikipedia.org/w/index.php?title=Opinion_polling_for_the_2009_Israeli_legislative_election&oldid=1357147435",
         "election": "knesset-18",
         "valid_from": "2008-12-23",
-        "source_sha256": "fff07400d5392202562803effb044ec927952a2ac5ac8538c0ae10291e1f6623",
+        "source_sha256": "5886c69c842c08b749bdf7f2eff6f11fcfc2c3d27734ece44e22b06945304ddd",
         "polls": 8,
         "ok": true,
         "diagnostics": {
