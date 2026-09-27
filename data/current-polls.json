@@ -1,8 +1,34 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-09-26T08:41:23Z",
+  "last_successful_update": "2026-09-27T09:21:38Z",
   "data_note_he": "הסקרים הנוכחיים נאספים אוטומטית מטבלת סקרי המנדטים לבחירות 2026, ורק שורות של סוקרים מאושרים, לאחר סגירת הרשימות ובסכום של 120 מנדטים, נכנסות למאגר.",
   "polls": [
+    {
+      "pollster": "maagar_mohot",
+      "date": "2026-09-24",
+      "source": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election",
+      "outlet": "Channel 16",
+      "source_pollster_name": "Maagar Mochot",
+      "sample_size": 553,
+      "parties": {
+        "likud": 19,
+        "together": 13,
+        "rzp_zehut": 5,
+        "otzma": 9,
+        "blue_white": 0,
+        "shas": 8,
+        "utj": 7,
+        "yisrael_beiteinu": 8,
+        "raam": 5,
+        "joint_list": 7,
+        "democrats": 8,
+        "yashar": 23,
+        "reservists_nep": 4,
+        "amcha_yisrael": 4,
+        "haredi_public": 0,
+        "others": 0
+      }
+    },
     {
       "pollster": "lazar_research",
       "date": "2026-09-24",
@@ -259,6 +285,32 @@
         "yashar": 21,
         "reservists_nep": 0,
         "amcha_yisrael": 5,
+        "haredi_public": 0,
+        "others": 0
+      }
+    },
+    {
+      "pollster": "maagar_mohot",
+      "date": "2026-09-16",
+      "source": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election",
+      "outlet": "Channel 16",
+      "source_pollster_name": "Maagar Mochot",
+      "sample_size": 500,
+      "parties": {
+        "likud": 18,
+        "together": 16,
+        "rzp_zehut": 5,
+        "otzma": 9,
+        "blue_white": 0,
+        "shas": 9,
+        "utj": 7,
+        "yisrael_beiteinu": 7,
+        "raam": 5,
+        "joint_list": 6,
+        "democrats": 9,
+        "yashar": 21,
+        "reservists_nep": 4,
+        "amcha_yisrael": 4,
         "haredi_public": 0,
         "others": 0
       }
@@ -602,5 +654,5 @@
       }
     }
   ],
-  "last_successful_check": "2026-09-26T08:41:23Z"
+  "last_successful_check": "2026-09-27T09:21:38Z"
 }
