@@ -1,8 +1,60 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-01T10:15:29Z",
+  "last_successful_update": "2026-10-02T09:52:47Z",
   "data_note_he": "הסקרים הנוכחיים נאספים אוטומטית מטבלת סקרי המנדטים לבחירות 2026, ורק שורות של סוקרים מאושרים, לאחר סגירת הרשימות ובסכום של 120 מנדטים, נכנסות למאגר.",
   "polls": [
+    {
+      "pollster": "hamadad_consortium",
+      "date": "2026-09-30",
+      "source": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election",
+      "outlet": "Channel 13",
+      "source_pollster_name": "MP+TM+SN+A",
+      "sample_size": 1013,
+      "parties": {
+        "likud": 19,
+        "together": 11,
+        "rzp_zehut": 7,
+        "otzma": 8,
+        "blue_white": 0,
+        "shas": 7,
+        "utj": 8,
+        "yisrael_beiteinu": 9,
+        "raam": 5,
+        "joint_list": 9,
+        "democrats": 11,
+        "yashar": 21,
+        "reservists_nep": 0,
+        "amcha_yisrael": 5,
+        "haredi_public": 0,
+        "others": 0
+      }
+    },
+    {
+      "pollster": "maagar_mohot",
+      "date": "2026-09-29",
+      "source": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election",
+      "outlet": "Channel 16",
+      "source_pollster_name": "Maagar Mochot",
+      "sample_size": 550,
+      "parties": {
+        "likud": 19,
+        "together": 14,
+        "rzp_zehut": 6,
+        "otzma": 8,
+        "blue_white": 0,
+        "shas": 8,
+        "utj": 7,
+        "yisrael_beiteinu": 7,
+        "raam": 5,
+        "joint_list": 7,
+        "democrats": 9,
+        "yashar": 21,
+        "reservists_nep": 4,
+        "amcha_yisrael": 5,
+        "haredi_public": 0,
+        "others": 0
+      }
+    },
     {
       "pollster": "next_data_filber",
       "date": "2026-09-28",
@@ -50,6 +102,32 @@
         "democrats": 9,
         "yashar": 23,
         "reservists_nep": 4,
+        "amcha_yisrael": 4,
+        "haredi_public": 0,
+        "others": 0
+      }
+    },
+    {
+      "pollster": "tatika",
+      "date": "2026-09-24",
+      "source": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election",
+      "outlet": "Zman Yisrael",
+      "source_pollster_name": "Yossi Tatika",
+      "sample_size": 500,
+      "parties": {
+        "likud": 21,
+        "together": 12,
+        "rzp_zehut": 4,
+        "otzma": 6,
+        "blue_white": 0,
+        "shas": 10,
+        "utj": 8,
+        "yisrael_beiteinu": 10,
+        "raam": 6,
+        "joint_list": 8,
+        "democrats": 8,
+        "yashar": 23,
+        "reservists_nep": 0,
         "amcha_yisrael": 4,
         "haredi_public": 0,
         "others": 0
@@ -706,5 +784,5 @@
       }
     }
   ],
-  "last_successful_check": "2026-10-01T10:15:29Z"
+  "last_successful_check": "2026-10-02T09:52:47Z"
 }
