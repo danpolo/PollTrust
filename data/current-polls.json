@@ -1,8 +1,34 @@
 {
   "schema_version": 1,
-  "last_successful_update": "2026-10-20T08:39:50Z",
+  "last_successful_update": "2026-10-21T08:40:59Z",
   "data_note_he": "הסקרים הנוכחיים נאספים אוטומטית מטבלת סקרי המנדטים לבחירות 2026, ורק שורות של סוקרים מאושרים, לאחר סגירת הרשימות ובסכום של 120 מנדטים, נכנסות למאגר.",
   "polls": [
+    {
+      "pollster": "midgam_geva",
+      "date": "2026-10-19",
+      "source": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election",
+      "outlet": "HaHadashot 12",
+      "source_pollster_name": "Midgam R&C",
+      "sample_size": 507,
+      "parties": {
+        "likud": 21,
+        "together": 14,
+        "rzp_zehut": 7,
+        "otzma": 8,
+        "blue_white": 0,
+        "shas": 8,
+        "utj": 7,
+        "yisrael_beiteinu": 8,
+        "raam": 5,
+        "joint_list": 9,
+        "democrats": 9,
+        "yashar": 24,
+        "reservists_nep": 0,
+        "amcha_yisrael": 0,
+        "haredi_public": 0,
+        "others": 0
+      }
+    },
     {
       "pollster": "next_data_filber",
       "date": "2026-10-18",
@@ -24,6 +50,32 @@
         "democrats": 8,
         "yashar": 22,
         "reservists_nep": 0,
+        "amcha_yisrael": 0,
+        "haredi_public": 0,
+        "others": 0
+      }
+    },
+    {
+      "pollster": "kantar_hasid",
+      "date": "2026-10-18",
+      "source": "https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election",
+      "outlet": "Kan 11",
+      "source_pollster_name": "Kantar",
+      "sample_size": 554,
+      "parties": {
+        "likud": 21,
+        "together": 12,
+        "rzp_zehut": 7,
+        "otzma": 8,
+        "blue_white": 0,
+        "shas": 8,
+        "utj": 7,
+        "yisrael_beiteinu": 8,
+        "raam": 5,
+        "joint_list": 8,
+        "democrats": 9,
+        "yashar": 23,
+        "reservists_nep": 4,
         "amcha_yisrael": 0,
         "haredi_public": 0,
         "others": 0
@@ -1252,5 +1304,5 @@
       }
     }
   ],
-  "last_successful_check": "2026-10-20T08:39:50Z"
+  "last_successful_check": "2026-10-21T08:40:59Z"
 }
